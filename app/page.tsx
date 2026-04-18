@@ -9,8 +9,6 @@ import { ReservationForm } from '@/components/reservation-form'
 import { Reviews } from '@/components/reviews'
 import { Location } from '@/components/location'
 import { Footer } from '@/components/footer'
-import { WhatsAppButton } from '@/components/whatsapp-button'
-
 export default function Home() {
   return (
     <main>
@@ -25,7 +23,6 @@ export default function Home() {
       <Reviews />
       <Location />
       <Footer />
-      <WhatsAppButton />
     </main>
   )
 }

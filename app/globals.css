@@ -101,21 +101,10 @@
   animation-play-state: paused;
 }
 
-/* WhatsApp Bounce Animation */
-@keyframes bounce-three {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateY(0);
-  }
-  40% {
-    transform: translateY(-15px);
-  }
-  60% {
-    transform: translateY(-7px);
-  }
-}
-
-.animate-bounce-three {
-  animation: bounce-three 1s ease-in-out 3;
+/* Float Animation for Hero Circles */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
 }
 
 /* Fade In Up Animation */
