@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 
 const navLinks = [
@@ -33,11 +34,15 @@ export function Navigation() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="flex h-20 items-center justify-between">
             {/* Logo */}
-            <Link
-              href="#home"
-              className="font-serif text-[1.4rem] italic text-text-light"
-            >
-              Benny&apos;s Bakery
+            <Link href="#home" className="flex items-center">
+              <Image
+                src="/logo-bennys.png"
+                alt="Benny's Bakery"
+                width={120}
+                height={48}
+                className="object-contain"
+                priority
+              />
             </Link>
 
             {/* Desktop Navigation */}

@@ -20,7 +20,7 @@ export function FoodIntro() {
           >
             <div className="relative h-[300px] lg:h-[400px]">
               <Image
-                src="https://picsum.photos/seed/food1/500/700"
+                src="/food-dish-3.jpg"
                 alt="Vers gebakken brood"
                 fill
                 className="rounded-lg object-cover"
@@ -28,7 +28,7 @@ export function FoodIntro() {
             </div>
             <div className="relative mt-8 h-[250px] lg:h-[320px]">
               <Image
-                src="https://picsum.photos/seed/food2/500/400"
+                src="/bakery-sfeer-2.jpg"
                 alt="Marokkaanse ontbijt"
                 fill
                 className="rounded-lg object-cover"

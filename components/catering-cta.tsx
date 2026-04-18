@@ -11,7 +11,7 @@ export function CateringCTA() {
     <section className="relative min-h-[500px]" ref={ref}>
       {/* Background Image */}
       <Image
-        src="https://picsum.photos/seed/catering/1600/800"
+        src="/bakery-sfeer-1.jpg"
         alt="Catering achtergrond"
         fill
         className="object-cover"

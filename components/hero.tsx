@@ -21,11 +21,12 @@ export function Hero() {
               }`}
             >
               <Image
-                src="https://picsum.photos/seed/dish1/400/400"
+                src="/food-dish-6.jpg"
                 alt="Vers gebakken brood"
                 width={160}
                 height={160}
                 className="h-full w-full object-cover"
+                priority
               />
             </div>
           </div>
@@ -36,11 +37,12 @@ export function Hero() {
               }`}
             >
               <Image
-                src="https://picsum.photos/seed/dish2/400/400"
+                src="/food-dish-8.jpg"
                 alt="Marokkaanse patisserie"
                 width={144}
                 height={144}
                 className="h-full w-full object-cover"
+                priority
               />
             </div>
           </div>
@@ -51,11 +53,12 @@ export function Hero() {
               }`}
             >
               <Image
-                src="https://picsum.photos/seed/dish3/400/400"
+                src="/food-dish-4.jpg"
                 alt="Artisanaal gebak"
                 width={128}
                 height={128}
                 className="h-full w-full object-cover"
+                priority
               />
             </div>
           </div>
@@ -65,20 +68,22 @@ export function Hero() {
             <div className="flex gap-2">
               <div className="h-20 w-20 overflow-hidden rounded-full border-2 border-cream/30 shadow-xl">
                 <Image
-                  src="https://picsum.photos/seed/dish1/400/400"
+                  src="/food-dish-6.jpg"
                   alt="Vers gebakken brood"
                   width={80}
                   height={80}
                   className="h-full w-full object-cover"
+                  priority
                 />
               </div>
               <div className="mt-6 h-16 w-16 overflow-hidden rounded-full border-2 border-cream/30 shadow-xl">
                 <Image
-                  src="https://picsum.photos/seed/dish2/400/400"
+                  src="/food-dish-8.jpg"
                   alt="Marokkaanse patisserie"
                   width={64}
                   height={64}
                   className="h-full w-full object-cover"
+                  priority
                 />
               </div>
             </div>
@@ -126,7 +131,7 @@ export function Hero() {
         {/* Right Half - Image */}
         <div className="relative h-[40vh] w-full md:h-full md:w-1/2">
           <Image
-            src="https://picsum.photos/seed/bakery-hero/1200/900"
+            src="/herosection.jpg"
             alt="Benny's Bakery interieur"
             fill
             className="object-cover"

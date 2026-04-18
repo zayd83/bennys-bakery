@@ -53,7 +53,7 @@ export function WeekFeature() {
             }`}
           >
             <Image
-              src="https://picsum.photos/seed/msemmen/800/600"
+              src="/food-dish-5.jpg"
               alt="Msemmen met kip"
               fill
               className="rounded-lg object-cover"

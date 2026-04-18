@@ -4,14 +4,14 @@ import Image from 'next/image'
 import { useInView } from '@/hooks/use-in-view'
 
 const galleryImages = [
-  { src: 'https://picsum.photos/seed/gallery1/600/700', height: 'h-[350px]' },
-  { src: 'https://picsum.photos/seed/gallery2/600/500', height: 'h-[280px]' },
-  { src: 'https://picsum.photos/seed/gallery3/600/600', height: 'h-[320px]' },
-  { src: 'https://picsum.photos/seed/gallery4/600/450', height: 'h-[250px]' },
-  { src: 'https://picsum.photos/seed/gallery5/600/550', height: 'h-[300px]' },
-  { src: 'https://picsum.photos/seed/gallery6/600/650', height: 'h-[340px]' },
-  { src: 'https://picsum.photos/seed/gallery7/600/480', height: 'h-[260px]' },
-  { src: 'https://picsum.photos/seed/gallery8/600/520', height: 'h-[290px]' },
+  { src: '/bakery-sfeer-1.jpg', height: 'h-[350px]' },
+  { src: '/food-dish-1.jpg', height: 'h-[280px]' },
+  { src: '/food-dish-3.jpg', height: 'h-[320px]' },
+  { src: '/bakery-sfeer-2.jpg', height: 'h-[250px]' },
+  { src: '/food-dish-2.jpg', height: 'h-[300px]' },
+  { src: '/food-dish-7.jpg', height: 'h-[340px]' },
+  { src: '/food-dish-9.jpg', height: 'h-[260px]' },
+  { src: '/food-dish-5.jpg', height: 'h-[290px]' },
 ]
 
 export function PhotoGrid() {
