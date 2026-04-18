@@ -3,9 +3,11 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useInView } from '@/hooks/use-in-view'
+import { useParallax } from '@/hooks/use-parallax'
 
 export function WeekFeature() {
   const { ref, isInView } = useInView()
+  const photoRef = useParallax(0.3)
 
   return (
     <section id="aanraders" className="bg-deep-green py-32 lg:py-48" ref={ref}>
@@ -46,18 +48,24 @@ export function WeekFeature() {
             </Link>
           </div>
 
-          {/* Right - Image */}
+          {/* Right - Image with parallax */}
           <div
-            className={`relative aspect-[3/4] w-full lg:order-2 ${
+            className={`relative aspect-[3/4] w-full overflow-hidden rounded-lg lg:order-2 ${
               isInView ? 'animate-fade-in-up animation-delay-200' : 'opacity-0'
             }`}
           >
-            <Image
-              src="/food-dish-5.jpg"
-              alt="Msemmen met kip"
-              fill
-              className="rounded-lg object-cover"
-            />
+            <div
+              ref={photoRef}
+              className="absolute inset-x-0"
+              style={{ top: '-30%', bottom: '-30%', willChange: 'transform' }}
+            >
+              <Image
+                src="/food-dish-5.jpg"
+                alt="Msemmen met kip"
+                fill
+                className="object-cover"
+              />
+            </div>
           </div>
         </div>
       </div>

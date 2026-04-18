@@ -4,9 +4,12 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { useInView } from '@/hooks/use-in-view'
+import { useParallax } from '@/hooks/use-parallax'
 
 export function FoodIntro() {
   const { ref, isInView } = useInView()
+  const photo1Ref = useParallax(0.25)
+  const photo2Ref = useParallax(0.25)
 
   return (
     <section id="menu" className="bg-cream py-32 lg:py-40" ref={ref}>
@@ -18,21 +21,36 @@ export function FoodIntro() {
               isInView ? 'animate-fade-in-up' : 'opacity-0'
             }`}
           >
-            <div className="relative aspect-[3/4] w-full">
-              <Image
-                src="/food-dish-3.jpg"
-                alt="Vers gebakken brood"
-                fill
-                className="rounded-lg object-cover"
-              />
+            {/* Photo 1 — overflow-hidden clips parallax movement */}
+            <div className="relative aspect-[3/4] w-full overflow-hidden rounded-lg">
+              <div
+                ref={photo1Ref}
+                className="absolute inset-x-0"
+                style={{ top: '-25%', bottom: '-25%', willChange: 'transform' }}
+              >
+                <Image
+                  src="/food-dish-3.jpg"
+                  alt="Vers gebakken brood"
+                  fill
+                  className="object-cover"
+                />
+              </div>
             </div>
-            <div className="relative mt-10 aspect-[3/4] w-full">
-              <Image
-                src="/bakery-sfeer-2.jpg"
-                alt="Marokkaanse ontbijt"
-                fill
-                className="rounded-lg object-cover"
-              />
+
+            {/* Photo 2 */}
+            <div className="relative mt-10 aspect-[3/4] w-full overflow-hidden rounded-lg">
+              <div
+                ref={photo2Ref}
+                className="absolute inset-x-0"
+                style={{ top: '-25%', bottom: '-25%', willChange: 'transform' }}
+              >
+                <Image
+                  src="/bakery-sfeer-2.jpg"
+                  alt="Marokkaanse ontbijt"
+                  fill
+                  className="object-cover"
+                />
+              </div>
             </div>
           </div>
 

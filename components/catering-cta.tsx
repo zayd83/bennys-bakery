@@ -3,19 +3,28 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useInView } from '@/hooks/use-in-view'
+import { useParallax } from '@/hooks/use-parallax'
 
 export function CateringCTA() {
   const { ref, isInView } = useInView()
+  const bgRef = useParallax(0.2)
 
   return (
-    <section className="relative min-h-[600px]" ref={ref}>
-      {/* Background Image */}
-      <Image
-        src="/bakery-sfeer-1.jpg"
-        alt="Catering achtergrond"
-        fill
-        className="object-cover"
-      />
+    <section className="relative min-h-[600px] overflow-hidden" ref={ref}>
+      {/* Background Image with parallax */}
+      <div
+        ref={bgRef}
+        className="absolute inset-x-0"
+        style={{ top: '-20%', bottom: '-20%', willChange: 'transform' }}
+      >
+        <Image
+          src="/bakery-sfeer-1.jpg"
+          alt="Catering achtergrond"
+          fill
+          className="object-cover"
+        />
+      </div>
+
       {/* Dark Overlay */}
       <div className="absolute inset-0 bg-dark/[0.72]" />
 

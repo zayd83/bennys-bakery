@@ -3,27 +3,12 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import { useEffect, useRef } from 'react'
 import { useInView } from '@/hooks/use-in-view'
+import { useParallax } from '@/hooks/use-parallax'
 
 export function Hero() {
   const { ref, isInView } = useInView()
-  const heroImgRef = useRef<HTMLDivElement>(null)
-  const circlesRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrolled = window.scrollY
-      if (heroImgRef.current) {
-        heroImgRef.current.style.transform = `translateY(${scrolled * 0.35}px)`
-      }
-      if (circlesRef.current) {
-        circlesRef.current.style.transform = `translateY(${scrolled * -0.15}px)`
-      }
-    }
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  const heroParallaxRef = useParallax(0.4)
 
   return (
     <section id="home" className="relative h-screen min-h-[700px]">
@@ -34,13 +19,8 @@ export function Hero() {
           className="relative flex h-[60vh] w-full flex-col justify-end bg-dark p-8 md:h-full md:w-1/2 md:p-12"
           ref={ref}
         >
-
           {/* Desktop Circles — clustered in upper portion */}
-          <div
-            ref={circlesRef}
-            className="absolute inset-0 hidden md:block"
-            style={{ willChange: 'transform' }}
-          >
+          <div className="absolute inset-0 hidden md:block">
             {/* Circle 1 — acai bowl, top-left of cluster */}
             <div
               className={`absolute ${isInView ? 'animate-fade-in-up' : 'opacity-0'}`}
@@ -102,7 +82,7 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Decorative gold line — fills the empty space between circles and heading */}
+          {/* Decorative gold line */}
           <div
             className="absolute left-1/2 hidden -translate-x-1/2 flex-col items-center md:flex"
             style={{ top: '46%' }}
@@ -176,12 +156,14 @@ export function Hero() {
           </div>
         </div>
 
-        {/* ── Right Half — image with parallax ── */}
+        {/* ── Right Half — parallax image ── */}
+        {/* overflow-hidden clips the oversized inner div */}
         <div className="relative h-[40vh] w-full overflow-hidden md:h-full md:w-1/2">
+          {/* extends ±40% so there's always image behind at max offset */}
           <div
-            ref={heroImgRef}
+            ref={heroParallaxRef}
             className="absolute inset-x-0"
-            style={{ top: '-15%', height: '130%', willChange: 'transform' }}
+            style={{ top: '-40%', bottom: '-40%', willChange: 'transform' }}
           >
             <Image
               src="/herosection.jpg"
