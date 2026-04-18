@@ -8,7 +8,7 @@ export function Location() {
   const { ref, isInView } = useInView()
 
   return (
-    <section id="over-ons" className="bg-warm-mid py-20 lg:py-28" ref={ref}>
+    <section id="over-ons" className="bg-warm-mid py-32" ref={ref}>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left - Text Content */}
@@ -21,7 +21,7 @@ export function Location() {
               BEZOEK ONS
             </span>
             <h2
-              className={`mb-6 font-serif text-[clamp(1.75rem,3vw,2rem)] italic text-cream ${
+              className={`mb-8 font-serif text-[clamp(2rem,3.5vw,3rem)] italic text-cream ${
                 isInView ? 'animate-fade-in-up animation-delay-100' : 'opacity-0'
               }`}
             >
@@ -29,13 +29,13 @@ export function Location() {
             </h2>
 
             <div
-              className={`mb-6 space-y-3 ${
+              className={`mb-8 space-y-4 ${
                 isInView ? 'animate-fade-in-up animation-delay-200' : 'opacity-0'
               }`}
             >
               <div className="flex items-center gap-3 text-cream/90">
                 <MapPin size={18} className="text-gold" />
-                <span className="font-sans">3317ES Dordrecht</span>
+                <span className="font-sans text-[0.95rem]">3317ES Dordrecht</span>
               </div>
               <div className="flex items-center gap-3 text-cream/90">
                 <Phone size={18} className="text-gold" />
@@ -90,7 +90,7 @@ export function Location() {
             <iframe
               src="https://maps.google.com/maps?q=Van+Oldenbarneveltplein+68,+Dordrecht&output=embed"
               width="100%"
-              height="380"
+              height="480"
               style={{ border: 0 }}
               allowFullScreen
               loading="lazy"

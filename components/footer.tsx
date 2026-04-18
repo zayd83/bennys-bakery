@@ -31,7 +31,7 @@ export function Footer() {
   }
 
   return (
-    <footer className="border-t border-text-light/[0.08] bg-dark py-16">
+    <footer className="border-t border-text-light/[0.08] bg-dark py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Column 1: Logo & Social */}

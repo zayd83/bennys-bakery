@@ -7,7 +7,7 @@ export function Marquee() {
         {[...Array(8)].map((_, i) => (
           <span
             key={i}
-            className="mx-4 font-sans text-[0.72rem] uppercase tracking-[0.1em] text-white"
+            className="mx-4 font-sans text-[0.8rem] uppercase tracking-[0.1em] text-white"
           >
             {text}
           </span>

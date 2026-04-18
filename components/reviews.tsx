@@ -28,9 +28,9 @@ export function Reviews() {
   const { ref, isInView } = useInView()
 
   return (
-    <section className="bg-dark py-20 lg:py-28" ref={ref}>
+    <section className="bg-dark py-32" ref={ref}>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mb-12 text-center">
+        <div className="mb-16 text-center">
           <span
             className={`font-sans text-[0.65rem] uppercase tracking-[0.2em] text-gold ${
               isInView ? 'animate-fade-in-up' : 'opacity-0'
@@ -44,7 +44,7 @@ export function Reviews() {
           {reviews.map((review, index) => (
             <div
               key={index}
-              className={`rounded-lg border border-white/10 bg-white/5 p-8 ${
+              className={`rounded-lg border border-white/10 bg-white/5 p-10 ${
                 isInView ? 'animate-fade-in-up' : 'opacity-0'
               }`}
               style={{ animationDelay: `${(index + 1) * 0.1}s` }}

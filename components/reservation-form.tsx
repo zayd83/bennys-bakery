@@ -37,7 +37,7 @@ export function ReservationForm() {
   }
 
   return (
-    <section id="reserveren" className="bg-cream py-20 lg:py-28" ref={ref}>
+    <section id="reserveren" className="bg-cream py-32" ref={ref}>
       <div className="mx-auto max-w-[720px] px-6">
         <div className="mb-8 text-center">
           <span
@@ -48,7 +48,7 @@ export function ReservationForm() {
             RESERVERING OF BESTELLING
           </span>
           <h2
-            className={`font-serif text-[clamp(2rem,3vw,2.5rem)] italic text-text-dark ${
+            className={`font-serif text-[clamp(2.5rem,3.5vw,3rem)] italic text-text-dark ${
               isInView ? 'animate-fade-in-up animation-delay-100' : 'opacity-0'
             }`}
           >

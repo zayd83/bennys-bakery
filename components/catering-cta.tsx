@@ -8,7 +8,7 @@ export function CateringCTA() {
   const { ref, isInView } = useInView()
 
   return (
-    <section className="relative min-h-[500px]" ref={ref}>
+    <section className="relative min-h-[600px]" ref={ref}>
       {/* Background Image */}
       <Image
         src="/bakery-sfeer-1.jpg"
@@ -20,7 +20,7 @@ export function CateringCTA() {
       <div className="absolute inset-0 bg-dark/[0.72]" />
 
       {/* Content */}
-      <div className="relative flex min-h-[500px] flex-col items-center justify-center px-6 py-20 text-center">
+      <div className="relative flex min-h-[600px] flex-col items-center justify-center px-6 py-24 text-center">
         <span
           className={`mb-4 font-sans text-[0.65rem] uppercase tracking-[0.2em] text-gold ${
             isInView ? 'animate-fade-in-up' : 'opacity-0'
@@ -29,7 +29,7 @@ export function CateringCTA() {
           CATERING & ZAKELIJK
         </span>
         <h2
-          className={`mb-6 max-w-xl font-serif text-[clamp(2rem,4vw,3rem)] italic text-cream ${
+          className={`mb-6 max-w-xl font-serif text-[clamp(3rem,5vw,5rem)] italic leading-[1.05] text-cream ${
             isInView ? 'animate-fade-in-up animation-delay-100' : 'opacity-0'
           }`}
         >

@@ -9,16 +9,16 @@ export function FoodIntro() {
   const { ref, isInView } = useInView()
 
   return (
-    <section id="menu" className="bg-cream py-20 lg:py-28" ref={ref}>
+    <section id="menu" className="bg-cream py-32 lg:py-40" ref={ref}>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
           {/* Left - Images */}
           <div
-            className={`grid grid-cols-2 gap-4 ${
+            className={`grid grid-cols-2 gap-4 lg:gap-6 ${
               isInView ? 'animate-fade-in-up' : 'opacity-0'
             }`}
           >
-            <div className="relative h-[300px] lg:h-[400px]">
+            <div className="relative aspect-[3/4] w-full">
               <Image
                 src="/food-dish-3.jpg"
                 alt="Vers gebakken brood"
@@ -26,7 +26,7 @@ export function FoodIntro() {
                 className="rounded-lg object-cover"
               />
             </div>
-            <div className="relative mt-8 h-[250px] lg:h-[320px]">
+            <div className="relative mt-10 aspect-[3/4] w-full">
               <Image
                 src="/bakery-sfeer-2.jpg"
                 alt="Marokkaanse ontbijt"
@@ -39,21 +39,21 @@ export function FoodIntro() {
           {/* Right - Content */}
           <div className="flex flex-col justify-center">
             <span
-              className={`mb-4 font-sans text-[0.65rem] uppercase tracking-[0.2em] text-gold ${
+              className={`mb-5 font-sans text-[0.65rem] uppercase tracking-[0.2em] text-gold ${
                 isInView ? 'animate-fade-in-up animation-delay-100' : 'opacity-0'
               }`}
             >
               BENNY&apos;S BAKERY
             </span>
             <h2
-              className={`mb-6 font-serif text-[clamp(2rem,3vw,2.5rem)] italic text-text-dark ${
+              className={`mb-8 font-serif text-[clamp(2.5rem,4vw,4rem)] italic leading-[1.1] text-text-dark ${
                 isInView ? 'animate-fade-in-up animation-delay-200' : 'opacity-0'
               }`}
             >
               Marokkaanse klassiekers, vers bereid
             </h2>
             <p
-              className={`mb-8 font-sans text-base font-light leading-[1.8] text-text-dark/70 ${
+              className={`mb-10 font-sans text-base font-light leading-[1.9] text-text-dark/70 ${
                 isInView ? 'animate-fade-in-up animation-delay-300' : 'opacity-0'
               }`}
             >
