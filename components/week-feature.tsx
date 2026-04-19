@@ -2,11 +2,11 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { useInView } from '@/hooks/use-in-view'
+import { useFadeIn } from '@/hooks/use-fade-in'
 import { useParallax } from '@/hooks/use-parallax'
 
 export function WeekFeature() {
-  const { ref, isInView } = useInView()
+  const { ref, visible } = useFadeIn()
   const photoRef = useParallax(0.3)
 
   return (
@@ -16,23 +16,26 @@ export function WeekFeature() {
           {/* Left - Content */}
           <div className="flex flex-col justify-center lg:order-1">
             <span
-              className={`mb-5 font-sans text-[0.65rem] uppercase tracking-[0.2em] text-gold ${
-                isInView ? 'animate-fade-in-up' : 'opacity-0'
+              className={`mb-5 font-sans text-[0.65rem] uppercase tracking-[0.2em] text-gold transition-all duration-700 ease-out ${
+                visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
               }`}
+              style={{ transitionDelay: '0ms' }}
             >
               WEKELIJKSE AANRADER
             </span>
             <h2
-              className={`mb-8 font-serif text-[clamp(3rem,5vw,5rem)] italic leading-[1.05] text-cream ${
-                isInView ? 'animate-fade-in-up animation-delay-100' : 'opacity-0'
+              className={`mb-8 font-serif text-[clamp(3rem,5vw,5rem)] italic leading-[1.05] text-cream transition-all duration-700 ease-out ${
+                visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
               }`}
+              style={{ transitionDelay: '100ms' }}
             >
               Msemmen met kip — een klassieker met een twist
             </h2>
             <p
-              className={`mb-10 font-sans text-base font-light leading-[1.9] text-cream/80 ${
-                isInView ? 'animate-fade-in-up animation-delay-200' : 'opacity-0'
+              className={`mb-10 font-sans text-base font-light leading-[1.9] text-cream/80 transition-all duration-700 ease-out ${
+                visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
               }`}
+              style={{ transitionDelay: '200ms' }}
             >
               Luchtige msemmen gevuld met mals gekruide kip, frisse salade en een
               romige saus. Een gerecht dat generaties verbindt — van de warme
@@ -40,19 +43,21 @@ export function WeekFeature() {
             </p>
             <Link
               href="#menu"
-              className={`inline-flex w-fit items-center rounded-sm border border-cream px-6 py-3 font-sans text-cream transition-all hover:bg-cream/10 ${
-                isInView ? 'animate-fade-in-up animation-delay-300' : 'opacity-0'
+              className={`inline-flex w-fit items-center rounded-sm border border-cream px-6 py-3 font-sans text-cream transition-all duration-700 ease-out hover:bg-cream/10 ${
+                visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
               }`}
+              style={{ transitionDelay: '300ms' }}
             >
               Bekijk het menu
             </Link>
           </div>
 
-          {/* Right - Image with parallax */}
+          {/* Right - Image */}
           <div
-            className={`relative aspect-[3/4] w-full overflow-hidden rounded-lg lg:order-2 ${
-              isInView ? 'animate-fade-in-up animation-delay-200' : 'opacity-0'
+            className={`relative aspect-[3/4] w-full overflow-hidden rounded-lg lg:order-2 transition-all duration-700 ease-out ${
+              visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
             }`}
+            style={{ transitionDelay: '150ms' }}
           >
             <div
               ref={photoRef}

@@ -2,37 +2,29 @@
 
 import Link from 'next/link'
 import { MapPin, Phone, Mail } from 'lucide-react'
-import { useInView } from '@/hooks/use-in-view'
+import { useFadeIn } from '@/hooks/use-fade-in'
 
 export function Location() {
-  const { ref, isInView } = useInView()
+  const { ref, visible } = useFadeIn()
 
   return (
     <section id="over-ons" className="bg-warm-mid py-32" ref={ref}>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left - Text Content */}
-          <div>
-            <span
-              className={`mb-4 inline-block font-sans text-[0.65rem] uppercase tracking-[0.2em] text-gold ${
-                isInView ? 'animate-fade-in-up' : 'opacity-0'
-              }`}
-            >
+          <div
+            className={`transition-all duration-700 ease-out ${
+              visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
+            }`}
+          >
+            <span className="mb-4 inline-block font-sans text-[0.65rem] uppercase tracking-[0.2em] text-gold">
               BEZOEK ONS
             </span>
-            <h2
-              className={`mb-8 font-serif text-[clamp(2rem,3.5vw,3rem)] italic text-cream ${
-                isInView ? 'animate-fade-in-up animation-delay-100' : 'opacity-0'
-              }`}
-            >
+            <h2 className="mb-8 font-serif text-[clamp(2rem,3.5vw,3rem)] italic text-cream">
               Van Oldenbarneveltplein 68
             </h2>
 
-            <div
-              className={`mb-8 space-y-4 ${
-                isInView ? 'animate-fade-in-up animation-delay-200' : 'opacity-0'
-              }`}
-            >
+            <div className="mb-8 space-y-4">
               <div className="flex items-center gap-3 text-cream/90">
                 <MapPin size={18} className="text-gold" />
                 <span className="font-sans text-[0.95rem]">3317ES Dordrecht</span>
@@ -54,11 +46,7 @@ export function Location() {
               </div>
             </div>
 
-            <div
-              className={`mb-6 ${
-                isInView ? 'animate-fade-in-up animation-delay-300' : 'opacity-0'
-              }`}
-            >
+            <div className="mb-6">
               <h3 className="mb-2 font-sans text-sm font-medium text-cream">
                 Openingstijden
               </h3>
@@ -73,9 +61,7 @@ export function Location() {
               href="https://maps.google.com/maps?q=Van+Oldenbarneveltplein+68,+Dordrecht"
               target="_blank"
               rel="noopener noreferrer"
-              className={`font-sans text-gold transition-all hover:underline ${
-                isInView ? 'animate-fade-in-up animation-delay-400' : 'opacity-0'
-              }`}
+              className="font-sans text-gold transition-all hover:underline"
             >
               Open in Google Maps →
             </Link>
@@ -83,9 +69,10 @@ export function Location() {
 
           {/* Right - Map */}
           <div
-            className={`overflow-hidden rounded-lg ${
-              isInView ? 'animate-fade-in-up animation-delay-200' : 'opacity-0'
+            className={`overflow-hidden rounded-lg transition-all duration-700 ease-out ${
+              visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
             }`}
+            style={{ transitionDelay: '150ms' }}
           >
             <iframe
               src="https://maps.google.com/maps?q=Van+Oldenbarneveltplein+68,+Dordrecht&output=embed"

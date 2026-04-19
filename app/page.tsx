@@ -17,7 +17,9 @@ export default function Home() {
       <Marquee />
       <FoodIntro />
       <WeekFeature />
-      <PhotoGrid />
+      <div className="overflow-hidden">
+        <PhotoGrid />
+      </div>
       <CateringCTA />
       <ReservationForm />
       <Reviews />

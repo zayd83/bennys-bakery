@@ -4,51 +4,47 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { useInView } from '@/hooks/use-in-view'
-import { useParallax } from '@/hooks/use-parallax'
+import { useParallaxContainer } from '@/hooks/use-scroll-animation'
 
 export function FoodIntro() {
   const { ref, isInView } = useInView()
-  const photo1Ref = useParallax(0.25)
-  const photo2Ref = useParallax(0.25)
+  const leftPhotoRef = useParallaxContainer(0.25, 'up')
+  const rightPhotoRef = useParallaxContainer(0.12, 'up')
 
   return (
     <section id="menu" className="bg-cream py-32 lg:py-40" ref={ref}>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
-          {/* Left - Images */}
-          <div
-            className={`grid grid-cols-2 gap-4 lg:gap-6 ${
-              isInView ? 'animate-fade-in-up' : 'opacity-0'
-            }`}
-          >
-            {/* Photo 1 — overflow-hidden clips parallax movement */}
-            <div className="relative aspect-[3/4] w-full overflow-hidden rounded-lg">
-              <div
-                ref={photo1Ref}
-                className="absolute inset-x-0"
-                style={{ top: '-25%', bottom: '-25%', willChange: 'transform' }}
-              >
+          {/* Left - Images with differential parallax */}
+          <div className="relative flex items-start gap-4 px-6 lg:px-0">
+            {/* Left photo — starts higher, moves faster */}
+            <div
+              ref={leftPhotoRef}
+              className="relative w-[55%] mt-0"
+              style={{ willChange: 'transform' }}
+            >
+              <div className="relative aspect-[3/4] overflow-hidden rounded-sm">
                 <Image
                   src="/food-dish-3.jpg"
-                  alt="Vers gebakken brood"
                   fill
                   className="object-cover"
+                  alt="Marokkaans ontbijt"
                 />
               </div>
             </div>
 
-            {/* Photo 2 */}
-            <div className="relative mt-10 aspect-[3/4] w-full overflow-hidden rounded-lg">
-              <div
-                ref={photo2Ref}
-                className="absolute inset-x-0"
-                style={{ top: '-25%', bottom: '-25%', willChange: 'transform' }}
-              >
+            {/* Right photo — starts lower, moves slower */}
+            <div
+              ref={rightPhotoRef}
+              className="relative w-[45%] mt-16"
+              style={{ willChange: 'transform' }}
+            >
+              <div className="relative aspect-[3/4] overflow-hidden rounded-sm">
                 <Image
-                  src="/bakery-sfeer-2.jpg"
-                  alt="Marokkaanse ontbijt"
+                  src="/bakery-sfeer-1.jpg"
                   fill
                   className="object-cover"
+                  alt="Benny's Bakery sfeer"
                 />
               </div>
             </div>
@@ -58,10 +54,10 @@ export function FoodIntro() {
           <div className="flex flex-col justify-center">
             <span
               className={`mb-5 font-sans text-[0.65rem] uppercase tracking-[0.2em] text-gold ${
-                isInView ? 'animate-fade-in-up animation-delay-100' : 'opacity-0'
+                isInView ? 'animate-fade-in-up' : 'opacity-0'
               }`}
             >
-              BENNY&apos;S BAKERY
+              BENNY&apos;s BAKERY
             </span>
             <h2
               className={`mb-8 font-serif text-[clamp(2.5rem,4vw,4rem)] italic leading-[1.1] text-text-dark ${

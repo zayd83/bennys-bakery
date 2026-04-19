@@ -3,8 +3,8 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { Instagram } from 'lucide-react'
+import { useFadeIn } from '@/hooks/use-fade-in'
 
-// TikTok and Snapchat icons as SVG
 function TikTokIcon({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" className={className} fill="currentColor">
@@ -23,19 +23,24 @@ function SnapchatIcon({ className }: { className?: string }) {
 
 export function Footer() {
   const [email, setEmail] = useState('')
+  const { ref, visible } = useFadeIn()
 
   const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Newsletter submission logic would go here
     setEmail('')
   }
 
   return (
-    <footer className="border-t border-text-light/[0.08] bg-dark py-24">
+    <footer className="border-t border-text-light/[0.08] bg-dark py-24" ref={ref}>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Column 1: Logo & Social */}
-          <div>
+          <div
+            className={`transition-all duration-700 ease-out ${
+              visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+            }`}
+            style={{ transitionDelay: '0ms' }}
+          >
             <Link href="#home" className="font-serif text-[1.4rem] italic text-cream">
               Benny&apos;s Bakery
             </Link>
@@ -74,27 +79,35 @@ export function Footer() {
           </div>
 
           {/* Column 2: Navigation */}
-          <div>
+          <div
+            className={`transition-all duration-700 ease-out ${
+              visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+            }`}
+            style={{ transitionDelay: '100ms' }}
+          >
             <h3 className="mb-4 font-sans text-sm font-medium text-cream">
               Navigatie
             </h3>
             <nav className="flex flex-col gap-2">
-              {['Home', 'Menu', 'Aanraders', 'Over ons', 'Reserveren'].map(
-                (item) => (
-                  <Link
-                    key={item}
-                    href={`#${item.toLowerCase().replace(' ', '-')}`}
-                    className="font-sans text-[0.85rem] text-cream/60 transition-opacity hover:opacity-100"
-                  >
-                    {item}
-                  </Link>
-                )
-              )}
+              {['Home', 'Menu', 'Aanraders', 'Over ons', 'Reserveren'].map((item) => (
+                <Link
+                  key={item}
+                  href={`#${item.toLowerCase().replace(' ', '-')}`}
+                  className="font-sans text-[0.85rem] text-cream/60 transition-opacity hover:opacity-100"
+                >
+                  {item}
+                </Link>
+              ))}
             </nav>
           </div>
 
           {/* Column 3: Opening Hours */}
-          <div>
+          <div
+            className={`transition-all duration-700 ease-out ${
+              visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+            }`}
+            style={{ transitionDelay: '200ms' }}
+          >
             <h3 className="mb-4 font-sans text-sm font-medium text-cream">
               Openingstijden
             </h3>
@@ -106,7 +119,12 @@ export function Footer() {
           </div>
 
           {/* Column 4: Newsletter */}
-          <div>
+          <div
+            className={`transition-all duration-700 ease-out ${
+              visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+            }`}
+            style={{ transitionDelay: '300ms' }}
+          >
             <span className="mb-4 inline-block font-sans text-[0.65rem] uppercase tracking-[0.2em] text-gold">
               BLIJF OP DE HOOGTE
             </span>
