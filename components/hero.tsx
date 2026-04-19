@@ -19,62 +19,62 @@ export function Hero() {
           className="relative flex h-[60vh] w-full flex-col justify-end bg-dark p-8 md:h-full md:w-1/2 md:p-12"
           ref={ref}
         >
-          {/* Desktop Circles — clustered in upper portion */}
+          {/* Desktop Circles — tight cluster upper-left */}
           <div className="absolute inset-0 hidden md:block">
-            {/* Circle 1 — acai bowl, top-left of cluster */}
+            {/* Circle 1 — largest, leftmost */}
             <div
               className={`absolute ${isInView ? 'animate-fade-in-up' : 'opacity-0'}`}
-              style={{ top: '12%', left: '18%' }}
+              style={{ top: '10%', left: '18%' }}
             >
               <div
-                className="h-[160px] w-[160px] overflow-hidden rounded-full border-2 border-cream/25 shadow-[0_8px_32px_rgba(0,0,0,0.55)]"
-                style={{ animation: 'float 4s ease-in-out infinite' }}
+                className="h-[170px] w-[170px] overflow-hidden rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.55)]"
+                style={{ animation: 'float 4s ease-in-out infinite', border: '2px solid rgba(237,232,222,0.2)' }}
               >
                 <Image
                   src="/food-dish-6.jpg"
                   alt="Vers gebakken brood"
-                  width={160}
-                  height={160}
+                  width={170}
+                  height={170}
                   className="h-full w-full object-cover"
                   priority
                 />
               </div>
             </div>
 
-            {/* Circle 2 — msemmen sandwich, center-lower */}
+            {/* Circle 2 — medium, center of cluster */}
             <div
               className={`absolute ${isInView ? 'animate-fade-in-up animation-delay-100' : 'opacity-0'}`}
-              style={{ top: '23%', left: '35%' }}
+              style={{ top: '19%', left: '31%' }}
             >
               <div
-                className="h-[140px] w-[140px] overflow-hidden rounded-full border-2 border-cream/25 shadow-[0_8px_32px_rgba(0,0,0,0.55)]"
-                style={{ animation: 'float 5s ease-in-out 1s infinite' }}
+                className="h-[145px] w-[145px] overflow-hidden rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.55)]"
+                style={{ animation: 'float 5s ease-in-out 1s infinite', border: '2px solid rgba(237,232,222,0.2)' }}
               >
                 <Image
                   src="/food-dish-8.jpg"
                   alt="Marokkaanse patisserie"
-                  width={140}
-                  height={140}
+                  width={145}
+                  height={145}
                   className="h-full w-full object-cover"
                   priority
                 />
               </div>
             </div>
 
-            {/* Circle 3 — breakfast plate, top-right of cluster */}
+            {/* Circle 3 — right of cluster */}
             <div
               className={`absolute ${isInView ? 'animate-fade-in-up animation-delay-200' : 'opacity-0'}`}
-              style={{ top: '10%', left: '52%' }}
+              style={{ top: '9%', left: '44%' }}
             >
               <div
-                className="h-[150px] w-[150px] overflow-hidden rounded-full border-2 border-cream/25 shadow-[0_8px_32px_rgba(0,0,0,0.55)]"
-                style={{ animation: 'float 4.5s ease-in-out 2s infinite' }}
+                className="h-[155px] w-[155px] overflow-hidden rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.55)]"
+                style={{ animation: 'float 4.5s ease-in-out 2s infinite', border: '2px solid rgba(237,232,222,0.2)' }}
               >
                 <Image
                   src="/food-dish-4.jpg"
                   alt="Artisanaal gebak"
-                  width={150}
-                  height={150}
+                  width={155}
+                  height={155}
                   className="h-full w-full object-cover"
                   priority
                 />
@@ -82,13 +82,19 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Decorative gold line */}
+          {/* Option C — fills dead space at mid-point */}
           <div
-            className="absolute left-1/2 hidden -translate-x-1/2 flex-col items-center md:flex"
-            style={{ top: '46%' }}
+            className="absolute left-0 right-0 hidden items-center justify-center gap-3 md:flex"
+            style={{ top: '50%' }}
           >
-            <div className="h-1.5 w-1.5 rounded-full bg-gold/40" />
-            <div className="h-16 w-px bg-gradient-to-b from-gold/30 to-transparent" />
+            <div className="h-px w-10 bg-cream/25" />
+            <span
+              className="font-sans text-[0.65rem] uppercase tracking-[0.2em]"
+              style={{ color: 'rgba(237,232,222,0.35)' }}
+            >
+              VERS · LOKAAL · AMBACHTELIJK
+            </span>
+            <div className="h-px w-10 bg-cream/25" />
           </div>
 
           {/* Mobile Circles */}
@@ -127,12 +133,19 @@ export function Hero() {
               DORDRECHT — BAKKERIJ
             </span>
             <h1
-              className={`max-w-[480px] font-serif text-[clamp(3rem,5.5vw,5.5rem)] font-normal italic leading-[1.05] text-text-light ${
+              className={`max-w-[480px] font-serif text-[clamp(3.5rem,5.5vw,6rem)] font-normal italic leading-[1.0] text-text-light ${
                 isInView ? 'animate-fade-in-up animation-delay-400' : 'opacity-0'
               }`}
             >
               Het Ambacht Van Een Echte Bakkerij
             </h1>
+            <p
+              className={`mt-4 max-w-[360px] font-sans text-[0.95rem] font-light leading-relaxed text-text-light/60 ${
+                isInView ? 'animate-fade-in-up animation-delay-400' : 'opacity-0'
+              }`}
+            >
+              Vers gebakken, met liefde bereid — elke dag opnieuw.
+            </p>
             <div
               className={`mt-8 flex flex-wrap gap-4 ${
                 isInView ? 'animate-fade-in-up animation-delay-500' : 'opacity-0'
@@ -140,14 +153,15 @@ export function Hero() {
             >
               <Link
                 href="#reserveren"
-                className="flex items-center gap-2 rounded-sm border border-cream/40 bg-cream/[0.12] px-8 py-3.5 font-sans text-[0.9rem] tracking-[0.05em] text-text-light backdrop-blur-md transition-all hover:bg-cream/20"
+                className="flex items-center gap-2 rounded px-10 py-4 font-sans text-[0.9rem] font-medium tracking-[0.05em] text-[#1C1410] transition-all hover:bg-white"
+                style={{ background: 'rgba(237,232,222,0.95)' }}
               >
                 Reserveren
                 <ArrowRight size={16} />
               </Link>
               <Link
                 href="#menu"
-                className="flex items-center gap-2 rounded-sm border border-cream/25 bg-cream/[0.06] px-8 py-3.5 font-sans text-[0.9rem] tracking-[0.05em] text-text-light backdrop-blur-md transition-all hover:bg-cream/[0.15]"
+                className="flex items-center gap-2 rounded border border-cream/50 px-10 py-4 font-sans text-[0.9rem] font-medium tracking-[0.05em] text-[#EDE8DE] transition-all hover:border-cream/90"
               >
                 Bekijk Menu
                 <ArrowRight size={16} />
@@ -156,10 +170,8 @@ export function Hero() {
           </div>
         </div>
 
-        {/* ── Right Half — parallax image ── */}
-        {/* overflow-hidden clips the oversized inner div */}
+        {/* ── Right Half — single seamless parallax image ── */}
         <div className="relative h-[40vh] w-full overflow-hidden md:h-full md:w-1/2">
-          {/* extends ±40% so there's always image behind at max offset */}
           <div
             ref={heroParallaxRef}
             className="absolute inset-x-0"
@@ -169,7 +181,7 @@ export function Hero() {
               src="/herosection.jpg"
               alt="Benny's Bakery interieur"
               fill
-              className="object-cover"
+              className="object-cover object-center"
               priority
             />
           </div>

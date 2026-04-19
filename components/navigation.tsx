@@ -39,14 +39,14 @@ export function Navigation() {
                 src="/logo-bennys.png"
                 alt="Benny's Bakery"
                 width={120}
-                height={48}
+                height={44}
                 className="object-contain"
                 priority
               />
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden items-center gap-8 md:flex">
+            <div className="hidden items-center gap-10 md:flex">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
