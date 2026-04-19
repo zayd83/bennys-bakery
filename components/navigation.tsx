@@ -27,14 +27,15 @@ export function Navigation() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
           isScrolled ? 'bg-dark/95 backdrop-blur-md' : 'bg-transparent'
         }`}
       >
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="flex h-20 items-center justify-between">
-            {/* Logo */}
-            <Link href="#home" className="flex items-center">
+          <div className="relative flex h-20 items-center justify-between">
+
+            {/* LEFT — Logo */}
+            <Link href="#home" className="relative z-10 flex items-center">
               <Image
                 src="/logo-bennys.png"
                 alt="Benny's Bakery"
@@ -45,21 +46,21 @@ export function Navigation() {
               />
             </Link>
 
-            {/* Desktop Navigation */}
-            <div className="hidden items-center gap-10 md:flex">
+            {/* CENTER — Nav links, truly centered in viewport */}
+            <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-10 md:flex">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="font-sans text-[0.85rem] text-text-light/80 transition-opacity hover:opacity-100"
+                  className="font-sans text-[0.85rem] text-text-light/75 transition-opacity hover:opacity-100"
                 >
                   {link.label}
                 </Link>
               ))}
             </div>
 
-            {/* CTA Button */}
-            <div className="hidden md:block">
+            {/* RIGHT — CTA Button */}
+            <div className="relative z-10 hidden md:block">
               <Link
                 href="#reserveren"
                 className="rounded-sm bg-terracotta px-5 py-2 font-sans text-[0.85rem] text-white transition-all hover:brightness-110"
@@ -70,7 +71,7 @@ export function Navigation() {
 
             {/* Mobile Menu Button */}
             <button
-              className="text-text-light md:hidden"
+              className="relative z-10 text-text-light md:hidden"
               onClick={() => setIsMobileMenuOpen(true)}
               aria-label="Open menu"
             >
