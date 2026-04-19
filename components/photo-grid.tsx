@@ -1,56 +1,40 @@
 'use client'
 
 import Image from 'next/image'
-import { useInView } from '@/hooks/use-in-view'
 
-const galleryImages = [
-  { src: '/bakery-sfeer-1.jpg', height: 'h-[420px]' },
-  { src: '/food-dish-1.jpg', height: 'h-[340px]' },
-  { src: '/food-dish-3.jpg', height: 'h-[380px]' },
-  { src: '/bakery-sfeer-2.jpg', height: 'h-[300px]' },
-  { src: '/food-dish-2.jpg', height: 'h-[360px]' },
-  { src: '/food-dish-7.jpg', height: 'h-[400px]' },
-  { src: '/food-dish-9.jpg', height: 'h-[320px]' },
-  { src: '/food-dish-5.jpg', height: 'h-[350px]' },
+const photos = [
+  { src: '/food-dish-3.jpg', height: 800, alt: 'Benny\'s Bakery gerecht' },
+  { src: '/food-dish-4.jpg', height: 600, alt: 'Benny\'s Bakery gerecht' },
+  { src: '/bakery-sfeer-1.jpg', height: 700, alt: 'Benny\'s Bakery sfeer' },
+  { src: '/food-dish-5.jpg', height: 500, alt: 'Benny\'s Bakery gerecht' },
+  { src: '/food-dish-6.jpg', height: 600, alt: 'Benny\'s Bakery gerecht' },
+  { src: '/food-dish-7.jpg', height: 750, alt: 'Benny\'s Bakery gerecht' },
+  { src: '/bakery-sfeer-2.jpg', height: 550, alt: 'Benny\'s Bakery sfeer' },
+  { src: '/food-dish-8.jpg', height: 700, alt: 'Benny\'s Bakery gerecht' },
+  { src: '/food-dish-1.jpg', height: 600, alt: 'Benny\'s Bakery gerecht' },
 ]
 
 export function PhotoGrid() {
-  const { ref, isInView } = useInView()
-
   return (
-    <section className="bg-cream pt-32 pb-20" ref={ref}>
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mb-14 text-center">
-          <span
-            className={`font-sans text-[0.65rem] uppercase tracking-[0.2em] text-gold ${
-              isInView ? 'animate-fade-in-up' : 'opacity-0'
-            }`}
-          >
-            SFEERIMPRESSIE
-          </span>
-        </div>
+    <section className="bg-[#F5F0E8] py-32">
+      <div className="max-w-7xl mx-auto px-6">
+        <p className="text-[#D4A853] text-[0.65rem] uppercase tracking-[0.2em] text-center mb-16">
+          SFEERIMPRESSIE
+        </p>
 
-        {/* Masonry Grid */}
-        <div className="columns-2 gap-6 md:columns-3 lg:columns-4">
-          {galleryImages.map((image, index) => (
+        <div className="columns-2 md:columns-3 lg:columns-4 gap-3">
+          {photos.map((photo, i) => (
             <div
-              key={index}
-              className={`mb-6 break-inside-avoid ${
-                isInView ? 'animate-fade-in-up' : 'opacity-0'
-              }`}
-              style={{ animationDelay: `${index * 0.1}s` }}
+              key={i}
+              className="break-inside-avoid mb-3 overflow-hidden group cursor-pointer"
             >
-              <div
-                className={`relative ${image.height} w-full overflow-hidden rounded-lg transition-all duration-300 hover:scale-[1.02] hover:brightness-90`}
-              >
-                <Image
-                  src={image.src}
-                  alt={`Sfeerimpressie ${index + 1}`}
-                  fill
-                  className="object-cover"
-                  loading="lazy"
-                />
-              </div>
+              <Image
+                src={photo.src}
+                alt={photo.alt}
+                width={600}
+                height={photo.height}
+                className="w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
             </div>
           ))}
         </div>
