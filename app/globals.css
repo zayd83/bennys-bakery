@@ -101,10 +101,10 @@
   animation-play-state: paused;
 }
 
-/* Float Animation for Hero Circles */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
+/* Spin Animation for Hero Circles */
+@keyframes spinCircle {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
 
 /* Fade In Up Animation */

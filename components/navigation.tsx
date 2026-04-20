@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
@@ -13,23 +13,17 @@ const navLinks = [
 ]
 
 export function Navigation() {
-  const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 80)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   return (
     <>
       <nav
-        className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-dark/95 backdrop-blur-md' : 'bg-transparent'
-        }`}
+        className="fixed left-0 right-0 top-0 z-50"
+        style={{
+          background: 'rgba(10, 8, 5, 0.45)',
+          backdropFilter: 'blur(16px)',
+          WebkitBackdropFilter: 'blur(16px)',
+        }}
       >
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="relative flex h-20 items-center justify-between">
@@ -40,19 +34,19 @@ export function Navigation() {
                 src="/logo-bennys.png"
                 alt="Benny's Bakery"
                 width={120}
-                height={44}
+                height={52}
                 className="object-contain"
                 priority
               />
             </Link>
 
-            {/* CENTER — Nav links, truly centered in viewport */}
+            {/* CENTER — Nav links, truly centered */}
             <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-10 md:flex">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="font-sans text-[0.85rem] text-text-light/75 transition-opacity hover:opacity-100"
+                  className="font-sans text-[0.9rem] tracking-[0.04em] text-text-light/80 transition-opacity hover:opacity-100"
                 >
                   {link.label}
                 </Link>
@@ -63,7 +57,7 @@ export function Navigation() {
             <div className="relative z-10 hidden md:block">
               <Link
                 href="#reserveren"
-                className="rounded-sm bg-terracotta px-5 py-2 font-sans text-[0.85rem] text-white transition-all hover:brightness-110"
+                className="rounded-sm bg-terracotta px-7 py-3 font-sans text-[0.9rem] font-medium text-white transition-all hover:brightness-110"
               >
                 Reserveren
               </Link>
