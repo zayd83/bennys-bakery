@@ -96,7 +96,7 @@ export default function OverOnsPage() {
       <Navigation />
 
       {/* ── Section 1: Hero ── */}
-      <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 pb-24 pt-40 text-center">
+      <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-[#2D4A3E] px-6 pb-24 pt-40 text-center">
         {/* Parallax background image */}
         <div
           ref={heroBgRef as React.RefObject<HTMLDivElement>}
@@ -190,7 +190,7 @@ export default function OverOnsPage() {
 
       {/* ── Section 4: Team ── */}
       <section
-        className="bg-dark py-32"
+        className="bg-[#2D4A3E] py-32"
         ref={teamRef as React.RefObject<HTMLDivElement>}
       >
         <div className="mx-auto max-w-6xl px-8 text-center">

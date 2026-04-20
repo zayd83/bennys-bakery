@@ -68,7 +68,7 @@ export function ReservationForm() {
             className={`rounded-full px-6 py-2 font-sans text-sm transition-all ${
               formType === 'particulier'
                 ? 'bg-terracotta text-white'
-                : 'border border-stone-300 bg-white text-text-dark hover:border-stone-400'
+                : 'border border-[#D4C4B0] bg-white text-text-dark hover:border-stone-400'
             }`}
           >
             Particulier
@@ -79,7 +79,7 @@ export function ReservationForm() {
             className={`rounded-full px-6 py-2 font-sans text-sm transition-all ${
               formType === 'zakelijk'
                 ? 'bg-terracotta text-white'
-                : 'border border-stone-300 bg-white text-text-dark hover:border-stone-400'
+                : 'border border-[#D4C4B0] bg-white text-text-dark hover:border-stone-400'
             }`}
           >
             Zakelijk
@@ -103,7 +103,7 @@ export function ReservationForm() {
               required
               value={formData.naam}
               onChange={handleChange}
-              className="w-full rounded-sm border border-stone-200 bg-white px-4 py-3 font-sans text-text-dark placeholder:text-stone-400 focus:border-terracotta focus:outline-none"
+              className="w-full rounded-sm border border-[#D4C4B0] bg-white px-4 py-3 font-sans text-text-dark placeholder:text-stone-400 focus:border-terracotta focus:outline-none"
             />
             <input
               type="email"
@@ -112,7 +112,7 @@ export function ReservationForm() {
               required
               value={formData.email}
               onChange={handleChange}
-              className="w-full rounded-sm border border-stone-200 bg-white px-4 py-3 font-sans text-text-dark placeholder:text-stone-400 focus:border-terracotta focus:outline-none"
+              className="w-full rounded-sm border border-[#D4C4B0] bg-white px-4 py-3 font-sans text-text-dark placeholder:text-stone-400 focus:border-terracotta focus:outline-none"
             />
             <input
               type="tel"
@@ -121,7 +121,7 @@ export function ReservationForm() {
               required
               value={formData.telefoon}
               onChange={handleChange}
-              className="w-full rounded-sm border border-stone-200 bg-white px-4 py-3 font-sans text-text-dark placeholder:text-stone-400 focus:border-terracotta focus:outline-none"
+              className="w-full rounded-sm border border-[#D4C4B0] bg-white px-4 py-3 font-sans text-text-dark placeholder:text-stone-400 focus:border-terracotta focus:outline-none"
             />
           </div>
 
@@ -135,7 +135,7 @@ export function ReservationForm() {
                 required
                 value={formData.bedrijfsnaam}
                 onChange={handleChange}
-                className="w-full rounded-sm border border-stone-200 bg-white px-4 py-3 font-sans text-text-dark placeholder:text-stone-400 focus:border-terracotta focus:outline-none"
+                className="w-full rounded-sm border border-[#D4C4B0] bg-white px-4 py-3 font-sans text-text-dark placeholder:text-stone-400 focus:border-terracotta focus:outline-none"
               />
               <input
                 type="text"
@@ -143,7 +143,7 @@ export function ReservationForm() {
                 placeholder="BTW-nummer"
                 value={formData.btwnummer}
                 onChange={handleChange}
-                className="w-full rounded-sm border border-stone-200 bg-white px-4 py-3 font-sans text-text-dark placeholder:text-stone-400 focus:border-terracotta focus:outline-none"
+                className="w-full rounded-sm border border-[#D4C4B0] bg-white px-4 py-3 font-sans text-text-dark placeholder:text-stone-400 focus:border-terracotta focus:outline-none"
               />
             </div>
           )}
@@ -156,7 +156,7 @@ export function ReservationForm() {
               required
               value={formData.datum}
               onChange={handleChange}
-              className="w-full rounded-sm border border-stone-200 bg-white px-4 py-3 font-sans text-text-dark focus:border-terracotta focus:outline-none"
+              className="w-full rounded-sm border border-[#D4C4B0] bg-white px-4 py-3 font-sans text-text-dark focus:border-terracotta focus:outline-none"
             />
             <input
               type="time"
@@ -164,7 +164,7 @@ export function ReservationForm() {
               required
               value={formData.tijd}
               onChange={handleChange}
-              className="w-full rounded-sm border border-stone-200 bg-white px-4 py-3 font-sans text-text-dark focus:border-terracotta focus:outline-none"
+              className="w-full rounded-sm border border-[#D4C4B0] bg-white px-4 py-3 font-sans text-text-dark focus:border-terracotta focus:outline-none"
             />
           </div>
 
@@ -175,7 +175,7 @@ export function ReservationForm() {
               required
               value={formData.soort}
               onChange={handleChange}
-              className="w-full rounded-sm border border-stone-200 bg-white px-4 py-3 font-sans text-text-dark focus:border-terracotta focus:outline-none"
+              className="w-full rounded-sm border border-[#D4C4B0] bg-white px-4 py-3 font-sans text-text-dark focus:border-terracotta focus:outline-none"
             >
               <option value="">Soort aanvraag *</option>
               <option value="bedrijfslunch">Bedrijfslunch</option>
@@ -191,7 +191,7 @@ export function ReservationForm() {
               min="1"
               value={formData.personen}
               onChange={handleChange}
-              className="w-full rounded-sm border border-stone-200 bg-white px-4 py-3 font-sans text-text-dark placeholder:text-stone-400 focus:border-terracotta focus:outline-none"
+              className="w-full rounded-sm border border-[#D4C4B0] bg-white px-4 py-3 font-sans text-text-dark placeholder:text-stone-400 focus:border-terracotta focus:outline-none"
             />
           </div>
 
@@ -203,7 +203,7 @@ export function ReservationForm() {
             rows={4}
             value={formData.bestelling}
             onChange={handleChange}
-            className="w-full rounded-sm border border-stone-200 bg-white px-4 py-3 font-sans text-text-dark placeholder:text-stone-400 focus:border-terracotta focus:outline-none"
+            className="w-full rounded-sm border border-[#D4C4B0] bg-white px-4 py-3 font-sans text-text-dark placeholder:text-stone-400 focus:border-terracotta focus:outline-none"
           />
 
           {/* Textarea: Wensen */}
@@ -213,7 +213,7 @@ export function ReservationForm() {
             rows={3}
             value={formData.wensen}
             onChange={handleChange}
-            className="w-full rounded-sm border border-stone-200 bg-white px-4 py-3 font-sans text-text-dark placeholder:text-stone-400 focus:border-terracotta focus:outline-none"
+            className="w-full rounded-sm border border-[#D4C4B0] bg-white px-4 py-3 font-sans text-text-dark placeholder:text-stone-400 focus:border-terracotta focus:outline-none"
           />
 
           {/* Checkbox */}
@@ -224,7 +224,7 @@ export function ReservationForm() {
               required
               checked={formData.akkoord}
               onChange={handleChange}
-              className="mt-1 h-4 w-4 rounded border-stone-300 text-terracotta focus:ring-terracotta"
+              className="mt-1 h-4 w-4 rounded border-[#D4C4B0] text-terracotta focus:ring-terracotta"
             />
             <span className="font-sans text-sm text-text-dark/70">
               Ik ga akkoord met de verwerking van mijn gegevens voor deze

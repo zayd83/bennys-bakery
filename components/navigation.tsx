@@ -20,9 +20,10 @@ export function Navigation() {
       <nav
         className="fixed left-0 right-0 top-0 z-50"
         style={{
-          background: 'rgba(10, 8, 5, 0.45)',
+          background: 'rgba(250, 247, 242, 0.88)',
           backdropFilter: 'blur(16px)',
           WebkitBackdropFilter: 'blur(16px)',
+          borderBottom: '1px solid rgba(212,168,83,0.12)',
         }}
       >
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -46,7 +47,7 @@ export function Navigation() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="font-sans text-[0.9rem] tracking-[0.04em] text-text-light/80 transition-opacity hover:opacity-100"
+                  className="font-sans text-[0.9rem] tracking-[0.04em] text-[#2C1F14]/75 transition-colors hover:text-terracotta"
                 >
                   {link.label}
                 </Link>
@@ -65,7 +66,7 @@ export function Navigation() {
 
             {/* Mobile Menu Button */}
             <button
-              className="relative z-10 text-text-light md:hidden"
+              className="relative z-10 text-[#2C1F14] md:hidden"
               onClick={() => setIsMobileMenuOpen(true)}
               aria-label="Open menu"
             >

@@ -36,7 +36,7 @@ export function PhotoGrid() {
   const bottomRowRef = useParallaxContainer(0.12, 'left')
 
   return (
-    <section className="bg-[#F5F0E8] py-32 overflow-hidden">
+    <section className="bg-[#F0E9DE] py-32 overflow-hidden">
       <p className="text-[#D4A853] text-[0.65rem] uppercase tracking-[0.2em] text-center mb-16">
         SFEERIMPRESSIE
       </p>

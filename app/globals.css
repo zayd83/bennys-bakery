@@ -4,15 +4,21 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --dark: #0D0B07;
-  --cream: #F5F0E8;
-  --warm-mid: #2A1F14;
+  /* Core palette — Moroccan warm & green */
+  --dark: #2C1F14;
+  --cream: #FAF7F2;
+  --cream-secondary: #F0E9DE;
+  --warm-mid: #2D4A3E;
+  --sand: #E8DDD0;
+  --sand-dark: #D4C4B0;
   --terracotta: #C4622D;
   --gold: #D4A853;
-  --text-light: #EDE8DE;
-  --text-dark: #1C1410;
-  --deep-green: #1C4532;
-  
+  --text-light: #FAF7F2;
+  --text-dark: #2C1F14;
+  --brown-mid: #6B4C35;
+  --deep-green: #2D4A3E;
+  --green-mid: #3D6455;
+
   --background: var(--cream);
   --foreground: var(--text-dark);
   --card: var(--cream);
@@ -42,12 +48,17 @@
   
   --color-dark: var(--dark);
   --color-cream: var(--cream);
+  --color-cream-secondary: var(--cream-secondary);
   --color-warm-mid: var(--warm-mid);
+  --color-sand: var(--sand);
+  --color-sand-dark: var(--sand-dark);
   --color-terracotta: var(--terracotta);
   --color-gold: var(--gold);
   --color-text-light: var(--text-light);
   --color-text-dark: var(--text-dark);
+  --color-brown-mid: var(--brown-mid);
   --color-deep-green: var(--deep-green);
+  --color-green-mid: var(--green-mid);
   
   --color-background: var(--background);
   --color-foreground: var(--foreground);
