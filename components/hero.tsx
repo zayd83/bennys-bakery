@@ -29,15 +29,15 @@ export function Hero() {
               className={`absolute ${isInView ? 'animate-fade-in-up' : 'opacity-0'}`}
               style={{ top: '8%', left: '50%', transform: 'translateX(-50%)' }}
             >
-              <div className="relative" style={{ width: '300px', height: '200px' }}>
+              <div className="relative" style={{ width: '380px', height: '240px' }}>
                 {/* Circle 1 — top-left */}
                 <div
                   className="absolute overflow-hidden rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.55)]"
                   style={{
                     top: 0,
                     left: 0,
-                    width: '160px',
-                    height: '160px',
+                    width: '148px',
+                    height: '148px',
                     animation: 'spinCircle 18s linear infinite',
                     border: '2px solid rgba(237,232,222,0.2)',
                   }}
@@ -45,21 +45,22 @@ export function Hero() {
                   <Image
                     src="/food-dish-6.jpg"
                     alt="Vers gebakken brood"
-                    width={160}
-                    height={160}
+                    width={148}
+                    height={148}
                     className="h-full w-full object-cover"
                     priority
                   />
                 </div>
 
-                {/* Circle 2 — center-bottom, overlaps */}
+                {/* Circle 2 — center-bottom, sits between 1 and 3 */}
                 <div
                   className="absolute overflow-hidden rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.55)]"
                   style={{
-                    top: '50px',
-                    left: '80px',
-                    width: '140px',
-                    height: '140px',
+                    top: '60px',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    width: '132px',
+                    height: '132px',
                     zIndex: 1,
                     animation: 'spinCircle 24s linear infinite reverse',
                     border: '2px solid rgba(237,232,222,0.2)',
@@ -68,8 +69,8 @@ export function Hero() {
                   <Image
                     src="/food-dish-8.jpg"
                     alt="Marokkaanse patisserie"
-                    width={140}
-                    height={140}
+                    width={132}
+                    height={132}
                     className="h-full w-full object-cover"
                     priority
                   />
@@ -81,8 +82,8 @@ export function Hero() {
                   style={{
                     top: 0,
                     right: 0,
-                    width: '155px',
-                    height: '155px',
+                    width: '148px',
+                    height: '148px',
                     animation: 'spinCircle 20s linear infinite',
                     border: '2px solid rgba(237,232,222,0.2)',
                   }}
@@ -90,8 +91,8 @@ export function Hero() {
                   <Image
                     src="/food-dish-4.jpg"
                     alt="Artisanaal gebak"
-                    width={155}
-                    height={155}
+                    width={148}
+                    height={148}
                     className="h-full w-full object-cover"
                     priority
                   />
@@ -127,7 +128,7 @@ export function Hero() {
           </div>
 
           {/* Bottom content */}
-          <div className="relative z-10 max-w-[420px]">
+          <div className="relative z-10 max-w-[420px] pl-16 lg:pl-20">
             <span
               className={`mb-4 inline-block font-sans text-[0.65rem] uppercase tracking-[0.2em] text-gold ${
                 isInView ? 'animate-fade-in-up animation-delay-300' : 'opacity-0'
