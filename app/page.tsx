@@ -1,7 +1,6 @@
 import { Navigation } from '@/components/navigation'
 import { Hero } from '@/components/hero'
 import { Marquee } from '@/components/marquee'
-import { FoodIntro } from '@/components/food-intro'
 import { WeekFeature } from '@/components/week-feature'
 import { PhotoGrid } from '@/components/photo-grid'
 import { CateringCTA } from '@/components/catering-cta'
@@ -15,7 +14,6 @@ export default function Home() {
       <Navigation />
       <Hero />
       <Marquee />
-      <FoodIntro />
       <WeekFeature />
       <div className="overflow-hidden">
         <PhotoGrid />

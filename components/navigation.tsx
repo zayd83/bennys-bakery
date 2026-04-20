@@ -9,7 +9,7 @@ const navLinks = [
   { href: '#home', label: 'Home' },
   { href: '#menu', label: 'Menu' },
   { href: '#aanraders', label: 'Aanraders' },
-  { href: '#over-ons', label: 'Over ons' },
+  { href: '/over-ons', label: 'Over ons' },
 ]
 
 export function Navigation() {
