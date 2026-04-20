@@ -29,15 +29,15 @@ export function Hero() {
               className={`absolute ${isInView ? 'animate-fade-in-up' : 'opacity-0'}`}
               style={{ top: '8%', left: '50%', transform: 'translateX(-50%)' }}
             >
-              <div className="relative" style={{ width: '380px', height: '240px' }}>
+              <div className="relative" style={{ width: '420px', height: '240px' }}>
                 {/* Circle 1 — top-left */}
                 <div
                   className="absolute overflow-hidden rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.55)]"
                   style={{
                     top: 0,
                     left: 0,
-                    width: '148px',
-                    height: '148px',
+                    width: '150px',
+                    height: '150px',
                     animation: 'spinCircle 18s linear infinite',
                     border: '2px solid rgba(237,232,222,0.2)',
                   }}
@@ -45,22 +45,21 @@ export function Hero() {
                   <Image
                     src="/food-dish-6.jpg"
                     alt="Vers gebakken brood"
-                    width={148}
-                    height={148}
+                    width={150}
+                    height={150}
                     className="h-full w-full object-cover"
                     priority
                   />
                 </div>
 
-                {/* Circle 2 — center-bottom, sits between 1 and 3 */}
+                {/* Circle 2 — center, slightly lower */}
                 <div
                   className="absolute overflow-hidden rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.55)]"
                   style={{
-                    top: '60px',
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                    width: '132px',
-                    height: '132px',
+                    top: '55px',
+                    left: '140px',
+                    width: '135px',
+                    height: '135px',
                     zIndex: 1,
                     animation: 'spinCircle 24s linear infinite reverse',
                     border: '2px solid rgba(237,232,222,0.2)',
@@ -69,8 +68,8 @@ export function Hero() {
                   <Image
                     src="/food-dish-8.jpg"
                     alt="Marokkaanse patisserie"
-                    width={132}
-                    height={132}
+                    width={135}
+                    height={135}
                     className="h-full w-full object-cover"
                     priority
                   />
@@ -81,9 +80,9 @@ export function Hero() {
                   className="absolute overflow-hidden rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.55)]"
                   style={{
                     top: 0,
-                    right: 0,
-                    width: '148px',
-                    height: '148px',
+                    left: '270px',
+                    width: '145px',
+                    height: '145px',
                     animation: 'spinCircle 20s linear infinite',
                     border: '2px solid rgba(237,232,222,0.2)',
                   }}
@@ -91,8 +90,8 @@ export function Hero() {
                   <Image
                     src="/food-dish-4.jpg"
                     alt="Artisanaal gebak"
-                    width={148}
-                    height={148}
+                    width={145}
+                    height={145}
                     className="h-full w-full object-cover"
                     priority
                   />
@@ -128,7 +127,7 @@ export function Hero() {
           </div>
 
           {/* Bottom content */}
-          <div className="relative z-10 max-w-[420px] pl-16 lg:pl-20">
+          <div className="relative z-10 max-w-[440px] pl-24 lg:pl-32">
             <span
               className={`mb-4 inline-block font-sans text-[0.65rem] uppercase tracking-[0.2em] text-gold ${
                 isInView ? 'animate-fade-in-up animation-delay-300' : 'opacity-0'
@@ -151,7 +150,7 @@ export function Hero() {
               Vers gebakken, met liefde bereid — elke dag opnieuw.
             </p>
             <div
-              className={`mt-8 flex flex-wrap gap-4 ${
+              className={`mt-8 flex flex-row gap-4 ${
                 isInView ? 'animate-fade-in-up animation-delay-500' : 'opacity-0'
               }`}
             >
