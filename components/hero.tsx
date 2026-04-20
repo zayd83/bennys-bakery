@@ -13,7 +13,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative h-screen min-h-[700px] overflow-hidden"
+      className="relative z-10 h-screen overflow-hidden"
     >
       <div className="flex h-full flex-col md:flex-row">
 

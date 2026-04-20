@@ -12,7 +12,7 @@ export function FoodIntro() {
   const rightPhotoRef = useParallaxContainer(0.12, 'up')
 
   return (
-    <section id="menu" className="bg-cream py-32 lg:py-40" ref={ref}>
+    <section id="menu" className="relative z-[1] overflow-hidden bg-cream py-32 lg:py-40" ref={ref}>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
           {/* Left - Images with differential parallax */}
