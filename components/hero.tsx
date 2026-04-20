@@ -20,7 +20,6 @@ export function Hero() {
         {/* ── Left Half ── */}
         <div
           className="relative flex h-[60vh] w-full flex-col justify-end bg-dark pt-8 pr-8 pb-8 md:h-full md:w-1/2 md:pt-12 md:pr-12 md:pb-12"
-          style={{ paddingLeft: 'clamp(2rem, 8vw, 6rem)' }}
           ref={ref}
         >
           {/* Desktop Circles — tight cluster, centered in left half */}
@@ -127,7 +126,7 @@ export function Hero() {
           </div>
 
           {/* Bottom content */}
-          <div className="relative z-10 max-w-[440px] pl-24 lg:pl-32">
+          <div className="relative z-10 max-w-[440px]" style={{ marginLeft: 'calc(50% - 210px)' }}>
             <span
               className={`mb-4 inline-block font-sans text-[0.65rem] uppercase tracking-[0.2em] text-gold ${
                 isInView ? 'animate-fade-in-up animation-delay-300' : 'opacity-0'
@@ -164,7 +163,7 @@ export function Hero() {
               </Link>
               <Link
                 href="#menu"
-                className="flex items-center gap-3 rounded-sm px-7 py-3.5 font-sans text-sm font-medium tracking-wide text-[#EDE8DE] transition-all"
+                className="flex items-center gap-3 rounded-sm px-7 py-3.5 font-sans text-sm font-medium tracking-wide text-[#EDE8DE] transition-all whitespace-nowrap"
                 style={{ border: '1px solid rgba(237,232,222,0.45)' }}
                 onMouseEnter={(e) => {
                   ;(e.currentTarget as HTMLAnchorElement).style.borderColor =

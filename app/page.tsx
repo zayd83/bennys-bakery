@@ -11,7 +11,7 @@ import { Location } from '@/components/location'
 import { Footer } from '@/components/footer'
 export default function Home() {
   return (
-    <main>
+    <main className="overflow-hidden">
       <Navigation />
       <Hero />
       <Marquee />
