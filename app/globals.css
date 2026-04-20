@@ -139,3 +139,36 @@
 .animation-delay-500 {
   animation-delay: 0.5s;
 }
+
+/* Scroll progress bar */
+@keyframes scaleProgress {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* Timeline dot pulse */
+@keyframes dotPulse {
+  0%   { box-shadow: 0 0 0 0 rgba(212,168,83,0.5); }
+  70%  { box-shadow: 0 0 0 12px rgba(212,168,83,0); }
+  100% { box-shadow: 0 0 0 0 rgba(212,168,83,0); }
+}
+
+.dot-active {
+  animation: dotPulse 0.8s ease-out;
+}
+
+/* Timeline milestone slide-in */
+.milestone {
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+@media (min-width: 1024px) {
+  .milestone.from-left  { transform: translateX(-60px); }
+  .milestone.from-right { transform: translateX(60px); }
+}
+
+.milestone.visible {
+  opacity: 1;
+  transform: translateX(0);
+}

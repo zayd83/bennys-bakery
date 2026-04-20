@@ -1,10 +1,13 @@
 'use client'
 
+import Image from 'next/image'
 import Link from 'next/link'
+import { useEffect } from 'react'
 import { Navigation } from '@/components/navigation'
 import { Footer } from '@/components/footer'
 import { Timeline } from '@/components/about/timeline'
 import { useFadeIn } from '@/hooks/use-fade-in'
+import { useParallaxContainer } from '@/hooks/use-scroll-animation'
 
 const highlights = [
   {
@@ -30,9 +33,21 @@ const highlights = [
 ]
 
 const teamMembers = [
-  { name: 'Benny', role: 'Oprichter & Bakker' },
-  { name: 'Het Team', role: 'Keuken & Service' },
-  { name: 'Catering', role: 'Events & Bezorging' },
+  {
+    name: 'Benny',
+    role: 'Oprichter & Bakker',
+    imageUrl: 'https://images.unsplash.com/photo-1583394293214-0a562ed5e571?w=400&q=80',
+  },
+  {
+    name: 'Het Team',
+    role: 'Keuken & Service',
+    imageUrl: 'https://images.unsplash.com/photo-1551218808-94e220e084d2?w=400&q=80',
+  },
+  {
+    name: 'Catering',
+    role: 'Events & Bezorging',
+    imageUrl: 'https://images.unsplash.com/photo-1607631568010-a87245c0daf8?w=400&q=80',
+  },
 ]
 
 export default function OverOnsPage() {
@@ -40,16 +55,69 @@ export default function OverOnsPage() {
   const { ref: highlightsRef, visible: highlightsVisible } = useFadeIn(0.1)
   const { ref: teamRef, visible: teamVisible } = useFadeIn(0.1)
   const { ref: ctaRef, visible: ctaVisible } = useFadeIn(0.1)
+  const heroBgRef = useParallaxContainer(0.3, 'down')
+
+  // Scroll progress bar — JS fallback for browsers without animation-timeline
+  useEffect(() => {
+    const bar = document.getElementById('progress-bar')
+    if (!bar) return
+    // Only use JS fallback if CSS scroll-driven animation isn't supported
+    if (CSS.supports('animation-timeline', 'scroll()')) return
+    const onScroll = () => {
+      const scrolled = window.scrollY
+      const total = document.body.scrollHeight - window.innerHeight
+      const progress = total > 0 ? scrolled / total : 0
+      bar.style.transform = `scaleX(${progress})`
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
     <main className="overflow-hidden">
+      {/* Fixed scroll progress bar */}
+      <div
+        id="progress-bar"
+        style={{
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          height: '3px',
+          background: '#D4A853',
+          zIndex: 9999,
+          transformOrigin: 'left',
+          transform: 'scaleX(0)',
+          animation: 'scaleProgress linear',
+          animationTimeline: 'scroll(root)',
+        } as React.CSSProperties}
+      />
+
       <Navigation />
 
       {/* ── Section 1: Hero ── */}
-      <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-[#1a1208] px-6 pb-24 pt-40 text-center">
+      <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-6 pb-24 pt-40 text-center">
+        {/* Parallax background image */}
+        <div
+          ref={heroBgRef as React.RefObject<HTMLDivElement>}
+          className="absolute inset-0"
+          style={{ top: '-20%', bottom: '-20%' }}
+        >
+          <Image
+            src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=1600&q=80"
+            fill
+            className="object-cover"
+            alt="Bakkerij achtergrond"
+            unoptimized
+            priority
+          />
+          <div className="absolute inset-0 bg-dark/80" />
+        </div>
+
+        {/* Hero content */}
         <div
           ref={heroRef as React.RefObject<HTMLDivElement>}
-          className={`flex flex-col items-center transition-all duration-1000 ease-out ${
+          className={`relative z-10 flex flex-col items-center transition-all duration-1000 ease-out ${
             heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
@@ -65,18 +133,19 @@ export default function OverOnsPage() {
           </p>
           <div className="mx-auto mt-8 h-px w-[60px] bg-gold" />
 
-          {/* Large image placeholder */}
+          {/* Large showcase image */}
           <div
-            className="mt-12 flex items-center justify-center rounded-lg border border-[rgba(212,168,83,0.15)]"
-            style={{
-              width: 'min(75vw, 900px)',
-              height: '500px',
-              background: '#2A1F14',
-            }}
+            className="relative mt-12 overflow-hidden rounded-lg"
+            style={{ width: 'min(75vw, 900px)', height: '500px' }}
           >
-            <span className="font-sans text-sm text-gold opacity-30">
-              [ Foto Benny&apos;s Bakery ]
-            </span>
+            <Image
+              src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1200&q=80"
+              fill
+              className="object-cover"
+              alt="Benny's Bakery interieur"
+              unoptimized
+              priority
+            />
           </div>
         </div>
       </section>
@@ -103,9 +172,9 @@ export default function OverOnsPage() {
                 key={i}
                 className="transition-all duration-700 ease-out"
                 style={{
-                  transitionDelay: `${i * 100}ms`,
+                  transitionDelay: `${i * 150}ms`,
                   opacity: highlightsVisible ? 1 : 0,
-                  transform: highlightsVisible ? 'translateY(0)' : 'translateY(24px)',
+                  transform: highlightsVisible ? 'translateY(0)' : 'translateY(30px)',
                 }}
               >
                 <span className="mb-4 block font-serif text-4xl text-gold">{h.icon}</span>
@@ -152,10 +221,16 @@ export default function OverOnsPage() {
                 }}
               >
                 <div
-                  className="mb-6 flex w-full max-w-[280px] items-center justify-center rounded-lg bg-warm-mid"
+                  className="relative mb-6 w-full max-w-[280px] overflow-hidden rounded-lg"
                   style={{ aspectRatio: '1 / 1' }}
                 >
-                  <span className="font-sans text-sm text-gold opacity-40">[ Foto ]</span>
+                  <Image
+                    src={member.imageUrl}
+                    fill
+                    className="object-cover object-top"
+                    alt={member.name}
+                    unoptimized
+                  />
                 </div>
                 <h3 className="font-serif text-[1.2rem] text-text-light">{member.name}</h3>
                 <span className="mt-1 font-sans text-[0.75rem] uppercase tracking-[0.15em] text-gold">
@@ -172,10 +247,16 @@ export default function OverOnsPage() {
         className="relative flex min-h-[600px] items-center justify-center overflow-hidden"
         ref={ctaRef as React.RefObject<HTMLDivElement>}
       >
-        <div className="absolute inset-0 bg-warm-mid" />
-        <div className="absolute inset-0 bg-dark/50" />
+        <Image
+          src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=1600&q=80"
+          fill
+          className="object-cover"
+          alt="Bakkerij sfeer"
+          unoptimized
+        />
+        <div className="absolute inset-0 bg-dark/75" />
         <div
-          className={`relative flex flex-col items-center px-6 py-24 text-center transition-all duration-700 ease-out ${
+          className={`relative z-10 flex flex-col items-center px-6 py-24 text-center transition-all duration-700 ease-out ${
             ctaVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
           }`}
         >
