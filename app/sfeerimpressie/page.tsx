@@ -28,8 +28,8 @@ export default function SfeerimpressiePage() {
   const [zoomedSrc, setZoomedSrc] = useState('')
   const [isZoomed, setIsZoomed] = useState(false)
 
-  const topRowRef = useParallaxContainer(0.18, 'right')
-  const bottomRowRef = useParallaxContainer(0.18, 'left')
+  const topRowRef = useParallaxContainer(0.35, 'right')
+  const bottomRowRef = useParallaxContainer(0.35, 'left')
 
   function openZoom(src: string) {
     setZoomedSrc(src)

@@ -12,7 +12,7 @@ export function FoodIntro() {
   const rightPhotoRef = useParallaxContainer(0.06, 'up')
 
   return (
-    <section id="menu" className="relative z-[1] overflow-hidden bg-cream py-32 lg:py-40" ref={ref}>
+    <section id="menu" className="relative z-[1] overflow-hidden bg-cream py-32 lg:py-56" ref={ref}>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
           {/* Left - Images with differential parallax */}
@@ -23,7 +23,7 @@ export function FoodIntro() {
               className="relative w-[55%] mt-0"
               style={{ willChange: 'transform' }}
             >
-              <div className="relative aspect-[3/4] overflow-hidden rounded-sm">
+              <div className="relative aspect-[2/3] overflow-hidden rounded-sm" style={{ minHeight: '500px' }}>
                 <Image
                   src="/food-dish-3.jpg"
                   fill
@@ -39,7 +39,7 @@ export function FoodIntro() {
               className="relative w-[45%] mt-16"
               style={{ willChange: 'transform' }}
             >
-              <div className="relative aspect-[3/4] overflow-hidden rounded-sm">
+              <div className="relative aspect-[2/3] overflow-hidden rounded-sm" style={{ minHeight: '500px' }}>
                 <Image
                   src="/bakery-sfeer-1.jpg"
                   fill
