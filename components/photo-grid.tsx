@@ -25,8 +25,8 @@ const mobilePhotos = [
 ]
 
 export function PhotoGrid() {
-  const topRowRef = useParallaxContainer(0.12, 'right')
-  const bottomRowRef = useParallaxContainer(0.12, 'left')
+  const topRowRef = useParallaxContainer(0.06, 'right')
+  const bottomRowRef = useParallaxContainer(0.06, 'left')
 
   return (
     <section className="bg-[#F0E9DE] py-32 overflow-hidden">

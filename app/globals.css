@@ -122,7 +122,7 @@
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(16px);
   }
   to {
     opacity: 1;
@@ -131,15 +131,24 @@
 }
 
 .animate-fade-in-up {
-  animation: fadeInUp 0.8s ease-out forwards;
+  animation: fadeInUp 0.4s ease-out forwards;
   opacity: 0;
 }
 
+.animation-delay-75 {
+  animation-delay: 0.075s;
+}
 .animation-delay-100 {
   animation-delay: 0.1s;
 }
+.animation-delay-150 {
+  animation-delay: 0.15s;
+}
 .animation-delay-200 {
   animation-delay: 0.2s;
+}
+.animation-delay-225 {
+  animation-delay: 0.225s;
 }
 .animation-delay-300 {
   animation-delay: 0.3s;
@@ -149,6 +158,17 @@
 }
 .animation-delay-500 {
   animation-delay: 0.5s;
+}
+
+/* Scroll-triggered fade-in */
+.fade-in {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Scroll progress bar */
@@ -171,12 +191,12 @@
 /* Timeline milestone slide-in */
 .milestone {
   opacity: 0;
-  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 @media (min-width: 1024px) {
-  .milestone.from-left  { transform: translateX(-60px); }
-  .milestone.from-right { transform: translateX(60px); }
+  .milestone.from-left  { transform: translateX(-24px); }
+  .milestone.from-right { transform: translateX(24px); }
 }
 
 .milestone.visible {

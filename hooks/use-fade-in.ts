@@ -1,7 +1,7 @@
 'use client'
 import { useEffect, useRef, useState } from 'react'
 
-export function useFadeIn(threshold = 0.15) {
+export function useFadeIn(threshold = 0.05) {
   const ref = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(false)
 
@@ -15,7 +15,7 @@ export function useFadeIn(threshold = 0.15) {
           obs.disconnect()
         }
       },
-      { threshold }
+      { threshold, rootMargin: '0px 0px 20px 0px' }
     )
     obs.observe(el)
     return () => obs.disconnect()

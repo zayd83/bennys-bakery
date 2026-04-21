@@ -16,7 +16,7 @@ export function WeekFeature() {
           {/* Left - Content */}
           <div className="flex flex-col justify-center lg:order-1">
             <span
-              className={`mb-5 font-sans text-[0.65rem] uppercase tracking-[0.2em] text-gold transition-all duration-700 ease-out ${
+              className={`mb-5 font-sans text-[0.65rem] uppercase tracking-[0.2em] text-gold transition-all duration-400 ease-out ${
                 visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
               }`}
               style={{ transitionDelay: '0ms' }}
@@ -24,7 +24,7 @@ export function WeekFeature() {
               WEKELIJKSE AANRADER
             </span>
             <h2
-              className={`mb-8 font-serif text-[clamp(3rem,5vw,5rem)] italic leading-[1.05] text-cream transition-all duration-700 ease-out ${
+              className={`mb-8 font-serif text-[clamp(3rem,5vw,5rem)] italic leading-[1.05] text-cream transition-all duration-400 ease-out ${
                 visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
               }`}
               style={{ transitionDelay: '100ms' }}
@@ -32,7 +32,7 @@ export function WeekFeature() {
               Msemmen met kip — een klassieker met een twist
             </h2>
             <p
-              className={`mb-10 font-sans text-base font-light leading-[1.9] text-cream/80 transition-all duration-700 ease-out ${
+              className={`mb-10 font-sans text-base font-light leading-[1.9] text-cream/80 transition-all duration-400 ease-out ${
                 visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
               }`}
               style={{ transitionDelay: '200ms' }}
@@ -43,7 +43,7 @@ export function WeekFeature() {
             </p>
             <Link
               href="/menu"
-              className={`inline-flex w-fit items-center rounded-sm border border-cream px-6 py-3 font-sans text-cream transition-all duration-700 ease-out hover:bg-cream/10 ${
+              className={`inline-flex w-fit items-center rounded-sm border border-cream px-6 py-3 font-sans text-cream transition-all duration-400 ease-out hover:bg-cream/10 ${
                 visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
               }`}
               style={{ transitionDelay: '300ms' }}
@@ -54,7 +54,7 @@ export function WeekFeature() {
 
           {/* Right - Image */}
           <div
-            className={`relative aspect-[3/4] w-full overflow-hidden rounded-lg lg:order-2 transition-all duration-700 ease-out ${
+            className={`relative aspect-[3/4] w-full overflow-hidden rounded-lg lg:order-2 transition-all duration-400 ease-out ${
               visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
             }`}
             style={{ transitionDelay: '150ms' }}

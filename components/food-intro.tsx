@@ -8,8 +8,8 @@ import { useParallaxContainer } from '@/hooks/use-scroll-animation'
 
 export function FoodIntro() {
   const { ref, isInView } = useInView()
-  const leftPhotoRef = useParallaxContainer(0.25, 'up')
-  const rightPhotoRef = useParallaxContainer(0.12, 'up')
+  const leftPhotoRef = useParallaxContainer(0.12, 'up')
+  const rightPhotoRef = useParallaxContainer(0.06, 'up')
 
   return (
     <section id="menu" className="relative z-[1] overflow-hidden bg-cream py-32 lg:py-40" ref={ref}>
@@ -68,7 +68,7 @@ export function FoodIntro() {
             </h2>
             <p
               className={`mb-10 font-sans text-base font-light leading-[1.9] text-text-dark/70 ${
-                isInView ? 'animate-fade-in-up animation-delay-300' : 'opacity-0'
+                isInView ? 'animate-fade-in-up animation-delay-150' : 'opacity-0'
               }`}
             >
               Al-Maclaa: waar culinaire revolutie en Marokkaanse klassiekers bij

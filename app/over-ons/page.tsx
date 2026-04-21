@@ -96,8 +96,8 @@ export default function OverOnsPage() {
       <section className="bg-[#F0E9DE] px-6 pb-20 pt-40 text-center">
         <div
           ref={heroRef as React.RefObject<HTMLDivElement>}
-          className={`mx-auto flex max-w-3xl flex-col items-center transition-all duration-1000 ease-out ${
-            heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          className={`mx-auto flex max-w-3xl flex-col items-center transition-all duration-500 ease-out ${
+            heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}
         >
           <span className="mb-6 font-sans text-[0.65rem] uppercase tracking-[0.2em] text-[#C4622D]">
@@ -139,7 +139,7 @@ export default function OverOnsPage() {
       >
         <div className="mx-auto max-w-6xl px-8">
           <h2
-            className={`mb-16 text-center font-serif text-[3rem] italic text-[#FAF7F2] transition-all duration-700 ease-out ${
+            className={`mb-16 text-center font-serif text-[3rem] italic text-[#FAF7F2] transition-all duration-400 ease-out ${
               highlightsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
@@ -149,11 +149,11 @@ export default function OverOnsPage() {
             {highlights.map((h, i) => (
               <div
                 key={i}
-                className="transition-all duration-700 ease-out"
+                className="transition-all duration-400 ease-out"
                 style={{
-                  transitionDelay: `${i * 150}ms`,
+                  transitionDelay: `${i * 75}ms`,
                   opacity: highlightsVisible ? 1 : 0,
-                  transform: highlightsVisible ? 'translateY(0)' : 'translateY(30px)',
+                  transform: highlightsVisible ? 'translateY(0)' : 'translateY(16px)',
                 }}
               >
                 <span className="mb-4 block font-serif text-4xl text-[#D4A853]">{h.icon}</span>
@@ -174,14 +174,14 @@ export default function OverOnsPage() {
       >
         <div className="mx-auto max-w-6xl px-8 text-center">
           <span
-            className={`mb-4 inline-block font-sans text-[0.65rem] uppercase tracking-[0.2em] text-[#C4622D] transition-all duration-700 ease-out ${
+            className={`mb-4 inline-block font-sans text-[0.65rem] uppercase tracking-[0.2em] text-[#C4622D] transition-all duration-400 ease-out ${
               teamVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
             HET TEAM
           </span>
           <h2
-            className={`mb-16 font-serif text-[3rem] italic text-[#2C1F14] transition-all duration-700 ease-out ${
+            className={`mb-16 font-serif text-[3rem] italic text-[#2C1F14] transition-all duration-400 ease-out ${
               teamVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
             style={{ transitionDelay: '100ms' }}
@@ -192,9 +192,9 @@ export default function OverOnsPage() {
             {teamMembers.map((member, i) => (
               <div
                 key={i}
-                className="flex flex-col items-center transition-all duration-700 ease-out"
+                className="flex flex-col items-center transition-all duration-400 ease-out"
                 style={{
-                  transitionDelay: `${i * 150}ms`,
+                  transitionDelay: `${i * 75}ms`,
                   opacity: teamVisible ? 1 : 0,
                   transform: teamVisible ? 'translateY(0)' : 'translateY(24px)',
                 }}
@@ -235,7 +235,7 @@ export default function OverOnsPage() {
         />
         <div className="absolute inset-0 bg-dark/75" />
         <div
-          className={`relative z-10 flex flex-col items-center px-6 py-24 text-center transition-all duration-700 ease-out ${
+          className={`relative z-10 flex flex-col items-center px-6 py-24 text-center transition-all duration-400 ease-out ${
             ctaVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
           }`}
         >

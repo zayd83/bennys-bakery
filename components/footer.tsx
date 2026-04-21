@@ -36,7 +36,7 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Column 1: Logo & Social */}
           <div
-            className={`transition-all duration-700 ease-out ${
+            className={`transition-all duration-400 ease-out ${
               visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}
             style={{ transitionDelay: '0ms' }}
@@ -80,10 +80,10 @@ export function Footer() {
 
           {/* Column 2: Navigation */}
           <div
-            className={`transition-all duration-700 ease-out ${
+            className={`transition-all duration-400 ease-out ${
               visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}
-            style={{ transitionDelay: '100ms' }}
+            style={{ transitionDelay: '50ms' }}
           >
             <h3 className="mb-4 font-sans text-sm font-medium text-cream">
               Navigatie
@@ -109,10 +109,10 @@ export function Footer() {
 
           {/* Column 3: Opening Hours */}
           <div
-            className={`transition-all duration-700 ease-out ${
+            className={`transition-all duration-400 ease-out ${
               visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}
-            style={{ transitionDelay: '200ms' }}
+            style={{ transitionDelay: '100ms' }}
           >
             <h3 className="mb-4 font-sans text-sm font-medium text-cream">
               Openingstijden
@@ -126,10 +126,10 @@ export function Footer() {
 
           {/* Column 4: Newsletter */}
           <div
-            className={`transition-all duration-700 ease-out ${
+            className={`transition-all duration-400 ease-out ${
               visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
             }`}
-            style={{ transitionDelay: '300ms' }}
+            style={{ transitionDelay: '150ms' }}
           >
             <span className="mb-4 inline-block font-sans text-[0.65rem] uppercase tracking-[0.2em] text-gold">
               BLIJF OP DE HOOGTE

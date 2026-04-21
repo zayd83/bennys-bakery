@@ -13,7 +13,7 @@ export function Location() {
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left - Text Content */}
           <div
-            className={`transition-all duration-700 ease-out ${
+            className={`transition-all duration-400 ease-out ${
               visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
             }`}
           >
@@ -69,7 +69,7 @@ export function Location() {
 
           {/* Right - Map */}
           <div
-            className={`overflow-hidden rounded-lg transition-all duration-700 ease-out ${
+            className={`overflow-hidden rounded-lg transition-all duration-400 ease-out ${
               visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
             }`}
             style={{ transitionDelay: '150ms' }}

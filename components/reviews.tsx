@@ -31,7 +31,7 @@ export function Reviews() {
     <section className="bg-[#E8DDD0] py-32" ref={ref}>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div
-          className={`mb-16 text-center transition-all duration-700 ease-out ${
+          className={`mb-16 text-center transition-all duration-400 ease-out ${
             visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
@@ -47,10 +47,10 @@ export function Reviews() {
           {reviews.map((review, index) => (
             <div
               key={index}
-              className={`rounded-lg border border-[rgba(212,168,83,0.2)] bg-white/60 p-10 transition-all duration-700 ease-out ${
+              className={`rounded-lg border border-[rgba(212,168,83,0.2)] bg-white/60 p-10 transition-all duration-400 ease-out ${
                 visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
-              style={{ transitionDelay: `${index * 150}ms` }}
+              style={{ transitionDelay: `${index * 75}ms` }}
             >
               <div className="mb-4 flex gap-1">
                 {[...Array(5)].map((_, i) => (

@@ -129,7 +129,7 @@ export function Hero() {
           <div className="relative z-10 max-w-[440px]" style={{ marginLeft: 'calc(50% - 210px)' }}>
             <span
               className={`mb-4 inline-block font-sans text-[0.65rem] uppercase tracking-[0.2em] text-[#C4622D] ${
-                isInView ? 'animate-fade-in-up animation-delay-300' : 'opacity-0'
+                isInView ? 'animate-fade-in-up animation-delay-150' : 'opacity-0'
               }`}
             >
               DORDRECHT — BAKKERIJ
@@ -150,7 +150,7 @@ export function Hero() {
             </p>
             <div
               className={`mt-8 flex flex-row gap-4 ${
-                isInView ? 'animate-fade-in-up animation-delay-500' : 'opacity-0'
+                isInView ? 'animate-fade-in-up animation-delay-225' : 'opacity-0'
               }`}
             >
               <Link

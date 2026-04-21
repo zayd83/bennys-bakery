@@ -30,7 +30,7 @@ export function CateringCTA() {
 
       {/* Content — scale zoom-in entrance */}
       <div
-        className={`relative flex min-h-[600px] flex-col items-center justify-center px-6 py-24 text-center transition-all duration-700 ease-out ${
+        className={`relative flex min-h-[600px] flex-col items-center justify-center px-6 py-24 text-center transition-all duration-400 ease-out ${
           visible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
         }`}
       >
