@@ -1,18 +1,24 @@
 'use client'
 
+import { useEffect, useRef } from 'react'
 import Image from 'next/image'
-import { useParallaxContainer } from '@/hooks/use-scroll-animation'
 
 const topPhotos = [
   '/food-dish-3.jpg',
   '/food-dish-5.jpg',
   '/bakery-sfeer-1.jpg',
+  '/food-dish-4.jpg',
+  '/food-dish-6.jpg',
+  '/food-dish-7.jpg',
 ]
 
 const bottomPhotos = [
-  '/food-dish-7.jpg',
-  '/bakery-sfeer-2.jpg',
+  '/food-dish-8.jpg',
   '/food-dish-9.jpg',
+  '/bakery-sfeer-2.jpg',
+  '/food-dish-1.jpg',
+  '/food-dish-2.jpg',
+  '/herosection.jpg',
 ]
 
 const mobilePhotos = [
@@ -25,32 +31,39 @@ const mobilePhotos = [
 ]
 
 export function PhotoGrid() {
-  const topRowRef = useParallaxContainer(0.06, 'right')
-  const bottomRowRef = useParallaxContainer(0.06, 'left')
+  const topRef = useRef<HTMLDivElement>(null)
+  const bottomRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const onScroll = () => {
+      if (topRef.current)
+        topRef.current.style.transform = `translateX(${window.scrollY * 0.3}px)`
+      if (bottomRef.current)
+        bottomRef.current.style.transform = `translateX(${window.scrollY * -0.3}px)`
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
-    <section className="bg-[#F0E9DE] py-32 overflow-hidden">
+    <section className="bg-[#F0E9DE] py-32">
       <p className="text-[#D4A853] text-[0.65rem] uppercase tracking-[0.2em] text-center mb-16">
         SFEERIMPRESSIE
       </p>
 
-      {/* Desktop: two horizontal parallax rows */}
-      <div className="hidden md:block">
-        {/* TOP ROW — scrolls RIGHT */}
-        <div className="mb-4 overflow-visible">
+      {/* Desktop: two horizontal scroll rows */}
+      <div className="hidden md:block overflow-hidden">
+        {/* TOP ROW — scrolls right */}
+        <div className="mb-4">
           <div
-            ref={topRowRef}
-            className="flex gap-4 w-max"
-            style={{ willChange: 'transform' }}
+            ref={topRef}
+            style={{ marginLeft: '-40vw', display: 'flex', gap: '1rem', width: '200vw' }}
           >
             {topPhotos.map((src, i) => (
               <div
                 key={i}
-                className="relative flex-shrink-0 overflow-hidden rounded-lg"
-                style={{
-                  width: i % 2 === 0 ? '380px' : '300px',
-                  height: i % 2 === 0 ? '480px' : '380px',
-                }}
+                style={{ position: 'relative', width: '380px', height: '460px', flexShrink: 0, overflow: 'hidden', borderRadius: '0.5rem' }}
               >
                 <Image
                   src={src}
@@ -63,21 +76,16 @@ export function PhotoGrid() {
           </div>
         </div>
 
-        {/* BOTTOM ROW — scrolls LEFT */}
-        <div className="overflow-visible">
+        {/* BOTTOM ROW — scrolls left */}
+        <div>
           <div
-            ref={bottomRowRef}
-            className="flex gap-4 w-max ml-auto"
-            style={{ willChange: 'transform' }}
+            ref={bottomRef}
+            style={{ marginLeft: '-10vw', display: 'flex', gap: '1rem', width: '200vw' }}
           >
             {bottomPhotos.map((src, i) => (
               <div
                 key={i}
-                className="relative flex-shrink-0 overflow-hidden rounded-lg"
-                style={{
-                  width: i % 2 === 0 ? '320px' : '400px',
-                  height: i % 2 === 0 ? '400px' : '460px',
-                }}
+                style={{ position: 'relative', width: '380px', height: '460px', flexShrink: 0, overflow: 'hidden', borderRadius: '0.5rem' }}
               >
                 <Image
                   src={src}
