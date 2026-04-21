@@ -7,29 +7,25 @@ import { Footer } from '@/components/footer'
 import { useParallaxContainer } from '@/hooks/use-scroll-animation'
 
 const topRowPhotos = [
-  '/food-dish-3.jpg',
-  '/food-dish-5.jpg',
-  '/bakery-sfeer-1.jpg',
-  '/food-dish-4.jpg',
-  '/food-dish-6.jpg',
-  '/food-dish-7.jpg',
+  '/food-dish-3.jpg', '/food-dish-5.jpg',
+  '/bakery-sfeer-1.jpg', '/food-dish-4.jpg',
+  '/food-dish-6.jpg', '/food-dish-7.jpg',
+  '/food-dish-3.jpg', '/food-dish-5.jpg',
 ]
 
 const bottomRowPhotos = [
-  '/food-dish-8.jpg',
-  '/food-dish-9.jpg',
-  '/bakery-sfeer-2.jpg',
-  '/food-dish-1.jpg',
-  '/food-dish-2.jpg',
-  '/herosection.jpg',
+  '/food-dish-8.jpg', '/food-dish-9.jpg',
+  '/bakery-sfeer-2.jpg', '/food-dish-1.jpg',
+  '/food-dish-2.jpg', '/herosection.jpg',
+  '/food-dish-8.jpg', '/food-dish-9.jpg',
 ]
 
 export default function SfeerimpressiePage() {
   const [zoomedSrc, setZoomedSrc] = useState('')
   const [isZoomed, setIsZoomed] = useState(false)
 
-  const topRowRef = useParallaxContainer(0.55, 'right')
-  const bottomRowRef = useParallaxContainer(0.55, 'left')
+  const topRowRef = useParallaxContainer(0.7, 'right')
+  const bottomRowRef = useParallaxContainer(0.7, 'left')
 
   function openZoom(src: string) {
     setZoomedSrc(src)
@@ -92,16 +88,13 @@ export default function SfeerimpressiePage() {
               <div
                 ref={topRowRef}
                 className="flex gap-4 w-max"
-                style={{ willChange: 'transform', paddingLeft: '2rem', marginLeft: '-200px' }}
+                style={{ willChange: 'transform', paddingLeft: '2rem', marginLeft: '-600px' }}
               >
                 {topRowPhotos.map((src, i) => (
                   <div
                     key={i}
                     className="relative flex-shrink-0 overflow-hidden rounded-lg group cursor-pointer"
-                    style={{
-                      width: i % 3 === 0 ? '420px' : i % 3 === 1 ? '320px' : '380px',
-                      height: i % 3 === 0 ? '520px' : i % 3 === 1 ? '420px' : '480px',
-                    }}
+                    style={{ width: '380px', height: '460px' }}
                     onClick={() => openZoom(src)}
                   >
                     <Image
@@ -121,16 +114,13 @@ export default function SfeerimpressiePage() {
               <div
                 ref={bottomRowRef}
                 className="flex gap-4 w-max ml-auto"
-                style={{ willChange: 'transform', paddingRight: '2rem', marginRight: '-200px' }}
+                style={{ willChange: 'transform', paddingRight: '2rem', marginRight: '-600px' }}
               >
                 {bottomRowPhotos.map((src, i) => (
                   <div
                     key={i}
                     className="relative flex-shrink-0 overflow-hidden rounded-lg group cursor-pointer"
-                    style={{
-                      width: i % 3 === 0 ? '350px' : i % 3 === 1 ? '450px' : '390px',
-                      height: i % 3 === 0 ? '440px' : i % 3 === 1 ? '540px' : '480px',
-                    }}
+                    style={{ width: '380px', height: '460px' }}
                     onClick={() => openZoom(src)}
                   >
                     <Image

@@ -16,14 +16,14 @@ export function FoodIntro() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid gap-12 grid-cols-1 lg:grid-cols-2 lg:gap-20">
           {/* Left - Images with differential parallax */}
-          <div className="relative flex items-start gap-4">
+          <div className="relative flex items-start gap-8">
             {/* Left photo — moves faster */}
             <div
               ref={leftPhotoRef}
-              className="relative w-[55%] mt-0"
+              className="relative w-[52%] mt-0"
               style={{ willChange: 'transform' }}
             >
-              <div className="relative aspect-[2/3] overflow-hidden rounded-sm" style={{ minHeight: '500px' }}>
+              <div className="relative aspect-[3/4] overflow-hidden rounded-sm" style={{ minHeight: '500px' }}>
                 <Image
                   src="/food-dish-3.jpg"
                   fill
@@ -36,10 +36,10 @@ export function FoodIntro() {
             {/* Right photo — moves slower */}
             <div
               ref={rightPhotoRef}
-              className="relative w-[45%] mt-0"
+              className="relative w-[44%] mt-20"
               style={{ willChange: 'transform' }}
             >
-              <div className="relative aspect-[2/3] overflow-hidden rounded-sm" style={{ minHeight: '500px' }}>
+              <div className="relative aspect-[3/4] overflow-hidden rounded-sm" style={{ minHeight: '500px' }}>
                 <Image
                   src="/bakery-sfeer-1.jpg"
                   fill
