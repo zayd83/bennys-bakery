@@ -14,10 +14,10 @@ export function FoodIntro() {
   return (
     <section id="menu" className="relative z-[1] overflow-hidden bg-cream py-32 lg:py-56" ref={ref}>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-20">
+        <div className="grid gap-12 grid-cols-1 lg:grid-cols-2 lg:gap-20">
           {/* Left - Images with differential parallax */}
-          <div className="relative flex items-start gap-4 px-6 lg:px-0">
-            {/* Left photo — starts higher, moves faster */}
+          <div className="relative flex items-start gap-4">
+            {/* Left photo — moves faster */}
             <div
               ref={leftPhotoRef}
               className="relative w-[55%] mt-0"
@@ -33,10 +33,10 @@ export function FoodIntro() {
               </div>
             </div>
 
-            {/* Right photo — starts lower, moves slower */}
+            {/* Right photo — moves slower */}
             <div
               ref={rightPhotoRef}
-              className="relative w-[45%] mt-16"
+              className="relative w-[45%] mt-0"
               style={{ willChange: 'transform' }}
             >
               <div className="relative aspect-[2/3] overflow-hidden rounded-sm" style={{ minHeight: '500px' }}>
@@ -51,7 +51,7 @@ export function FoodIntro() {
           </div>
 
           {/* Right - Content */}
-          <div className="flex flex-col justify-center">
+          <div className="flex flex-col justify-center lg:pl-16">
             <span
               className={`mb-5 font-sans text-[0.65rem] uppercase tracking-[0.2em] text-gold ${
                 isInView ? 'animate-fade-in-up' : 'opacity-0'

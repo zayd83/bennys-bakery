@@ -28,8 +28,8 @@ export default function SfeerimpressiePage() {
   const [zoomedSrc, setZoomedSrc] = useState('')
   const [isZoomed, setIsZoomed] = useState(false)
 
-  const topRowRef = useParallaxContainer(0.35, 'right')
-  const bottomRowRef = useParallaxContainer(0.35, 'left')
+  const topRowRef = useParallaxContainer(0.55, 'right')
+  const bottomRowRef = useParallaxContainer(0.55, 'left')
 
   function openZoom(src: string) {
     setZoomedSrc(src)
@@ -88,11 +88,11 @@ export default function SfeerimpressiePage() {
           {/* Desktop: horizontal scrolling rows */}
           <div className="hidden md:block">
             {/* TOP ROW — slides RIGHT on scroll */}
-            <div className="overflow-visible mb-4">
+            <div className="overflow-visible mb-16">
               <div
                 ref={topRowRef}
                 className="flex gap-4 w-max"
-                style={{ willChange: 'transform', paddingLeft: '2rem' }}
+                style={{ willChange: 'transform', paddingLeft: '2rem', marginLeft: '-200px' }}
               >
                 {topRowPhotos.map((src, i) => (
                   <div
@@ -121,7 +121,7 @@ export default function SfeerimpressiePage() {
               <div
                 ref={bottomRowRef}
                 className="flex gap-4 w-max ml-auto"
-                style={{ willChange: 'transform', paddingRight: '2rem' }}
+                style={{ willChange: 'transform', paddingRight: '2rem', marginRight: '-200px' }}
               >
                 {bottomRowPhotos.map((src, i) => (
                   <div
