@@ -80,7 +80,7 @@ export function PhotoGrid() {
         <div>
           <div
             ref={bottomRef}
-            style={{ marginLeft: '-10vw', display: 'flex', gap: '1rem', width: '200vw' }}
+            style={{ marginLeft: '-90vw', display: 'flex', gap: '1rem', width: '200vw' }}
           >
             {bottomPhotos.map((src, i) => (
               <div
