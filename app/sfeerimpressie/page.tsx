@@ -1,10 +1,9 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import { Navigation } from '@/components/navigation'
 import { Footer } from '@/components/footer'
-import { useParallaxContainer } from '@/hooks/use-scroll-animation'
 
 const topRowPhotos = [
   '/food-dish-3.jpg', '/food-dish-5.jpg',
@@ -24,8 +23,23 @@ export default function SfeerimpressiePage() {
   const [zoomedSrc, setZoomedSrc] = useState('')
   const [isZoomed, setIsZoomed] = useState(false)
 
-  const topRowRef = useParallaxContainer(0.7, 'right')
-  const bottomRowRef = useParallaxContainer(0.7, 'left')
+  const topRef = useRef<HTMLDivElement>(null)
+  const bottomRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const onScroll = () => {
+      const scrollY = window.scrollY
+      if (topRef.current) {
+        topRef.current.style.transform = `translateX(${scrollY * 0.4}px)`
+      }
+      if (bottomRef.current) {
+        bottomRef.current.style.transform = `translateX(${scrollY * -0.4}px)`
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll()
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   function openZoom(src: string) {
     setZoomedSrc(src)
@@ -81,20 +95,25 @@ export default function SfeerimpressiePage() {
             ))}
           </div>
 
-          {/* Desktop: horizontal scrolling rows */}
+          {/* Desktop: horizontal scroll rows */}
           <div className="hidden md:block">
-            {/* TOP ROW — slides RIGHT on scroll */}
+            {/* TOP ROW — moves right on scroll */}
             <div className="overflow-visible mb-16">
               <div
-                ref={topRowRef}
-                className="flex gap-4 w-max"
-                style={{ willChange: 'transform', paddingLeft: '2rem', marginLeft: '-600px' }}
+                ref={topRef}
+                style={{
+                  display: 'flex',
+                  gap: '1rem',
+                  width: '200vw',
+                  marginLeft: '-50vw',
+                  willChange: 'transform',
+                }}
               >
                 {topRowPhotos.map((src, i) => (
                   <div
                     key={i}
-                    className="relative flex-shrink-0 overflow-hidden rounded-lg group cursor-pointer"
-                    style={{ width: '380px', height: '460px' }}
+                    className="relative overflow-hidden rounded-lg group cursor-pointer"
+                    style={{ width: '380px', height: '460px', flexShrink: 0 }}
                     onClick={() => openZoom(src)}
                   >
                     <Image
@@ -109,18 +128,23 @@ export default function SfeerimpressiePage() {
               </div>
             </div>
 
-            {/* BOTTOM ROW — slides LEFT on scroll */}
+            {/* BOTTOM ROW — moves left on scroll */}
             <div className="overflow-visible">
               <div
-                ref={bottomRowRef}
-                className="flex gap-4 w-max ml-auto"
-                style={{ willChange: 'transform', paddingRight: '2rem', marginRight: '-600px' }}
+                ref={bottomRef}
+                style={{
+                  display: 'flex',
+                  gap: '1rem',
+                  width: '200vw',
+                  marginLeft: '-100vw',
+                  willChange: 'transform',
+                }}
               >
                 {bottomRowPhotos.map((src, i) => (
                   <div
                     key={i}
-                    className="relative flex-shrink-0 overflow-hidden rounded-lg group cursor-pointer"
-                    style={{ width: '380px', height: '460px' }}
+                    className="relative overflow-hidden rounded-lg group cursor-pointer"
+                    style={{ width: '380px', height: '460px', flexShrink: 0 }}
                     onClick={() => openZoom(src)}
                   >
                     <Image
