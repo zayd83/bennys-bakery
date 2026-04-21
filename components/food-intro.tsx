@@ -4,50 +4,33 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { useInView } from '@/hooks/use-in-view'
-import { useParallaxContainer } from '@/hooks/use-scroll-animation'
-
 export function FoodIntro() {
   const { ref, isInView } = useInView()
-  const leftPhotoRef = useParallaxContainer(0.12, 'up')
-  const rightPhotoRef = useParallaxContainer(0.06, 'up')
 
   return (
     <section id="menu" className="relative z-[1] overflow-hidden bg-cream py-32 lg:py-56" ref={ref}>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid gap-12 grid-cols-1 lg:grid-cols-2 lg:gap-20">
-          {/* Left - Images with differential parallax */}
-          <div className="relative flex items-start gap-8">
-            {/* Left photo — moves faster */}
-            <div
-              ref={leftPhotoRef}
-              className="relative w-[52%] mt-0"
-              style={{ willChange: 'transform' }}
-            >
-              <div className="relative aspect-[3/4] overflow-hidden rounded-sm" style={{ minHeight: '500px' }}>
-                <Image
-                  src="/food-dish-3.jpg"
-                  fill
-                  className="object-cover"
-                  alt="Marokkaans ontbijt"
-                />
+          <div className="flex flex-row items-start gap-8">
+
+            {/* Left photo */}
+            <div className="relative w-[48%]" style={{ marginTop: '0px' }}>
+              <div className="relative overflow-hidden rounded-sm"
+                style={{ height: '480px' }}>
+                <Image src="/food-dish-3.jpg" fill
+                  className="object-cover" alt="Benny's" />
               </div>
             </div>
 
-            {/* Right photo — moves slower */}
-            <div
-              ref={rightPhotoRef}
-              className="relative w-[44%] mt-20"
-              style={{ willChange: 'transform' }}
-            >
-              <div className="relative aspect-[3/4] overflow-hidden rounded-sm" style={{ minHeight: '500px' }}>
-                <Image
-                  src="/bakery-sfeer-1.jpg"
-                  fill
-                  className="object-cover"
-                  alt="Benny's Bakery sfeer"
-                />
+            {/* Right photo — starts lower */}
+            <div className="relative w-[48%]" style={{ marginTop: '80px' }}>
+              <div className="relative overflow-hidden rounded-sm"
+                style={{ height: '480px' }}>
+                <Image src="/bakery-sfeer-1.jpg" fill
+                  className="object-cover" alt="Benny's sfeer" />
               </div>
             </div>
+
           </div>
 
           {/* Right - Content */}
