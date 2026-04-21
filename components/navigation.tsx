@@ -6,9 +6,9 @@ import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 
 const navLinks = [
-  { href: '#home', label: 'Home' },
-  { href: '#menu', label: 'Menu' },
-  { href: '#aanraders', label: 'Aanraders' },
+  { href: '/', label: 'Home' },
+  { href: '/menu', label: 'Menu' },
+  { href: '/sfeerimpressie', label: 'Sfeerimpressie' },
   { href: '/over-ons', label: 'Over ons' },
 ]
 
@@ -30,7 +30,7 @@ export function Navigation() {
           <div className="relative flex h-20 items-center justify-between">
 
             {/* LEFT — Logo */}
-            <Link href="#home" className="relative z-10 flex items-center">
+            <Link href="/" className="relative z-10 flex items-center">
               <Image
                 src="/logo-bennys.png"
                 alt="Benny's Bakery"
@@ -41,7 +41,7 @@ export function Navigation() {
               />
             </Link>
 
-            {/* CENTER — Nav links, truly centered */}
+            {/* CENTER — Nav links */}
             <div className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-10 md:flex">
               {navLinks.map((link) => (
                 <Link
@@ -57,7 +57,7 @@ export function Navigation() {
             {/* RIGHT — CTA Button */}
             <div className="relative z-10 hidden md:block">
               <Link
-                href="#reserveren"
+                href="/reserveren"
                 className="rounded-sm bg-terracotta px-7 py-3 font-sans text-[0.9rem] font-medium text-white transition-all hover:brightness-110"
               >
                 Reserveren
@@ -104,7 +104,7 @@ export function Navigation() {
                 </Link>
               ))}
               <Link
-                href="#reserveren"
+                href="/reserveren"
                 className="mt-8 rounded-sm bg-terracotta px-8 py-3 font-sans text-white"
                 onClick={() => setIsMobileMenuOpen(false)}
               >

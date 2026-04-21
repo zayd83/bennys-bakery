@@ -19,7 +19,7 @@ export function Hero() {
 
         {/* ── Left Half ── */}
         <div
-          className="relative flex h-[60vh] w-full flex-col justify-end bg-[#2D4A3E] pt-8 pr-8 pb-8 md:h-full md:w-1/2 md:pt-12 md:pr-12 md:pb-12"
+          className="relative flex h-[60vh] w-full flex-col justify-end bg-[#F0E9DE] pt-8 pr-8 pb-8 md:h-full md:w-1/2 md:pt-12 md:pr-12 md:pb-12"
           ref={ref}
         >
           {/* Desktop Circles — tight cluster, centered in left half */}
@@ -31,14 +31,14 @@ export function Hero() {
               <div className="relative" style={{ width: '420px', height: '240px' }}>
                 {/* Circle 1 — top-left */}
                 <div
-                  className="absolute overflow-hidden rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.55)]"
+                  className="absolute overflow-hidden rounded-full shadow-[0_8px_32px_rgba(44,31,20,0.18)]"
                   style={{
                     top: 0,
                     left: 0,
                     width: '150px',
                     height: '150px',
                     animation: 'spinCircle 18s linear infinite',
-                    border: '2px solid rgba(250,247,242,0.2)',
+                    border: '2px solid rgba(44,31,20,0.12)',
                   }}
                 >
                   <Image
@@ -53,7 +53,7 @@ export function Hero() {
 
                 {/* Circle 2 — center, slightly lower */}
                 <div
-                  className="absolute overflow-hidden rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.55)]"
+                  className="absolute overflow-hidden rounded-full shadow-[0_8px_32px_rgba(44,31,20,0.18)]"
                   style={{
                     top: '55px',
                     left: '140px',
@@ -61,7 +61,7 @@ export function Hero() {
                     height: '135px',
                     zIndex: 1,
                     animation: 'spinCircle 24s linear infinite reverse',
-                    border: '2px solid rgba(250,247,242,0.2)',
+                    border: '2px solid rgba(44,31,20,0.12)',
                   }}
                 >
                   <Image
@@ -76,14 +76,14 @@ export function Hero() {
 
                 {/* Circle 3 — top-right */}
                 <div
-                  className="absolute overflow-hidden rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.55)]"
+                  className="absolute overflow-hidden rounded-full shadow-[0_8px_32px_rgba(44,31,20,0.18)]"
                   style={{
                     top: 0,
                     left: '270px',
                     width: '145px',
                     height: '145px',
                     animation: 'spinCircle 20s linear infinite',
-                    border: '2px solid rgba(250,247,242,0.2)',
+                    border: '2px solid rgba(44,31,20,0.12)',
                   }}
                 >
                   <Image
@@ -102,7 +102,7 @@ export function Hero() {
           {/* Mobile Circles */}
           <div className="absolute right-4 top-4 md:hidden">
             <div className="flex gap-2">
-              <div className="h-20 w-20 overflow-hidden rounded-full border-2 border-cream/30 shadow-xl">
+              <div className="h-20 w-20 overflow-hidden rounded-full border-2 border-[#2C1F14]/15 shadow-xl">
                 <Image
                   src="/food-dish-6.jpg"
                   alt="Vers gebakken brood"
@@ -112,7 +112,7 @@ export function Hero() {
                   priority
                 />
               </div>
-              <div className="mt-6 h-16 w-16 overflow-hidden rounded-full border-2 border-cream/30 shadow-xl">
+              <div className="mt-6 h-16 w-16 overflow-hidden rounded-full border-2 border-[#2C1F14]/15 shadow-xl">
                 <Image
                   src="/food-dish-8.jpg"
                   alt="Marokkaanse patisserie"
@@ -128,21 +128,21 @@ export function Hero() {
           {/* Bottom content */}
           <div className="relative z-10 max-w-[440px]" style={{ marginLeft: 'calc(50% - 210px)' }}>
             <span
-              className={`mb-4 inline-block font-sans text-[0.65rem] uppercase tracking-[0.2em] text-gold ${
+              className={`mb-4 inline-block font-sans text-[0.65rem] uppercase tracking-[0.2em] text-[#C4622D] ${
                 isInView ? 'animate-fade-in-up animation-delay-300' : 'opacity-0'
               }`}
             >
               DORDRECHT — BAKKERIJ
             </span>
             <h1
-              className={`max-w-[480px] font-serif text-[clamp(3rem,5vw,5.5rem)] font-normal italic leading-[1.05] text-text-light ${
+              className={`max-w-[480px] font-serif text-[clamp(3rem,5vw,5.5rem)] font-normal italic leading-[1.05] text-[#2C1F14] ${
                 isInView ? 'animate-fade-in-up animation-delay-400' : 'opacity-0'
               }`}
             >
               Het Ambacht Van Een Echte Bakkerij
             </h1>
             <p
-              className={`mt-4 max-w-[340px] font-sans text-[0.9rem] font-light leading-relaxed text-text-light/55 ${
+              className={`mt-4 max-w-[340px] font-sans text-[0.9rem] font-light leading-relaxed text-[#6B4C35] ${
                 isInView ? 'animate-fade-in-up animation-delay-400' : 'opacity-0'
               }`}
             >
@@ -154,25 +154,16 @@ export function Hero() {
               }`}
             >
               <Link
-                href="#reserveren"
-                className="flex items-center gap-3 rounded-sm px-7 py-3.5 font-sans text-sm font-medium tracking-wide text-[#2C1F14] transition-all hover:bg-white"
-                style={{ background: 'rgba(250,247,242,0.95)' }}
+                href="/reserveren"
+                className="flex items-center gap-3 rounded-sm bg-[#2C1F14] px-7 py-3.5 font-sans text-sm font-medium tracking-wide text-[#FAF7F2] transition-all hover:bg-[#3d2a1c]"
               >
                 Reserveren
                 <ArrowRight size={15} />
               </Link>
               <Link
-                href="#menu"
-                className="flex items-center gap-3 rounded-sm px-7 py-3.5 font-sans text-sm font-medium tracking-wide text-[#FAF7F2] transition-all whitespace-nowrap"
-                style={{ border: '1px solid rgba(250,247,242,0.45)' }}
-                onMouseEnter={(e) => {
-                  ;(e.currentTarget as HTMLAnchorElement).style.borderColor =
-                    'rgba(250,247,242,0.9)'
-                }}
-                onMouseLeave={(e) => {
-                  ;(e.currentTarget as HTMLAnchorElement).style.borderColor =
-                    'rgba(250,247,242,0.45)'
-                }}
+                href="/menu"
+                className="flex items-center gap-3 rounded-sm px-7 py-3.5 font-sans text-sm font-medium tracking-wide text-[#2C1F14] transition-all whitespace-nowrap hover:bg-[#2C1F14]/8"
+                style={{ border: '1px solid rgba(44,31,20,0.55)' }}
               >
                 Bekijk Menu
                 <ArrowRight size={15} />

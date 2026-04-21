@@ -41,7 +41,7 @@ export function Footer() {
             }`}
             style={{ transitionDelay: '0ms' }}
           >
-            <Link href="#home" className="font-serif text-[1.4rem] italic text-cream">
+            <Link href="/" className="font-serif text-[1.4rem] italic text-cream">
               Benny&apos;s Bakery
             </Link>
             <p className="mt-2 font-sans text-[0.8rem] text-cream/40">
@@ -89,13 +89,19 @@ export function Footer() {
               Navigatie
             </h3>
             <nav className="flex flex-col gap-2">
-              {['Home', 'Menu', 'Aanraders', 'Over ons', 'Reserveren'].map((item) => (
+              {[
+                { label: 'Home', href: '/' },
+                { label: 'Menu', href: '/menu' },
+                { label: 'Sfeerimpressie', href: '/sfeerimpressie' },
+                { label: 'Over ons', href: '/over-ons' },
+                { label: 'Reserveren', href: '/reserveren' },
+              ].map((item) => (
                 <Link
-                  key={item}
-                  href={`#${item.toLowerCase().replace(' ', '-')}`}
+                  key={item.href}
+                  href={item.href}
                   className="font-sans text-[0.85rem] text-cream/60 transition-opacity hover:opacity-100"
                 >
-                  {item}
+                  {item.label}
                 </Link>
               ))}
             </nav>

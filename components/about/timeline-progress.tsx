@@ -27,10 +27,10 @@ export function TimelineProgress() {
 
   return (
     <div className="absolute bottom-0 left-1/2 top-0 hidden w-px -translate-x-1/2 lg:block">
-      <div className="absolute inset-0 bg-[rgba(212,168,83,0.15)]" />
+      <div className="absolute inset-0 bg-[rgba(212,196,176,0.25)]" />
       <div
         ref={fillRef}
-        className="absolute left-0 right-0 top-0 bg-[#D4A853]"
+        className="absolute left-0 right-0 top-0 bg-[#D4C4B0]"
         style={{
           bottom: 0,
           transformOrigin: 'top',

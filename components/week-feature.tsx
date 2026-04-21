@@ -42,7 +42,7 @@ export function WeekFeature() {
               plaat direct naar jouw bord. Elke week een nieuwe aanrader.
             </p>
             <Link
-              href="#menu"
+              href="/menu"
               className={`inline-flex w-fit items-center rounded-sm border border-cream px-6 py-3 font-sans text-cream transition-all duration-700 ease-out hover:bg-cream/10 ${
                 visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
               }`}

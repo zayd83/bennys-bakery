@@ -45,7 +45,7 @@ export function CateringCTA() {
           eten, jij voor de gasten.
         </p>
         <Link
-          href="#reserveren"
+          href="/reserveren"
           className="rounded-sm bg-terracotta px-8 py-4 font-sans text-white transition-all hover:brightness-110"
         >
           Vraag een offerte aan

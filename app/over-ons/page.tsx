@@ -7,7 +7,6 @@ import { Navigation } from '@/components/navigation'
 import { Footer } from '@/components/footer'
 import { Timeline } from '@/components/about/timeline'
 import { useFadeIn } from '@/hooks/use-fade-in'
-import { useParallaxContainer } from '@/hooks/use-scroll-animation'
 
 const highlights = [
   {
@@ -55,13 +54,11 @@ export default function OverOnsPage() {
   const { ref: highlightsRef, visible: highlightsVisible } = useFadeIn(0.1)
   const { ref: teamRef, visible: teamVisible } = useFadeIn(0.1)
   const { ref: ctaRef, visible: ctaVisible } = useFadeIn(0.1)
-  const heroBgRef = useParallaxContainer(0.3, 'down')
 
-  // Scroll progress bar — JS fallback for browsers without animation-timeline
+  // Scroll progress bar
   useEffect(() => {
     const bar = document.getElementById('progress-bar')
     if (!bar) return
-    // Only use JS fallback if CSS scroll-driven animation isn't supported
     if (CSS.supports('animation-timeline', 'scroll()')) return
     const onScroll = () => {
       const scrolled = window.scrollY
@@ -84,7 +81,7 @@ export default function OverOnsPage() {
           left: 0,
           right: 0,
           height: '3px',
-          background: '#D4A853',
+          background: '#C4622D',
           zIndex: 9999,
           transformOrigin: 'left',
           transform: 'scaleX(0)',
@@ -96,42 +93,24 @@ export default function OverOnsPage() {
       <Navigation />
 
       {/* ── Section 1: Hero ── */}
-      <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden bg-[#2D4A3E] px-6 pb-24 pt-40 text-center">
-        {/* Parallax background image */}
-        <div
-          ref={heroBgRef as React.RefObject<HTMLDivElement>}
-          className="absolute inset-0"
-          style={{ top: '-20%', bottom: '-20%' }}
-        >
-          <Image
-            src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?w=1600&q=80"
-            fill
-            className="object-cover"
-            alt="Bakkerij achtergrond"
-            unoptimized
-            priority
-          />
-          <div className="absolute inset-0 bg-dark/80" />
-        </div>
-
-        {/* Hero content */}
+      <section className="bg-[#F0E9DE] px-6 pb-20 pt-40 text-center">
         <div
           ref={heroRef as React.RefObject<HTMLDivElement>}
-          className={`relative z-10 flex flex-col items-center transition-all duration-1000 ease-out ${
+          className={`mx-auto flex max-w-3xl flex-col items-center transition-all duration-1000 ease-out ${
             heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <span className="mb-6 font-sans text-[0.65rem] uppercase tracking-[0.2em] text-gold">
+          <span className="mb-6 font-sans text-[0.65rem] uppercase tracking-[0.2em] text-[#C4622D]">
             ONS VERHAAL
           </span>
-          <h1 className="max-w-3xl font-serif text-[clamp(3rem,6vw,5.5rem)] italic leading-[1.05] text-text-light">
+          <h1 className="max-w-3xl font-serif text-[clamp(3rem,6vw,5.5rem)] italic leading-[1.05] text-[#2C1F14]">
             Een erfenis van ambacht en trots
           </h1>
-          <p className="mt-6 max-w-[560px] font-sans text-base font-light leading-relaxed text-text-light/65">
+          <p className="mt-6 max-w-[560px] font-sans text-base font-light leading-relaxed text-[#6B4C35]">
             Een reis van passie, Marokkaanse roots en ambachtelijk vakmanschap — van Beni Mellal
             naar de straten van Dordrecht.
           </p>
-          <div className="mx-auto mt-8 h-px w-[60px] bg-gold" />
+          <div className="mx-auto mt-8 h-px w-[60px] bg-[#C4622D]" />
 
           {/* Large showcase image */}
           <div
@@ -155,12 +134,12 @@ export default function OverOnsPage() {
 
       {/* ── Section 3: Highlights ── */}
       <section
-        className="bg-cream py-32"
+        className="bg-[#E8DDD0] py-32"
         ref={highlightsRef as React.RefObject<HTMLDivElement>}
       >
         <div className="mx-auto max-w-6xl px-8">
           <h2
-            className={`mb-16 text-center font-serif text-[3rem] italic text-text-dark transition-all duration-700 ease-out ${
+            className={`mb-16 text-center font-serif text-[3rem] italic text-[#2C1F14] transition-all duration-700 ease-out ${
               highlightsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
@@ -177,9 +156,9 @@ export default function OverOnsPage() {
                   transform: highlightsVisible ? 'translateY(0)' : 'translateY(30px)',
                 }}
               >
-                <span className="mb-4 block font-serif text-4xl text-gold">{h.icon}</span>
-                <h3 className="mb-3 font-serif text-[1.4rem] text-text-dark">{h.title}</h3>
-                <p className="font-sans text-[0.9rem] font-light leading-relaxed text-text-dark/60">
+                <span className="mb-4 block font-serif text-4xl text-[#C4622D]">{h.icon}</span>
+                <h3 className="mb-3 font-serif text-[1.4rem] text-[#2C1F14]">{h.title}</h3>
+                <p className="font-sans text-[0.9rem] font-light leading-relaxed text-[#2C1F14]/60">
                   {h.description}
                 </p>
               </div>
@@ -190,19 +169,19 @@ export default function OverOnsPage() {
 
       {/* ── Section 4: Team ── */}
       <section
-        className="bg-[#2D4A3E] py-32"
+        className="bg-[#E8DDD0] py-32"
         ref={teamRef as React.RefObject<HTMLDivElement>}
       >
         <div className="mx-auto max-w-6xl px-8 text-center">
           <span
-            className={`mb-4 inline-block font-sans text-[0.65rem] uppercase tracking-[0.2em] text-gold transition-all duration-700 ease-out ${
+            className={`mb-4 inline-block font-sans text-[0.65rem] uppercase tracking-[0.2em] text-[#C4622D] transition-all duration-700 ease-out ${
               teamVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
             HET TEAM
           </span>
           <h2
-            className={`mb-16 font-serif text-[3rem] italic text-text-light transition-all duration-700 ease-out ${
+            className={`mb-16 font-serif text-[3rem] italic text-[#2C1F14] transition-all duration-700 ease-out ${
               teamVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
             style={{ transitionDelay: '100ms' }}
@@ -232,8 +211,8 @@ export default function OverOnsPage() {
                     unoptimized
                   />
                 </div>
-                <h3 className="font-serif text-[1.2rem] text-text-light">{member.name}</h3>
-                <span className="mt-1 font-sans text-[0.75rem] uppercase tracking-[0.15em] text-gold">
+                <h3 className="font-serif text-[1.2rem] text-[#2C1F14]">{member.name}</h3>
+                <span className="mt-1 font-sans text-[0.75rem] uppercase tracking-[0.15em] text-[#C4622D]">
                   {member.role}
                 </span>
               </div>
@@ -271,7 +250,7 @@ export default function OverOnsPage() {
             kunnen betekenen.
           </p>
           <Link
-            href="/#reserveren"
+            href="/reserveren"
             className="rounded-sm bg-terracotta px-8 py-4 font-sans text-white transition-all hover:brightness-110"
           >
             Reserveren

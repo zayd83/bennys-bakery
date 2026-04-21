@@ -149,7 +149,7 @@ export function Timeline() {
       <TimelineProgress />
 
       {milestones.map((m, i) => (
-        <div key={i} className={`py-32 ${m.bg === 'dark' ? 'bg-[#2D4A3E]' : 'bg-[#F0E9DE]'}`}>
+        <div key={i} className={`py-32 ${m.bg === 'dark' ? 'bg-[#E8DDD0]' : 'bg-[#F0E9DE]'}`}>
           <div
             ref={el => { rowRefs.current[i] = el }}
             className="relative mx-auto grid max-w-6xl items-center gap-16 px-8 lg:grid-cols-2"
@@ -159,7 +159,7 @@ export function Timeline() {
               ref={el => { dotRefs.current[i] = el }}
               className={`absolute left-1/2 top-1/2 z-10 hidden -translate-x-1/2 -translate-y-1/2 rounded-full border-2 transition-all duration-500 lg:block ${
                 i <= activeIndex
-                  ? 'dot-active h-4 w-4 border-gold bg-gold shadow-[0_0_0_6px_rgba(212,168,83,0.15)]'
+                  ? 'dot-active h-4 w-4 border-[#C4622D] bg-[#C4622D] shadow-[0_0_0_6px_rgba(196,98,45,0.15)]'
                   : 'h-3 w-3 border-[#D4C4B0] bg-transparent'
               }`}
             />
@@ -192,20 +192,18 @@ export function Timeline() {
               </span>
               <AnimatedYear
                 year={m.year}
-                color={m.bg === 'dark' ? '#FAF7F2' : '#2C1F14'}
+                color="#2C1F14"
               />
               <h3
                 className="mb-6 font-serif text-2xl font-normal"
-                style={{ color: m.bg === 'dark' ? '#FAF7F2' : '#2C1F14' }}
+                style={{ color: '#2C1F14' }}
               >
                 {m.title}
               </h3>
               <p
                 className="max-w-md font-sans text-base font-light leading-[1.9]"
                 style={{
-                  color: m.bg === 'dark'
-                    ? 'rgba(250,247,242,0.8)'
-                    : 'rgba(44,31,20,0.7)',
+                  color: 'rgba(44,31,20,0.7)',
                 }}
               >
                 {m.text}

@@ -7,15 +7,11 @@ const topPhotos = [
   '/food-dish-3.jpg',
   '/food-dish-5.jpg',
   '/bakery-sfeer-1.jpg',
-  '/food-dish-4.jpg',
-  '/food-dish-6.jpg',
 ]
 
 const bottomPhotos = [
   '/food-dish-7.jpg',
-  '/food-dish-8.jpg',
   '/bakery-sfeer-2.jpg',
-  '/food-dish-1.jpg',
   '/food-dish-9.jpg',
 ]
 
@@ -26,9 +22,6 @@ const mobilePhotos = [
   { src: '/food-dish-5.jpg', height: 500 },
   { src: '/food-dish-6.jpg', height: 600 },
   { src: '/food-dish-7.jpg', height: 750 },
-  { src: '/bakery-sfeer-2.jpg', height: 550 },
-  { src: '/food-dish-8.jpg', height: 700 },
-  { src: '/food-dish-1.jpg', height: 600 },
 ]
 
 export function PhotoGrid() {
