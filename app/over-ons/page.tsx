@@ -134,12 +134,12 @@ export default function OverOnsPage() {
 
       {/* ── Section 3: Highlights ── */}
       <section
-        className="bg-[#E8DDD0] py-32"
+        className="bg-[#2D4A3E] py-32"
         ref={highlightsRef as React.RefObject<HTMLDivElement>}
       >
         <div className="mx-auto max-w-6xl px-8">
           <h2
-            className={`mb-16 text-center font-serif text-[3rem] italic text-[#2C1F14] transition-all duration-700 ease-out ${
+            className={`mb-16 text-center font-serif text-[3rem] italic text-[#FAF7F2] transition-all duration-700 ease-out ${
               highlightsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
@@ -156,9 +156,9 @@ export default function OverOnsPage() {
                   transform: highlightsVisible ? 'translateY(0)' : 'translateY(30px)',
                 }}
               >
-                <span className="mb-4 block font-serif text-4xl text-[#C4622D]">{h.icon}</span>
-                <h3 className="mb-3 font-serif text-[1.4rem] text-[#2C1F14]">{h.title}</h3>
-                <p className="font-sans text-[0.9rem] font-light leading-relaxed text-[#2C1F14]/60">
+                <span className="mb-4 block font-serif text-4xl text-[#D4A853]">{h.icon}</span>
+                <h3 className="mb-3 font-serif text-[1.4rem] text-[#FAF7F2]">{h.title}</h3>
+                <p className="font-sans text-[0.9rem] font-light leading-relaxed text-[rgba(250,247,242,0.7)]">
                   {h.description}
                 </p>
               </div>
