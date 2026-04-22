@@ -1,24 +1,18 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
 import Image from 'next/image'
+import { useParallaxContainer } from '@/hooks/use-scroll-animation'
 
 const topPhotos = [
   '/food-dish-3.jpg',
   '/food-dish-5.jpg',
   '/bakery-sfeer-1.jpg',
-  '/food-dish-4.jpg',
-  '/food-dish-6.jpg',
-  '/food-dish-7.jpg',
 ]
 
 const bottomPhotos = [
-  '/food-dish-8.jpg',
-  '/food-dish-9.jpg',
+  '/food-dish-7.jpg',
   '/bakery-sfeer-2.jpg',
-  '/food-dish-1.jpg',
-  '/food-dish-2.jpg',
-  '/herosection.jpg',
+  '/food-dish-9.jpg',
 ]
 
 const mobilePhotos = [
@@ -31,81 +25,70 @@ const mobilePhotos = [
 ]
 
 export function PhotoGrid() {
-  const topRef = useRef<HTMLDivElement>(null)
-  const bottomRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const section = document.getElementById('photo-grid-section')
-
-    const onScroll = () => {
-      if (!section) return
-      const rect = section.getBoundingClientRect()
-      const viewH = window.innerHeight
-      const progress = (viewH - rect.top) / (viewH + rect.height)
-      const clamped = Math.max(0, Math.min(1, progress))
-
-      if (topRef.current)
-        topRef.current.style.transform = `translateX(${clamped * 600}px)`
-      if (bottomRef.current)
-        bottomRef.current.style.transform = `translateX(${clamped * -600}px)`
-    }
-
-    window.addEventListener('scroll', onScroll, { passive: true })
-    onScroll()
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+  const topRowRef = useParallaxContainer(0.06, 'right')
+  const bottomRowRef = useParallaxContainer(0.06, 'left')
 
   return (
-    <section id="photo-grid-section" className="bg-[#F0E9DE] py-32">
+    <section className="bg-[#F0E9DE] py-32 overflow-hidden">
       <p className="text-[#D4A853] text-[0.65rem] uppercase tracking-[0.2em] text-center mb-16">
         SFEERIMPRESSIE
       </p>
 
-      {/* Desktop: two horizontal scroll rows */}
-      <div className="hidden md:block overflow-hidden">
-
-        {/* TOP ROW — moves RIGHT on scroll */}
-        <div
-          ref={topRef}
-          className="flex gap-4 mb-4"
-          style={{ width: '200vw', marginLeft: '-40vw', willChange: 'transform' }}
-        >
-          {topPhotos.map((src, i) => (
-            <div
-              key={i}
-              style={{ position: 'relative', width: '340px', height: '420px', flexShrink: 0, overflow: 'hidden', borderRadius: '0.5rem' }}
-            >
-              <Image
-                src={src}
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-700"
-                alt={`Benny's Bakery ${i + 1}`}
-              />
-            </div>
-          ))}
+      {/* Desktop: two horizontal parallax rows */}
+      <div className="hidden md:block">
+        {/* TOP ROW — scrolls RIGHT */}
+        <div className="mb-4 overflow-visible">
+          <div
+            ref={topRowRef}
+            className="flex gap-4 w-max"
+            style={{ willChange: 'transform' }}
+          >
+            {topPhotos.map((src, i) => (
+              <div
+                key={i}
+                className="relative flex-shrink-0 overflow-hidden rounded-lg"
+                style={{
+                  width: i % 2 === 0 ? '380px' : '300px',
+                  height: i % 2 === 0 ? '480px' : '380px',
+                }}
+              >
+                <Image
+                  src={src}
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-700"
+                  alt={`Benny's Bakery ${i + 1}`}
+                />
+              </div>
+            ))}
+          </div>
         </div>
 
-        {/* BOTTOM ROW — moves LEFT on scroll */}
-        <div
-          ref={bottomRef}
-          className="flex gap-4"
-          style={{ width: 'max-content', marginLeft: 'calc(100vw - 340px)', willChange: 'transform' }}
-        >
-          {bottomPhotos.map((src, i) => (
-            <div
-              key={i}
-              style={{ position: 'relative', width: '340px', height: '420px', flexShrink: 0, overflow: 'hidden', borderRadius: '0.5rem' }}
-            >
-              <Image
-                src={src}
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-700"
-                alt={`Benny's Bakery sfeer ${i + 1}`}
-              />
-            </div>
-          ))}
+        {/* BOTTOM ROW — scrolls LEFT */}
+        <div className="overflow-visible">
+          <div
+            ref={bottomRowRef}
+            className="flex gap-4 w-max ml-auto"
+            style={{ willChange: 'transform' }}
+          >
+            {bottomPhotos.map((src, i) => (
+              <div
+                key={i}
+                className="relative flex-shrink-0 overflow-hidden rounded-lg"
+                style={{
+                  width: i % 2 === 0 ? '320px' : '400px',
+                  height: i % 2 === 0 ? '400px' : '460px',
+                }}
+              >
+                <Image
+                  src={src}
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-700"
+                  alt={`Benny's Bakery sfeer ${i + 1}`}
+                />
+              </div>
+            ))}
+          </div>
         </div>
-
       </div>
 
       {/* Mobile: 2-column masonry */}
