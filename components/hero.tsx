@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect, type CSSProperties } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
@@ -9,6 +10,19 @@ import { useParallax } from '@/hooks/use-parallax'
 export function Hero() {
   const { ref, isInView } = useInView()
   const heroParallaxRef = useParallax(0.4)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY
+      const items = document.querySelectorAll('.food-float')
+      items.forEach((item, i) => {
+        const speed = [0.04, -0.06, 0.08, -0.05, 0.03][i]
+        ;(item as HTMLElement).style.transform = `translateY(${scrollY * speed}px)`
+      })
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
     <section id="home" className="relative z-10 h-screen overflow-hidden" ref={ref}>
@@ -43,14 +57,11 @@ export function Hero() {
 
         {/* Text & buttons at bottom */}
         <div className="absolute bottom-0 left-0 right-0 px-6 pb-12">
-          <span className={`block font-sans text-[0.65rem] uppercase tracking-[0.25em] text-[#D4A853] mb-4 ${isInView ? 'animate-fade-in-up' : 'opacity-0'}`}>
-            DORDRECHT — BAKKERIJ
-          </span>
           <h1 className={`font-serif text-[2.6rem] italic leading-[1.05] text-white mb-3 ${isInView ? 'animate-fade-in-up animation-delay-200' : 'opacity-0'}`}>
-            Het Ambacht Van Een Echte Bakkerij
+            Marokkaanse smaken, recht uit het hart van Dordrecht
           </h1>
           <p className={`font-sans text-sm font-light text-white/70 mb-8 ${isInView ? 'animate-fade-in-up animation-delay-150' : 'opacity-0'}`}>
-            Vers gebakken, met liefde bereid — elke dag opnieuw.
+            Vers bereid met liefde, elke ochtend opnieuw
           </p>
           <div className={`flex flex-col gap-3 ${isInView ? 'animate-fade-in-up animation-delay-225' : 'opacity-0'}`}>
             <Link
@@ -105,16 +116,104 @@ export function Hero() {
             </div>
           </div>
 
+          {/* Floating food items */}
+          <div
+            className="food-float hidden md:block absolute pointer-events-none"
+            style={{ top: '8%', left: '5%', width: '110px', willChange: 'transform', zIndex: 0 }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/msemmen.png.png"
+              alt=""
+              style={{
+                width: '110px',
+                height: 'auto',
+                animation: 'floatIn1 0.8s ease-out 0.3s forwards, floatBob 4s ease-in-out 1.1s infinite',
+                opacity: 0,
+                '--r': '-15deg',
+              } as CSSProperties}
+            />
+          </div>
+
+          <div
+            className="food-float hidden md:block absolute pointer-events-none"
+            style={{ top: '12%', right: '8%', width: '95px', willChange: 'transform', zIndex: 0 }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/ei.png.png"
+              alt=""
+              style={{
+                width: '95px',
+                height: 'auto',
+                animation: 'floatIn2 0.8s ease-out 0.3s forwards, floatBob 5s ease-in-out 1.1s infinite',
+                opacity: 0,
+                '--r': '12deg',
+              } as CSSProperties}
+            />
+          </div>
+
+          <div
+            className="food-float hidden md:block absolute pointer-events-none"
+            style={{ bottom: '28%', left: '3%', width: '80px', willChange: 'transform', zIndex: 0 }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/matcha.png.png"
+              alt=""
+              style={{
+                width: '80px',
+                height: 'auto',
+                animation: 'floatIn3 0.8s ease-out 0.3s forwards, floatBob 3.5s ease-in-out 1.1s infinite',
+                opacity: 0,
+                '--r': '-8deg',
+              } as CSSProperties}
+            />
+          </div>
+
+          <div
+            className="food-float hidden md:block absolute pointer-events-none"
+            style={{ bottom: '22%', right: '5%', width: '85px', willChange: 'transform', zIndex: 0 }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/thee.png.png"
+              alt=""
+              style={{
+                width: '85px',
+                height: 'auto',
+                animation: 'floatIn4 0.8s ease-out 0.3s forwards, floatBob 4.5s ease-in-out 1.1s infinite',
+                opacity: 0,
+                '--r': '18deg',
+              } as CSSProperties}
+            />
+          </div>
+
+          <div
+            className="food-float hidden md:block absolute pointer-events-none"
+            style={{ top: '45%', left: '12%', width: '75px', willChange: 'transform', zIndex: 0 }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/olijven.png.png"
+              alt=""
+              style={{
+                width: '75px',
+                height: 'auto',
+                animation: 'floatIn5 0.8s ease-out 0.3s forwards, floatBob 3.8s ease-in-out 1.1s infinite',
+                opacity: 0,
+                '--r': '-5deg',
+              } as CSSProperties}
+            />
+          </div>
+
           {/* Bottom content */}
           <div className="relative z-10 max-w-[440px]" style={{ marginLeft: 'max(1.5rem, calc(50% - 210px))' }}>
-            <span className={`mb-4 inline-block font-sans text-[0.65rem] uppercase tracking-[0.2em] text-[#C4622D] ${isInView ? 'animate-fade-in-up animation-delay-150' : 'opacity-0'}`}>
-              DORDRECHT — BAKKERIJ
-            </span>
             <h1 className={`max-w-[480px] font-serif text-[clamp(3rem,5vw,5.5rem)] font-normal italic leading-[1.05] text-[#2C1F14] ${isInView ? 'animate-fade-in-up animation-delay-400' : 'opacity-0'}`}>
-              Het Ambacht Van Een Echte Bakkerij
+              Marokkaanse smaken, recht uit het hart van Dordrecht
             </h1>
             <p className={`mt-4 max-w-[340px] font-sans text-[0.9rem] font-light leading-relaxed text-[#6B4C35] ${isInView ? 'animate-fade-in-up animation-delay-400' : 'opacity-0'}`}>
-              Vers gebakken, met liefde bereid — elke dag opnieuw.
+              Vers bereid met liefde, elke ochtend opnieuw
             </p>
             <div className={`mt-8 flex flex-wrap gap-3 ${isInView ? 'animate-fade-in-up animation-delay-225' : 'opacity-0'}`}>
               <Link href="/reserveren" className="flex items-center gap-3 rounded-sm bg-[#2C1F14] px-7 py-3.5 font-sans text-sm font-medium tracking-wide text-[#FAF7F2] transition-all hover:bg-[#3d2a1c]">
