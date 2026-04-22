@@ -8,7 +8,7 @@ export function Location() {
   const { ref, visible } = useFadeIn()
 
   return (
-    <section id="over-ons" className="py-32" style={{ backgroundColor: '#C4A882' }} ref={ref}>
+    <section id="over-ons" className="py-16 sm:py-24 lg:py-32" style={{ backgroundColor: '#C4A882' }} ref={ref}>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left - Text Content */}
@@ -77,12 +77,13 @@ export function Location() {
             <iframe
               src="https://maps.google.com/maps?q=Van+Oldenbarneveltplein+68,+Dordrecht&output=embed"
               width="100%"
-              height="480"
-              style={{ border: 0 }}
+              height="100%"
+              style={{ border: 0, minHeight: '280px' }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
               title="Locatie Benny's Bakery"
+              className="h-[280px] sm:h-[380px] lg:h-[480px] w-full"
             />
           </div>
         </div>

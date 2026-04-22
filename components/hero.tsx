@@ -126,7 +126,7 @@ export function Hero() {
           </div>
 
           {/* Bottom content */}
-          <div className="relative z-10 max-w-[440px]" style={{ marginLeft: 'calc(50% - 210px)' }}>
+          <div className="relative z-10 max-w-[440px]" style={{ marginLeft: 'max(1.5rem, calc(50% - 210px))' }}>
             <span
               className={`mb-4 inline-block font-sans text-[0.65rem] uppercase tracking-[0.2em] text-[#C4622D] ${
                 isInView ? 'animate-fade-in-up animation-delay-150' : 'opacity-0'
@@ -149,7 +149,7 @@ export function Hero() {
               Vers gebakken, met liefde bereid — elke dag opnieuw.
             </p>
             <div
-              className={`mt-8 flex flex-row gap-4 ${
+              className={`mt-8 flex flex-wrap gap-3 ${
                 isInView ? 'animate-fade-in-up animation-delay-225' : 'opacity-0'
               }`}
             >

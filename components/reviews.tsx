@@ -28,7 +28,7 @@ export function Reviews() {
   const { ref, visible } = useFadeIn()
 
   return (
-    <section className="bg-[#E8DDD0] py-32" ref={ref}>
+    <section className="bg-[#E8DDD0] py-16 sm:py-24 lg:py-32" ref={ref}>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div
           className={`mb-16 text-center transition-all duration-400 ease-out ${
@@ -38,7 +38,7 @@ export function Reviews() {
           <span className="font-sans text-[0.65rem] uppercase tracking-[0.2em] text-gold">
             WAT KLANTEN ZEGGEN
           </span>
-          <h2 className="mt-3 font-serif text-[2.5rem] italic text-[#2C1F14]">
+          <h2 className="mt-3 font-serif text-[clamp(1.8rem,4vw,2.5rem)] italic text-[#2C1F14]">
             Wat zij zeggen
           </h2>
         </div>
@@ -47,7 +47,7 @@ export function Reviews() {
           {reviews.map((review, index) => (
             <div
               key={index}
-              className={`rounded-lg border border-[rgba(212,168,83,0.2)] bg-white/60 p-10 transition-all duration-400 ease-out ${
+              className={`rounded-lg border border-[rgba(212,168,83,0.2)] bg-white/60 p-6 md:p-10 transition-all duration-400 ease-out ${
                 visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
               }`}
               style={{ transitionDelay: `${index * 75}ms` }}

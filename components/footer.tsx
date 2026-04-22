@@ -31,7 +31,7 @@ export function Footer() {
   }
 
   return (
-    <footer className="border-t border-text-light/[0.08] bg-dark py-24" ref={ref}>
+    <footer className="border-t border-text-light/[0.08] bg-dark py-12 sm:py-16 lg:py-24" ref={ref}>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Column 1: Logo & Social */}
@@ -134,7 +134,7 @@ export function Footer() {
             <span className="mb-4 inline-block font-sans text-[0.65rem] uppercase tracking-[0.2em] text-gold">
               BLIJF OP DE HOOGTE
             </span>
-            <form onSubmit={handleNewsletterSubmit} className="mt-2 flex gap-2">
+            <form onSubmit={handleNewsletterSubmit} className="mt-2 flex flex-col sm:flex-row gap-2">
               <input
                 type="email"
                 placeholder="Jouw e-mail"

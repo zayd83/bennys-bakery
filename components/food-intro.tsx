@@ -8,24 +8,22 @@ export function FoodIntro() {
   const { ref, isInView } = useInView()
 
   return (
-    <section id="menu" className="relative z-[1] overflow-hidden bg-cream py-32 lg:py-56" ref={ref}>
+    <section id="menu" className="relative z-[1] overflow-hidden bg-cream py-16 sm:py-24 lg:py-56" ref={ref}>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid gap-12 grid-cols-1 lg:grid-cols-2 lg:gap-20">
-          <div className="flex flex-row items-start gap-8">
+          <div className="flex flex-col sm:flex-row items-start gap-6 sm:gap-8">
 
             {/* Left photo */}
-            <div className="relative w-[48%]" style={{ marginTop: '0px' }}>
-              <div className="relative overflow-hidden rounded-sm"
-                style={{ height: '480px' }}>
+            <div className="relative w-full sm:w-[48%]">
+              <div className="relative overflow-hidden rounded-sm h-[280px] sm:h-[480px]">
                 <Image src="/food-dish-3.jpg" fill
                   className="object-cover" alt="Benny's" />
               </div>
             </div>
 
-            {/* Right photo — starts lower */}
-            <div className="relative w-[48%]" style={{ marginTop: '80px' }}>
-              <div className="relative overflow-hidden rounded-sm"
-                style={{ height: '480px' }}>
+            {/* Right photo — starts lower on desktop */}
+            <div className="relative w-full sm:w-[48%] mt-0 sm:mt-20">
+              <div className="relative overflow-hidden rounded-sm h-[280px] sm:h-[480px]">
                 <Image src="/bakery-sfeer-1.jpg" fill
                   className="object-cover" alt="Benny's sfeer" />
               </div>

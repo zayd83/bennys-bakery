@@ -10,7 +10,7 @@ export function WeekFeature() {
   const photoRef = useParallax(0.3)
 
   return (
-    <section id="aanraders" className="bg-deep-green py-32 lg:py-48" ref={ref}>
+    <section id="aanraders" className="bg-deep-green py-16 sm:py-24 lg:py-48" ref={ref}>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[55%_45%] lg:gap-20">
           {/* Left - Content */}

@@ -44,8 +44,6 @@ export function useParallaxContainer(
     const el = ref.current
     if (!el) return
 
-    if (window.innerWidth < 768) return
-
     let ticking = false
 
     const update = () => {

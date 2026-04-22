@@ -5,8 +5,6 @@ export function useParallax(speed: number = 0.3) {
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (window.innerWidth < 768) return // no parallax on mobile
-
     const el = ref.current
     if (!el) return
 
