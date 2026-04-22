@@ -64,7 +64,7 @@ export function PhotoGrid() {
           {topPhotos.map((src, i) => (
             <div
               key={i}
-              style={{ position: 'relative', width: '240px', height: '300px', flexShrink: 0, overflow: 'hidden', borderRadius: '0.5rem' }}
+              style={{ position: 'relative', width: '340px', height: '420px', flexShrink: 0, overflow: 'hidden', borderRadius: '0.5rem' }}
             >
               <Image
                 src={src}
@@ -80,12 +80,12 @@ export function PhotoGrid() {
         <div
           ref={bottomRef}
           className="flex gap-4"
-          style={{ width: '200vw', marginLeft: '60vw', willChange: 'transform' }}
+          style={{ width: 'max-content', marginLeft: 'calc(100vw - 340px)', willChange: 'transform' }}
         >
           {bottomPhotos.map((src, i) => (
             <div
               key={i}
-              style={{ position: 'relative', width: '240px', height: '300px', flexShrink: 0, overflow: 'hidden', borderRadius: '0.5rem' }}
+              style={{ position: 'relative', width: '340px', height: '420px', flexShrink: 0, overflow: 'hidden', borderRadius: '0.5rem' }}
             >
               <Image
                 src={src}
