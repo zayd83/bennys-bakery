@@ -7,12 +7,18 @@ const topPhotos = [
   '/food-dish-3.jpg',
   '/food-dish-5.jpg',
   '/bakery-sfeer-1.jpg',
+  '/food-dish-4.jpg',
+  '/food-dish-6.jpg',
+  '/food-dish-7.jpg',
 ]
 
 const bottomPhotos = [
-  '/food-dish-7.jpg',
-  '/bakery-sfeer-2.jpg',
+  '/food-dish-8.jpg',
   '/food-dish-9.jpg',
+  '/bakery-sfeer-2.jpg',
+  '/food-dish-1.jpg',
+  '/food-dish-2.jpg',
+  '/herosection.jpg',
 ]
 
 const mobilePhotos = [
@@ -25,8 +31,8 @@ const mobilePhotos = [
 ]
 
 export function PhotoGrid() {
-  const topRowRef = useParallaxContainer(0.06, 'right')
-  const bottomRowRef = useParallaxContainer(0.06, 'left')
+  const topRowRef = useParallaxContainer(0.35, 'right')
+  const bottomRowRef = useParallaxContainer(0.30, 'left')
 
   return (
     <section className="bg-[#F0E9DE] py-32 overflow-hidden">
@@ -36,21 +42,19 @@ export function PhotoGrid() {
 
       {/* Desktop: two horizontal parallax rows */}
       <div className="hidden md:block">
-        {/* TOP ROW — scrolls RIGHT */}
+
+        {/* TOP ROW — sweeps RIGHT */}
         <div className="mb-4 overflow-visible">
           <div
             ref={topRowRef}
             className="flex gap-4 w-max"
-            style={{ willChange: 'transform' }}
+            style={{ marginLeft: '-150px', willChange: 'transform' }}
           >
             {topPhotos.map((src, i) => (
               <div
                 key={i}
                 className="relative flex-shrink-0 overflow-hidden rounded-lg"
-                style={{
-                  width: i % 2 === 0 ? '380px' : '300px',
-                  height: i % 2 === 0 ? '480px' : '380px',
-                }}
+                style={{ width: '360px', height: '440px' }}
               >
                 <Image
                   src={src}
@@ -63,21 +67,18 @@ export function PhotoGrid() {
           </div>
         </div>
 
-        {/* BOTTOM ROW — scrolls LEFT */}
+        {/* BOTTOM ROW — sweeps LEFT */}
         <div className="overflow-visible">
           <div
             ref={bottomRowRef}
-            className="flex gap-4 w-max ml-auto"
-            style={{ willChange: 'transform' }}
+            className="flex gap-4 w-max"
+            style={{ marginLeft: '-50px', willChange: 'transform' }}
           >
             {bottomPhotos.map((src, i) => (
               <div
                 key={i}
                 className="relative flex-shrink-0 overflow-hidden rounded-lg"
-                style={{
-                  width: i % 2 === 0 ? '320px' : '400px',
-                  height: i % 2 === 0 ? '400px' : '460px',
-                }}
+                style={{ width: '360px', height: '440px' }}
               >
                 <Image
                   src={src}
@@ -89,6 +90,7 @@ export function PhotoGrid() {
             ))}
           </div>
         </div>
+
       </div>
 
       {/* Mobile: 2-column masonry */}
