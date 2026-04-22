@@ -35,19 +35,28 @@ export function PhotoGrid() {
   const bottomRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    const section = document.getElementById('photo-grid-section')
+
     const onScroll = () => {
+      if (!section) return
+      const rect = section.getBoundingClientRect()
+      const viewH = window.innerHeight
+      const progress = (viewH - rect.top) / (viewH + rect.height)
+      const clamped = Math.max(0, Math.min(1, progress))
+
       if (topRef.current)
-        topRef.current.style.transform = `translateX(${window.scrollY * 0.3}px)`
+        topRef.current.style.transform = `translateX(${clamped * 600}px)`
       if (bottomRef.current)
-        bottomRef.current.style.transform = `translateX(${window.scrollY * -0.5}px)`
+        bottomRef.current.style.transform = `translateX(${clamped * -600}px)`
     }
+
     window.addEventListener('scroll', onScroll, { passive: true })
     onScroll()
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
   return (
-    <section className="bg-[#F0E9DE] py-32">
+    <section id="photo-grid-section" className="bg-[#F0E9DE] py-32">
       <p className="text-[#D4A853] text-[0.65rem] uppercase tracking-[0.2em] text-center mb-16">
         SFEERIMPRESSIE
       </p>
