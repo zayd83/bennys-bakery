@@ -1,70 +1,6 @@
-'use client'
-
-import { useEffect, useRef } from 'react'
-import Image from 'next/image'
 import { Navigation } from '@/components/navigation'
 import { Footer } from '@/components/footer'
-
-const allPhotos = [
-  '/food-dish-1.jpg',
-  '/food-dish-2.jpg',
-  '/food-dish-3.jpg',
-  '/food-dish-4.jpg',
-  '/food-dish-5.jpg',
-  '/bakery-sfeer-1.jpg',
-  '/food-dish-6.jpg',
-  '/food-dish-7.jpg',
-  '/food-dish-8.jpg',
-  '/bakery-sfeer-2.jpg',
-  '/food-dish-9.jpg',
-  '/herosection.jpg',
-]
-
-function GalleryPhoto({ src, index }: { src: string; index: number }) {
-  const ref = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    const obs = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            if (el) {
-              el.style.opacity = '1'
-              el.style.transform = 'translateY(0)'
-            }
-          }, index * 50)
-          obs.disconnect()
-        }
-      },
-      { threshold: 0.05 }
-    )
-    obs.observe(el)
-    return () => obs.disconnect()
-  }, [index])
-
-  return (
-    <div
-      ref={ref}
-      className="break-inside-avoid mb-4 overflow-hidden rounded-sm"
-      style={{
-        opacity: 0,
-        transform: 'translateY(20px)',
-        transition: 'opacity 0.6s ease, transform 0.6s ease',
-      }}
-    >
-      <Image
-        src={src}
-        alt={`Benny's Bakery sfeer ${index + 1}`}
-        width={800}
-        height={1000}
-        className="w-full object-cover transition-transform duration-500 hover:scale-[1.02]"
-        loading="lazy"
-      />
-    </div>
-  )
-}
+import { PhotoGrid } from '@/components/photo-grid'
 
 export default function SfeerimpressiePage() {
   return (
@@ -88,38 +24,7 @@ export default function SfeerimpressiePage() {
         <div className="mx-auto mt-6 bg-[#C4622D]" style={{ width: '60px', height: '1.5px' }} />
       </section>
 
-      {/* ── Masonry Gallery ── */}
-      <section className="bg-[#FAF7F2] py-20">
-        <div className="mx-auto max-w-7xl px-6">
-          {/* Desktop: 4 columns */}
-          <div
-            className="hidden lg:block"
-            style={{ columnCount: 4, columnGap: '1rem' }}
-          >
-            {allPhotos.map((src, i) => (
-              <GalleryPhoto key={src} src={src} index={i} />
-            ))}
-          </div>
-          {/* Tablet: 3 columns */}
-          <div
-            className="hidden md:block lg:hidden"
-            style={{ columnCount: 3, columnGap: '1rem' }}
-          >
-            {allPhotos.map((src, i) => (
-              <GalleryPhoto key={src} src={src} index={i} />
-            ))}
-          </div>
-          {/* Mobile: 2 columns */}
-          <div
-            className="block md:hidden"
-            style={{ columnCount: 2, columnGap: '1rem' }}
-          >
-            {allPhotos.map((src, i) => (
-              <GalleryPhoto key={src} src={src} index={i} />
-            ))}
-          </div>
-        </div>
-      </section>
+      <PhotoGrid />
 
       <Footer />
     </main>
