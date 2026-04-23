@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Image from 'next/image'
 import { Navigation } from '@/components/navigation'
 import { Footer } from '@/components/footer'
+import { Location } from '@/components/location'
 
 type FormType = 'particulier' | 'zakelijk'
 
@@ -47,11 +48,12 @@ export default function ReserverenPage() {
       <Navigation />
 
       {/* ── Hero ── */}
-      <div className="relative w-full h-[45vh] overflow-hidden">
+      <div className="relative w-full h-[55vh] overflow-hidden">
         <Image src="/herosection.jpg" fill className="object-cover object-center" alt="" priority />
-        <div className="absolute inset-0" style={{ background: 'rgba(10,6,2,0.65)' }} />
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
-          <div className="flex items-center gap-4 mb-6">
+        <div className="absolute inset-0" style={{ background: 'rgba(10,6,2,0.55)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, transparent 50%, rgba(250,247,242,1) 100%)' }} />
+        <div className="absolute inset-0 flex flex-col items-center justify-end text-center px-6 pb-12">
+          <div className="flex items-center gap-4 mb-5">
             <div className="h-px w-16 bg-[#D4A853]/50" />
             <span className="font-sans text-[0.65rem] uppercase tracking-[0.3em] text-[#D4A853]">
               RESERVERING
@@ -62,9 +64,7 @@ export default function ReserverenPage() {
             style={{ fontSize: 'clamp(2.5rem,5vw,4rem)', lineHeight: 1.1 }}>
             Plan jouw bezoek
           </h1>
-          <p className="font-sans font-light text-[#FAF7F2]/60 mt-4 max-w-md text-sm">
-            Reserveer een tafel of vraag een bestelling aan. We nemen snel contact op.
-          </p>
+          <div className="mx-auto mt-5 bg-[#D4A853]" style={{ width: '48px', height: '1.5px' }} />
         </div>
       </div>
 
@@ -256,27 +256,7 @@ export default function ReserverenPage() {
         </div>
       </section>
 
-      {/* ── Info bar ── */}
-      <div style={{ background: '#E8DDD0', borderTop: '1px solid #D4C4B0' }}>
-        <div className="mx-auto max-w-7xl">
-          <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-[#D4C4B0]">
-            {[
-              { label: 'Adres', value: 'Van Oldenbarneveltplein 68', sub: '3317ES Dordrecht' },
-              { label: 'Doordeweeks', value: 'Di t/m Za', sub: '08:00 – 18:00' },
-              { label: 'Weekend', value: 'Zondag', sub: '10:00 – 18:00' },
-              { label: 'Contact', value: '06 85 09 10 92', sub: 'info@bennysbakery.nl' },
-            ].map((item) => (
-              <div key={item.label} className="px-6 py-7">
-                <p className="font-sans text-[0.6rem] uppercase tracking-[0.18em] text-[#D4A853] mb-2">
-                  {item.label}
-                </p>
-                <p className="font-sans text-sm text-[#2C1F14]">{item.value}</p>
-                <p className="font-sans text-xs text-[#6B4C35] mt-0.5">{item.sub}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+      <Location />
 
       <Footer />
     </main>
