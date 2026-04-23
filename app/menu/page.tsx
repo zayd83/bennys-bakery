@@ -335,51 +335,66 @@ export default function MenuPage() {
       {isZoomed && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center p-4"
-          style={{ background: 'rgba(44,31,20,0.92)' }}
+          style={{ background: 'rgba(44,31,20,0.92)', touchAction: 'none' }}
           onClick={closeZoom}
         >
           <div
-            className="relative"
-            style={{ maxWidth: '90vw', maxHeight: '90vh' }}
+            className="flex flex-col items-center"
             onClick={(e) => e.stopPropagation()}
           >
-            <Image
-              src={zoomedSrc}
-              width={800}
-              height={1131}
-              className="rounded-lg object-contain shadow-2xl"
-              style={{ maxHeight: '85vh', width: 'auto' }}
-              alt="Menukaart vergroot"
-            />
+            {/* Image + close button */}
+            <div className="relative" style={{ maxWidth: '90vw', maxHeight: '80vh' }}>
+              <Image
+                src={zoomedSrc}
+                width={800}
+                height={1131}
+                className="rounded-lg object-contain shadow-2xl"
+                style={{ maxHeight: '80vh', width: 'auto' }}
+                alt="Menukaart vergroot"
+              />
+              <button
+                onClick={closeZoom}
+                aria-label="Sluiten"
+                className="absolute -right-4 -top-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#F0E9DE] text-[#2C1F14] shadow-lg transition-colors hover:bg-white"
+                style={{ zIndex: 100 }}
+              >
+                ✕
+              </button>
+            </div>
 
-            {/* Close */}
-            <button
-              onClick={closeZoom}
-              aria-label="Sluiten"
-              className="absolute -right-4 -top-4 flex h-10 w-10 items-center justify-center rounded-full bg-[#F0E9DE] text-[#2C1F14] shadow-lg transition-colors hover:bg-white"
-            >
-              ✕
-            </button>
-
-            {/* Prev arrow */}
-            <button
-              onClick={(e) => { e.stopPropagation(); zoomGoPrev() }}
-              disabled={currentIndex === 0}
-              aria-label="Vorige"
-              className="absolute left-[-56px] top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-[#F0E9DE] text-[#2C1F14] shadow-lg transition-colors hover:bg-white disabled:opacity-30"
-            >
-              ←
-            </button>
-
-            {/* Next arrow */}
-            <button
-              onClick={(e) => { e.stopPropagation(); zoomGoNext() }}
-              disabled={currentIndex === TOTAL - 1}
-              aria-label="Volgende"
-              className="absolute right-[-56px] top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-[#F0E9DE] text-[#2C1F14] shadow-lg transition-colors hover:bg-white disabled:opacity-30"
-            >
-              →
-            </button>
+            {/* Arrows below image */}
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '1rem' }}>
+              <button
+                onClick={() => zoomGoPrev()}
+                disabled={currentIndex === 0}
+                aria-label="Vorige"
+                style={{
+                  width: '48px', height: '48px', borderRadius: '50%',
+                  background: '#F0E9DE', color: '#2C1F14',
+                  border: '1px solid #D4C4B0', fontSize: '1.2rem',
+                  cursor: currentIndex === 0 ? 'not-allowed' : 'pointer',
+                  opacity: currentIndex === 0 ? 0.3 : 1,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                }}
+              >
+                ←
+              </button>
+              <button
+                onClick={() => zoomGoNext()}
+                disabled={currentIndex === TOTAL - 1}
+                aria-label="Volgende"
+                style={{
+                  width: '48px', height: '48px', borderRadius: '50%',
+                  background: '#F0E9DE', color: '#2C1F14',
+                  border: '1px solid #D4C4B0', fontSize: '1.2rem',
+                  cursor: currentIndex === TOTAL - 1 ? 'not-allowed' : 'pointer',
+                  opacity: currentIndex === TOTAL - 1 ? 0.3 : 1,
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                }}
+              >
+                →
+              </button>
+            </div>
           </div>
         </div>
       )}
