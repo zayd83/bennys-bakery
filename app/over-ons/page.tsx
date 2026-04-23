@@ -134,31 +134,44 @@ export default function OverOnsPage() {
 
       {/* ── Section 3: Highlights ── */}
       <section
-        className="bg-[#2D4A3E] py-32"
+        className="bg-[#2D4A3E] py-24 lg:py-36"
         ref={highlightsRef as React.RefObject<HTMLDivElement>}
       >
         <div className="mx-auto max-w-6xl px-8">
           <h2
-            className={`mb-16 text-center font-serif text-[3rem] italic text-[#FAF7F2] transition-all duration-400 ease-out ${
+            className={`mb-20 text-center font-serif text-[clamp(2rem,4vw,3rem)] italic text-[#FAF7F2] transition-all duration-500 ease-out ${
               highlightsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
             Wat Benny&apos;s bijzonder maakt
           </h2>
-          <div className="grid grid-cols-2 gap-10 lg:grid-cols-4">
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
             {highlights.map((h, i) => (
               <div
                 key={i}
-                className="transition-all duration-400 ease-out"
+                className="transition-all duration-500 ease-out"
                 style={{
-                  transitionDelay: `${i * 75}ms`,
+                  transitionDelay: `${i * 100}ms`,
                   opacity: highlightsVisible ? 1 : 0,
-                  transform: highlightsVisible ? 'translateY(0)' : 'translateY(16px)',
+                  transform: highlightsVisible ? 'translateY(0)' : 'translateY(20px)',
                 }}
               >
-                <span className="mb-4 block font-serif text-4xl text-[#D4A853]">{h.icon}</span>
-                <h3 className="mb-3 font-serif text-[1.4rem] text-[#FAF7F2]">{h.title}</h3>
-                <p className="font-sans text-[0.9rem] font-light leading-relaxed text-[rgba(250,247,242,0.7)]">
+                {/* Gold top accent line */}
+                <div className="mb-6 h-[2px] w-full bg-[#D4A853]" />
+
+                {/* Number */}
+                <span className="mb-5 block font-sans text-[0.6rem] uppercase tracking-[0.3em] text-[#D4A853]">
+                  0{i + 1}
+                </span>
+
+                {/* Title */}
+                <h3 className="mb-4 font-serif text-[1.5rem] italic leading-[1.2] text-[#FAF7F2]">
+                  {h.title}
+                </h3>
+
+                {/* Description */}
+                <p className="font-sans text-[0.875rem] font-light leading-relaxed text-[rgba(250,247,242,0.6)]">
                   {h.description}
                 </p>
               </div>

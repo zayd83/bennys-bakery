@@ -1,6 +1,5 @@
 'use client'
 
-import { useEffect, type CSSProperties } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
@@ -10,19 +9,6 @@ import { useParallax } from '@/hooks/use-parallax'
 export function Hero() {
   const { ref, isInView } = useInView()
   const heroParallaxRef = useParallax(0.4)
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY
-      const items = document.querySelectorAll('.food-float')
-      items.forEach((item, i) => {
-        const speed = [0.04, -0.06, 0.08, -0.05, 0.03][i]
-        ;(item as HTMLElement).style.transform = `translateY(${scrollY * speed}px)`
-      })
-    }
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   return (
     <section id="home" className="relative z-10 h-screen overflow-hidden" ref={ref}>
@@ -86,102 +72,6 @@ export function Hero() {
 
         {/* Left Half */}
         <div className="relative flex h-full w-1/2 flex-col justify-end bg-[#F0E9DE] pt-12 pr-12 pb-12">
-
-          {/* Floating food items */}
-          <div
-            className="food-float hidden md:block absolute pointer-events-none"
-            style={{ top: '15%', left: '4%', width: '100px', willChange: 'transform', zIndex: 0 }}
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/msemmen.png.png"
-              alt=""
-              style={{
-                width: '100px',
-                height: 'auto',
-                mixBlendMode: 'multiply',
-                animation: 'floatIn1 0.8s ease-out 0.3s forwards, floatBob 4s ease-in-out 1.1s infinite',
-                opacity: 0,
-                '--r': '-12deg',
-              } as CSSProperties}
-            />
-          </div>
-
-          <div
-            className="food-float hidden md:block absolute pointer-events-none"
-            style={{ top: '8%', right: '6%', width: '90px', willChange: 'transform', zIndex: 0 }}
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/thee.png.png"
-              alt=""
-              style={{
-                width: '90px',
-                height: 'auto',
-                mixBlendMode: 'multiply',
-                animation: 'floatIn2 0.8s ease-out 0.3s forwards, floatBob 4.5s ease-in-out 1.1s infinite',
-                opacity: 0,
-                '--r': '15deg',
-              } as CSSProperties}
-            />
-          </div>
-
-          <div
-            className="food-float hidden md:block absolute pointer-events-none"
-            style={{ top: '42%', left: '2%', width: '75px', willChange: 'transform', zIndex: 0 }}
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/matcha.png.png"
-              alt=""
-              style={{
-                width: '75px',
-                height: 'auto',
-                mixBlendMode: 'multiply',
-                animation: 'floatIn3 0.8s ease-out 0.3s forwards, floatBob 3.5s ease-in-out 1.1s infinite',
-                opacity: 0,
-                '--r': '-8deg',
-              } as CSSProperties}
-            />
-          </div>
-
-          <div
-            className="food-float hidden md:block absolute pointer-events-none"
-            style={{ top: '38%', right: '8%', width: '95px', willChange: 'transform', zIndex: 0 }}
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/ei.png.png"
-              alt=""
-              style={{
-                width: '95px',
-                height: 'auto',
-                mixBlendMode: 'multiply',
-                animation: 'floatIn4 0.8s ease-out 0.3s forwards, floatBob 5s ease-in-out 1.1s infinite',
-                opacity: 0,
-                '--r': '10deg',
-              } as CSSProperties}
-            />
-          </div>
-
-          <div
-            className="food-float hidden md:block absolute pointer-events-none"
-            style={{ bottom: '15%', left: '6%', width: '85px', willChange: 'transform', zIndex: 0 }}
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/olijven.png.png"
-              alt=""
-              style={{
-                width: '85px',
-                height: 'auto',
-                mixBlendMode: 'multiply',
-                animation: 'floatIn5 0.8s ease-out 0.3s forwards, floatBob 3.8s ease-in-out 1.1s infinite',
-                opacity: 0,
-                '--r': '-5deg',
-              } as CSSProperties}
-            />
-          </div>
 
           {/* Bottom content */}
           <div className="relative z-10 max-w-[440px]" style={{ marginLeft: 'max(1.5rem, calc(50% - 210px))' }}>
