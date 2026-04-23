@@ -87,83 +87,57 @@ export function Hero() {
         {/* Left Half */}
         <div className="relative flex h-full w-1/2 flex-col justify-end bg-[#F0E9DE] pt-12 pr-12 pb-12">
 
-          {/* Desktop Circles */}
-          <div className="absolute inset-0">
-            <div
-              className={`absolute ${isInView ? 'animate-fade-in-up' : 'opacity-0'}`}
-              style={{ top: '8%', left: '50%', transform: 'translateX(-50%)' }}
-            >
-              <div className="relative" style={{ width: '420px', height: '240px' }}>
-                <div
-                  className="absolute overflow-hidden rounded-full shadow-[0_8px_32px_rgba(44,31,20,0.18)]"
-                  style={{ top: 0, left: 0, width: '150px', height: '150px', animation: 'spinCircle 18s linear infinite', border: '2px solid rgba(44,31,20,0.12)' }}
-                >
-                  <Image src="/food-dish-6.jpg" alt="Vers gebakken brood" width={150} height={150} className="h-full w-full object-cover" priority />
-                </div>
-                <div
-                  className="absolute overflow-hidden rounded-full shadow-[0_8px_32px_rgba(44,31,20,0.18)]"
-                  style={{ top: '55px', left: '140px', width: '135px', height: '135px', zIndex: 1, animation: 'spinCircle 24s linear infinite reverse', border: '2px solid rgba(44,31,20,0.12)' }}
-                >
-                  <Image src="/food-dish-8.jpg" alt="Marokkaanse patisserie" width={135} height={135} className="h-full w-full object-cover" priority />
-                </div>
-                <div
-                  className="absolute overflow-hidden rounded-full shadow-[0_8px_32px_rgba(44,31,20,0.18)]"
-                  style={{ top: 0, left: '270px', width: '145px', height: '145px', animation: 'spinCircle 20s linear infinite', border: '2px solid rgba(44,31,20,0.12)' }}
-                >
-                  <Image src="/food-dish-4.jpg" alt="Artisanaal gebak" width={145} height={145} className="h-full w-full object-cover" priority />
-                </div>
-              </div>
-            </div>
-          </div>
-
           {/* Floating food items */}
           <div
             className="food-float hidden md:block absolute pointer-events-none"
-            style={{ top: '8%', left: '5%', width: '110px', willChange: 'transform', zIndex: 0 }}
+            style={{ top: '15%', left: '4%', width: '100px', willChange: 'transform', zIndex: 0 }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/msemmen.png.png"
               alt=""
               style={{
-                width: '110px',
+                width: '100px',
                 height: 'auto',
+                mixBlendMode: 'multiply',
                 animation: 'floatIn1 0.8s ease-out 0.3s forwards, floatBob 4s ease-in-out 1.1s infinite',
                 opacity: 0,
-                '--r': '-15deg',
+                '--r': '-12deg',
               } as CSSProperties}
             />
           </div>
 
           <div
             className="food-float hidden md:block absolute pointer-events-none"
-            style={{ top: '12%', right: '8%', width: '95px', willChange: 'transform', zIndex: 0 }}
+            style={{ top: '8%', right: '6%', width: '90px', willChange: 'transform', zIndex: 0 }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/ei.png.png"
+              src="/thee.png.png"
               alt=""
               style={{
-                width: '95px',
+                width: '90px',
                 height: 'auto',
-                animation: 'floatIn2 0.8s ease-out 0.3s forwards, floatBob 5s ease-in-out 1.1s infinite',
+                mixBlendMode: 'multiply',
+                animation: 'floatIn2 0.8s ease-out 0.3s forwards, floatBob 4.5s ease-in-out 1.1s infinite',
                 opacity: 0,
-                '--r': '12deg',
+                '--r': '15deg',
               } as CSSProperties}
             />
           </div>
 
           <div
             className="food-float hidden md:block absolute pointer-events-none"
-            style={{ bottom: '28%', left: '3%', width: '80px', willChange: 'transform', zIndex: 0 }}
+            style={{ top: '42%', left: '2%', width: '75px', willChange: 'transform', zIndex: 0 }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/matcha.png.png"
               alt=""
               style={{
-                width: '80px',
+                width: '75px',
                 height: 'auto',
+                mixBlendMode: 'multiply',
                 animation: 'floatIn3 0.8s ease-out 0.3s forwards, floatBob 3.5s ease-in-out 1.1s infinite',
                 opacity: 0,
                 '--r': '-8deg',
@@ -173,33 +147,35 @@ export function Hero() {
 
           <div
             className="food-float hidden md:block absolute pointer-events-none"
-            style={{ bottom: '22%', right: '5%', width: '85px', willChange: 'transform', zIndex: 0 }}
+            style={{ top: '38%', right: '8%', width: '95px', willChange: 'transform', zIndex: 0 }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/thee.png.png"
+              src="/ei.png.png"
               alt=""
               style={{
-                width: '85px',
+                width: '95px',
                 height: 'auto',
-                animation: 'floatIn4 0.8s ease-out 0.3s forwards, floatBob 4.5s ease-in-out 1.1s infinite',
+                mixBlendMode: 'multiply',
+                animation: 'floatIn4 0.8s ease-out 0.3s forwards, floatBob 5s ease-in-out 1.1s infinite',
                 opacity: 0,
-                '--r': '18deg',
+                '--r': '10deg',
               } as CSSProperties}
             />
           </div>
 
           <div
             className="food-float hidden md:block absolute pointer-events-none"
-            style={{ top: '45%', left: '12%', width: '75px', willChange: 'transform', zIndex: 0 }}
+            style={{ bottom: '15%', left: '6%', width: '85px', willChange: 'transform', zIndex: 0 }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/olijven.png.png"
               alt=""
               style={{
-                width: '75px',
+                width: '85px',
                 height: 'auto',
+                mixBlendMode: 'multiply',
                 animation: 'floatIn5 0.8s ease-out 0.3s forwards, floatBob 3.8s ease-in-out 1.1s infinite',
                 opacity: 0,
                 '--r': '-5deg',

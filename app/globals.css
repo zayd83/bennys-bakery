@@ -242,26 +242,26 @@
 }
 .animate-fade-out { animation: fadeOut 2.5s ease-out forwards; }
 
-/* Floating food item entrance animations */
+/* Floating food item entrance animations — rotation via var(--r) so floatBob picks up seamlessly */
 @keyframes floatIn1 {
-  0%   { opacity: 0; transform: translate(-40px, 30px) rotate(-15deg) scale(0.8); }
-  100% { opacity: 1; transform: translate(0,0) rotate(-15deg) scale(1); }
+  0%   { opacity: 0; transform: translate(-40px, 30px) rotate(var(--r)) scale(0.8); }
+  100% { opacity: 1; transform: translate(0,0) rotate(var(--r)) scale(1); }
 }
 @keyframes floatIn2 {
-  0%   { opacity: 0; transform: translate(40px, -20px) rotate(12deg) scale(0.8); }
-  100% { opacity: 1; transform: translate(0,0) rotate(12deg) scale(1); }
+  0%   { opacity: 0; transform: translate(40px, -20px) rotate(var(--r)) scale(0.8); }
+  100% { opacity: 1; transform: translate(0,0) rotate(var(--r)) scale(1); }
 }
 @keyframes floatIn3 {
-  0%   { opacity: 0; transform: translate(-30px, 40px) rotate(-8deg) scale(0.8); }
-  100% { opacity: 1; transform: translate(0,0) rotate(-8deg) scale(1); }
+  0%   { opacity: 0; transform: translate(-30px, 40px) rotate(var(--r)) scale(0.8); }
+  100% { opacity: 1; transform: translate(0,0) rotate(var(--r)) scale(1); }
 }
 @keyframes floatIn4 {
-  0%   { opacity: 0; transform: translate(30px, 30px) rotate(18deg) scale(0.8); }
-  100% { opacity: 1; transform: translate(0,0) rotate(18deg) scale(1); }
+  0%   { opacity: 0; transform: translate(30px, 30px) rotate(var(--r)) scale(0.8); }
+  100% { opacity: 1; transform: translate(0,0) rotate(var(--r)) scale(1); }
 }
 @keyframes floatIn5 {
-  0%   { opacity: 0; transform: translate(-20px, -30px) rotate(-5deg) scale(0.8); }
-  100% { opacity: 1; transform: translate(0,0) rotate(-5deg) scale(1); }
+  0%   { opacity: 0; transform: translate(-20px, -30px) rotate(var(--r)) scale(0.8); }
+  100% { opacity: 1; transform: translate(0,0) rotate(var(--r)) scale(1); }
 }
 
 @keyframes floatBob {
