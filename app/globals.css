@@ -242,6 +242,9 @@
 }
 .animate-fade-out { animation: fadeOut 2.5s ease-out forwards; }
 
+/* Hide scrollbar on carousel track */
+.carousel-track::-webkit-scrollbar { display: none; }
+
 /* Floating food item entrance animations — rotation via var(--r) so floatBob picks up seamlessly */
 @keyframes floatIn1 {
   0%   { opacity: 0; transform: translate(-40px, 30px) rotate(var(--r)) scale(0.8); }
@@ -267,4 +270,9 @@
 @keyframes floatBob {
   0%, 100% { transform: translateY(0px) rotate(var(--r)); }
   50%       { transform: translateY(-8px) rotate(var(--r)); }
+}
+
+@keyframes foodFloat {
+  0%, 100% { transform: translateY(0px) rotate(var(--r, 0deg)); }
+  50%       { transform: translateY(-8px) rotate(var(--r, 0deg)); }
 }
