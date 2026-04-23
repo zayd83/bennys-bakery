@@ -26,21 +26,6 @@ export function Hero() {
         />
         <div className="absolute inset-0 bg-black/55" />
 
-        {/* Three food circles — centered */}
-        <div className="absolute left-1/2 -translate-x-1/2" style={{ top: '18%' }}>
-          <div className={`flex items-end gap-5 ${isInView ? 'animate-fade-in-up' : 'opacity-0'}`}>
-            <div className="w-[110px] h-[110px] rounded-full overflow-hidden border-2 border-white/25 shadow-2xl flex-shrink-0">
-              <Image src="/food-dish-6.jpg" alt="" width={110} height={110} className="w-full h-full object-cover" priority />
-            </div>
-            <div className="w-[140px] h-[140px] rounded-full overflow-hidden border-2 border-white/25 shadow-2xl flex-shrink-0" style={{ marginBottom: '-28px' }}>
-              <Image src="/food-dish-4.jpg" alt="" width={140} height={140} className="w-full h-full object-cover" priority />
-            </div>
-            <div className="w-[110px] h-[110px] rounded-full overflow-hidden border-2 border-white/25 shadow-2xl flex-shrink-0">
-              <Image src="/food-dish-8.jpg" alt="" width={110} height={110} className="w-full h-full object-cover" priority />
-            </div>
-          </div>
-        </div>
-
         {/* Text & buttons at bottom */}
         <div className="absolute bottom-0 left-0 right-0 px-6 pb-12">
           <h1 className={`font-serif text-[2.6rem] italic leading-[1.05] text-white mb-3 ${isInView ? 'animate-fade-in-up animation-delay-200' : 'opacity-0'}`}>
