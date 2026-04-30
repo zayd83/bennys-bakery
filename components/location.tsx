@@ -8,7 +8,7 @@ export function Location() {
   const { ref, visible } = useFadeIn()
 
   return (
-    <section id="over-ons" className="py-16 sm:py-24 lg:py-32" style={{ backgroundColor: '#C4A882' }} ref={ref}>
+    <section id="over-ons" className="relative py-16 sm:py-24 lg:py-32" style={{ backgroundColor: '#C4A882' }} ref={ref}>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           {/* Left - Text Content */}

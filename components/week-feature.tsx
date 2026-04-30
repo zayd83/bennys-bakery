@@ -10,7 +10,7 @@ export function WeekFeature() {
   const photoRef = useParallax(0.3)
 
   return (
-    <section id="aanraders" className="bg-deep-green py-16 sm:py-24 lg:py-48" ref={ref}>
+    <section id="aanraders" className="relative bg-deep-green py-16 sm:py-24 lg:py-48" ref={ref}>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[55%_45%] lg:gap-20">
           {/* Left - Content */}
@@ -29,7 +29,7 @@ export function WeekFeature() {
               }`}
               style={{ transitionDelay: '100ms' }}
             >
-              Msemmen met kip — een klassieker met een twist
+              Msemmen met kip — vers uit onze Dordrechtse bakkerij
             </h2>
             <p
               className={`mb-10 font-sans text-base font-light leading-[1.9] text-cream/80 transition-all duration-400 ease-out ${
@@ -37,9 +37,10 @@ export function WeekFeature() {
               }`}
               style={{ transitionDelay: '200ms' }}
             >
-              Luchtige msemmen gevuld met mals gekruide kip, frisse salade en een
-              romige saus. Een gerecht dat generaties verbindt — van de warme
-              plaat direct naar jouw bord. Elke week een nieuwe aanrader.
+              Luchtige msemmen gevuld met mals gekruide halal kip, frisse salade
+              en een romige saus. Een gerecht dat generaties verbindt — van de
+              warme plaat direct naar jouw bord. Elke week een nieuwe aanrader
+              bij Benny&apos;s Bakery in Dordrecht.
             </p>
             <Link
               href="/menu"
@@ -65,10 +66,10 @@ export function WeekFeature() {
               style={{ top: '-30%', bottom: '-30%', willChange: 'transform' }}
             >
               <Image
-                src="/food-dish-5.jpg"
-                alt="Msemmen met kip"
+                src="/images/food/ontbijt-spread.jpg"
+                alt="Msemmen met harcha bij Benny's"
                 fill
-                className="object-cover"
+                className="object-cover object-center"
               />
             </div>
           </div>

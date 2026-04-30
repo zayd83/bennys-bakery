@@ -16,16 +16,16 @@ export function FoodIntro() {
             {/* Left photo */}
             <div className="relative w-full sm:w-[48%]">
               <div className="relative overflow-hidden rounded-sm h-[280px] sm:h-[480px]">
-                <Image src="/food-dish-3.jpg" fill
-                  className="object-cover" alt="Benny's" />
+                <Image src="/images/food/ontbijt-spread.jpg" fill
+                  className="object-cover object-center" alt="Marokkaans ontbijt bij Benny's" />
               </div>
             </div>
 
             {/* Right photo — starts lower on desktop */}
             <div className="relative w-full sm:w-[48%] mt-0 sm:mt-20">
               <div className="relative overflow-hidden rounded-sm h-[280px] sm:h-[480px]">
-                <Image src="/bakery-sfeer-1.jpg" fill
-                  className="object-cover" alt="Benny's sfeer" />
+                <Image src="/images/food/ontbijt-tajine.jpg" fill
+                  className="object-cover object-center" alt="Marokkaans ontbijt met tajine" />
               </div>
             </div>
 
@@ -38,27 +38,27 @@ export function FoodIntro() {
                 isInView ? 'animate-fade-in-up' : 'opacity-0'
               }`}
             >
-              BENNY&apos;s BAKERY
+              HALAL LUNCHROOM &amp; BAKKERIJ · DORDRECHT
             </span>
             <h2
               className={`mb-8 font-serif text-[clamp(2.5rem,4vw,4rem)] italic leading-[1.1] text-text-dark ${
                 isInView ? 'animate-fade-in-up animation-delay-200' : 'opacity-0'
               }`}
             >
-              Marokkaanse klassiekers, vers bereid
+              Marokkaanse klassiekers, vers bereid in Dordrecht
             </h2>
             <p
               className={`mb-10 font-sans text-base font-light leading-[1.9] text-text-dark/70 ${
                 isInView ? 'animate-fade-in-up animation-delay-150' : 'opacity-0'
               }`}
             >
-              Al-Maclaa: waar culinaire revolutie en Marokkaanse klassiekers bij
-              elkaar komen. Bij Benny&apos;s Bakery draait alles om vers, lokaal en
-              ambachtelijk — van een traditioneel ontbijt tot patisserie op
-              bestelling.
+              Benny&apos;s Bakery is dé halal lunchroom en bakkerij van Dordrecht.
+              Van vers gebakken msemmen en harcha tot Marokkaanse patisserie op
+              bestelling — ambachtelijk bereid, elke dag opnieuw. Ontbijten,
+              lunchen of iets meenemen? Je bent altijd welkom.
             </p>
             <Link
-              href="#menu"
+              href="/menu"
               className={`group flex items-center gap-2 font-sans text-terracotta transition-all hover:underline ${
                 isInView ? 'animate-fade-in-up animation-delay-400' : 'opacity-0'
               }`}
