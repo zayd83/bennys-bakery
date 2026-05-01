@@ -45,7 +45,7 @@ export function Hero() {
             Marokkaanse smaken, recht uit het hart van Dordrecht
           </h1>
           <p className={`font-sans text-sm font-light text-white/80 mb-8 ${isInView ? 'animate-fade-in-up animation-delay-150' : 'opacity-0'}`}>
-            Verse lunchroom &amp; bakkerij in Dordrecht — elke dag voor je open
+            Verse lunchroom en bakkerij in Dordrecht, elke dag voor je open
           </p>
           <div className={`flex flex-col gap-3 ${isInView ? 'animate-fade-in-up animation-delay-225' : 'opacity-0'}`}>
             <Link
@@ -83,14 +83,14 @@ export function Hero() {
 
             {/* Tag */}
             <span className={`mb-4 inline-block font-sans text-[0.6rem] uppercase tracking-[0.22em] text-[#D4A853] ${isInView ? 'animate-fade-in-up' : 'opacity-0'}`}>
-              Lunchroom · Patisserie · Bakkerij — Dordrecht
+              Lunchroom · Patisserie · Bakkerij · Dordrecht
             </span>
 
             <h1 className={`max-w-[480px] font-serif text-[clamp(3rem,5vw,5.5rem)] font-normal italic leading-[1.05] text-[#2C1F14] ${isInView ? 'animate-fade-in-up animation-delay-200' : 'opacity-0'}`}>
               Marokkaanse smaken, recht uit het hart van Dordrecht
             </h1>
             <p className={`mt-4 max-w-[340px] font-sans text-[0.9rem] font-light leading-relaxed text-[#6B4C35] ${isInView ? 'animate-fade-in-up animation-delay-400' : 'opacity-0'}`}>
-              Verse lunchroom &amp; bakkerij in Dordrecht — elke dag voor je open
+              Verse lunchroom en bakkerij in Dordrecht, elke dag voor je open
             </p>
 
             <div className={`mt-8 flex flex-wrap gap-3 ${isInView ? 'animate-fade-in-up animation-delay-225' : 'opacity-0'}`}>

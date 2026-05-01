@@ -5,7 +5,6 @@ import Link from 'next/link'
 import { useState } from 'react'
 import { ArrowRight } from 'lucide-react'
 import { useFadeIn } from '@/hooks/use-fade-in'
-import { useParallax } from '@/hooks/use-parallax'
 
 const tabs = [
   {
@@ -24,13 +23,12 @@ const tabs = [
     label: 'Signature',
     src: '/images/drinks/koffie-branded.jpg',
     alt: "Benny's signature koffie",
-    desc: "De Benny's Signature — onze huisspecialiteit met caramel, een touch Monin en verse slagroom. Eén slok en je komt terug.",
+    desc: "De Benny's Signature is onze huisspecialiteit: caramel, een touch Monin en verse slagroom. Eén slok en je komt terug.",
   },
 ]
 
 export function BaristaSection() {
   const { ref, visible } = useFadeIn()
-  const photoRef = useParallax(0.25)
   const [active, setActive] = useState(0)
 
   return (
@@ -44,26 +42,20 @@ export function BaristaSection() {
               visible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
             }`}
           >
-            <div
-              ref={photoRef}
-              className="absolute inset-x-0"
-              style={{ top: '-30%', bottom: '-30%', willChange: 'transform' }}
-            >
-              {tabs.map((tab, i) => (
-                <div
-                  key={tab.label}
-                  className="absolute inset-0 transition-opacity duration-500"
-                  style={{ opacity: active === i ? 1 : 0 }}
-                >
-                  <Image
-                    src={tab.src}
-                    alt={tab.alt}
-                    fill
-                    className="object-cover object-center"
-                  />
-                </div>
-              ))}
-            </div>
+            {tabs.map((tab, i) => (
+              <div
+                key={tab.label}
+                className="absolute inset-0 transition-opacity duration-500"
+                style={{ opacity: active === i ? 1 : 0 }}
+              >
+                <Image
+                  src={tab.src}
+                  alt={tab.alt}
+                  fill
+                  className="object-cover object-center"
+                />
+              </div>
+            ))}
           </div>
 
           {/* Right — content */}

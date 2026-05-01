@@ -30,7 +30,7 @@ export function BreakfastSection() {
               }`}
               style={{ transitionDelay: '80ms' }}
             >
-              Marokkaans ontbijten in Dordrecht — elke dag vers
+              Marokkaans ontbijten in Dordrecht, elke dag vers
             </h2>
             <p
               className={`mb-8 font-sans text-base font-light leading-[1.9] text-[#6B4C35] transition-all duration-400 ease-out ${
@@ -38,7 +38,7 @@ export function BreakfastSection() {
               }`}
               style={{ transitionDelay: '160ms' }}
             >
-              Msemmen, verse groenten, olijven, gegrilde tomaten en kruidige eieren — een tafel vol Marokkaanse smaken. Halal ontbijten in Dordrecht bij Benny&apos;s Bakery. Di t/m Za vanaf 08:00, Zo vanaf 10:00.
+              Msemmen, verse groenten, olijven, gegrilde tomaten en kruidige eieren. Een tafel vol Marokkaanse smaken, halal en vers. Di t/m Za vanaf 08:00, Zo vanaf 10:00.
             </p>
 
             {/* Details */}

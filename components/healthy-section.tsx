@@ -41,7 +41,7 @@ export function HealthySection() {
             }`}
             style={{ transitionDelay: '140ms' }}
           >
-            Van verse sandwiches en Marokkaanse salades tot verse sappen en bowls — halal lunchen in Dordrecht doe je bij Benny&apos;s Bakery.
+            Van verse sandwiches en Marokkaanse salades tot verse sappen en bowls. Halal lunchen in Dordrecht doe je bij Benny&apos;s Bakery.
           </p>
         </div>
 

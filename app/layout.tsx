@@ -20,7 +20,7 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   title: "Benny's Bakery | Lunchroom & Bakkerij Dordrecht | Halal",
-  description: "Benny's Bakery — verse lunchroom & Marokkaanse bakkerij in Dordrecht. Halal eten, vers gebakken brood, patisserie, ontbijt en lunch. Elke dag open in Dordrecht, Drechtsteden.",
+  description: "Benny's Bakery is dé halal lunchroom en Marokkaanse bakkerij in Dordrecht. Vers gebakken brood, patisserie, ontbijt en lunch. Elke dag open op Van Oldenbarneveltplein, Dordrecht.",
   keywords: ['bakkerij Dordrecht', 'lunchroom Dordrecht', 'Marokkaanse bakkerij Dordrecht', 'halal eten Dordrecht', 'eten Dordrecht', 'halal bakkerij', 'Marokkaanse lunchroom', 'Drechtsteden', 'Zuid-Holland', 'vers brood', 'patisserie', 'ontbijt Dordrecht', 'lunch Dordrecht', 'ambachtelijk'],
   authors: [{ name: "Benny's Bakery" }],
   openGraph: {

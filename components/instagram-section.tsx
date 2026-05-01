@@ -5,11 +5,11 @@ import Link from 'next/link'
 import { useFadeIn } from '@/hooks/use-fade-in'
 
 const posts = [
-  { src: '/images/food/chebakia-spread-sq.jpg', alt: 'Marokkaanse chebakia patisserie bij Benny\'s Bakery Dordrecht' },
+  { src: '/images/sfeer/interieur-dining.jpg', alt: 'Interieur Benny\'s Bakery lunchroom Dordrecht' },
   { src: '/images/drinks/koffie-branded.jpg', alt: 'Specialty koffie bij Benny\'s Bakery lunchroom Dordrecht' },
-  { src: '/images/food/ontbijt-overhead-sq.jpg', alt: 'Marokkaans ontbijt spread Benny\'s Bakery Dordrecht' },
+  { src: '/images/food/ontbijt-overhead-sq.jpg', alt: 'Marokkaans ontbijt bij Benny\'s Bakery Dordrecht' },
   { src: '/images/desserts/chocolade-bol.jpg', alt: 'Chocolade dessert bij Benny\'s Patisserie Dordrecht' },
-  { src: '/images/sfeer/patisserie-vitrine.jpg', alt: 'Sfeer Benny\'s Bakery lunchroom Van Oldenbarneveltplein Dordrecht' },
+  { src: '/images/sfeer/counter-menu.jpg', alt: 'Counter en menu bij Benny\'s Bakery Dordrecht' },
   { src: '/images/burgers/burger-beef.jpg', alt: 'Halal burger lunch bij Benny\'s Bakery Dordrecht' },
 ]
 
@@ -20,7 +20,7 @@ export function InstagramSection() {
   const { ref, visible } = useFadeIn()
 
   return (
-    <section className="bg-[#0D0B07] py-16 sm:py-24" ref={ref}>
+    <section className="bg-[#F0E9DE] py-16 sm:py-24" ref={ref}>
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
 
         {/* Header */}
@@ -48,11 +48,11 @@ export function InstagramSection() {
                 Instagram
               </span>
             </div>
-            <h2 className="font-serif text-[clamp(1.8rem,3vw,2.5rem)] italic text-white">
+            <h2 className="font-serif text-[clamp(1.8rem,3vw,2.5rem)] italic text-[#2C1F14]">
               Volg ons dagelijkse leven
             </h2>
-            <p className="mt-2 font-sans text-sm font-light text-white/50">
-              Verse producten, sfeer & nieuws — direct uit onze bakkerij in Dordrecht
+            <p className="mt-2 font-sans text-sm font-light text-[#6B4C35]">
+              Verse producten, sfeer en nieuws uit onze bakkerij in Dordrecht
             </p>
           </div>
 
@@ -60,7 +60,7 @@ export function InstagramSection() {
             href={INSTAGRAM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 inline-flex items-center gap-2 rounded-full border border-white/20 px-5 py-2.5 font-sans text-sm text-white/80 transition-all hover:border-white/50 hover:text-white"
+            className="shrink-0 inline-flex items-center gap-2 rounded-full border border-[#2C1F14]/30 px-5 py-2.5 font-sans text-sm text-[#2C1F14]/80 transition-all hover:border-[#2C1F14] hover:text-[#2C1F14]"
           >
             Volg {HANDLE}
           </Link>

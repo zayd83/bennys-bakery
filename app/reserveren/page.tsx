@@ -49,21 +49,24 @@ export default function ReserverenPage() {
 
       {/* ── Hero ── */}
       <div className="relative w-full h-[55vh] overflow-hidden">
-        <Image src="/herosection.jpg" fill className="object-cover object-center" alt="" priority />
+        <Image src="/images/sfeer/interieur-dining.jpg" fill className="object-cover object-center" alt="Benny's Bakery catering" priority />
         <div className="absolute inset-0" style={{ background: 'rgba(10,6,2,0.55)' }} />
         <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, transparent 50%, rgba(250,247,242,1) 100%)' }} />
         <div className="absolute inset-0 flex flex-col items-center justify-end text-center px-6 pb-12">
           <div className="flex items-center gap-4 mb-5">
             <div className="h-px w-16 bg-[#D4A853]/50" />
             <span className="font-sans text-[0.65rem] uppercase tracking-[0.3em] text-[#D4A853]">
-              RESERVERING
+              CATERING
             </span>
             <div className="h-px w-16 bg-[#D4A853]/50" />
           </div>
           <h1 className="font-serif italic text-[#FAF7F2]"
             style={{ fontSize: 'clamp(2.5rem,5vw,4rem)', lineHeight: 1.1 }}>
-            Plan jouw bezoek
+            Catering aanvragen
           </h1>
+          <p className="mt-4 font-sans text-sm text-white/70 max-w-md">
+            Voor grotere groepen, events en bedrijfslunches
+          </p>
           <div className="mx-auto mt-5 bg-[#D4A853]" style={{ width: '48px', height: '1.5px' }} />
         </div>
       </div>
@@ -77,9 +80,12 @@ export default function ReserverenPage() {
             <div className="rounded-xl p-7 sm:p-10"
               style={{ background: '#F0E9DE', border: '1px solid #D4C4B0' }}>
 
-              <h2 className="font-serif italic text-[#D4A853] text-2xl mb-8">
-                Reserveer bij ons
+              <h2 className="font-serif italic text-[#D4A853] text-2xl mb-3">
+                Catering aanvragen
               </h2>
+              <p className="font-sans text-sm text-[#6B4C35] leading-relaxed mb-8">
+                Benny&apos;s Bakery verzorgt catering voor feesten, bedrijfslunches en events, zowel bij ons als extern bezorgd in de regio Dordrecht. Vul het formulier in en we nemen zo snel mogelijk contact op.
+              </p>
 
               {/* Particulier / Zakelijk tabs */}
               <div className="flex gap-8 mb-8 border-b border-[#D4C4B0]">
@@ -127,7 +133,7 @@ export default function ReserverenPage() {
                   </div>
                   <div>
                     <label className={labelClass}>Aantal personen</label>
-                    <input type="number" name="personen" placeholder="2" min="1"
+                    <input type="number" name="personen" placeholder="10" min="1"
                       value={formData.personen} onChange={handleChange} className={inputClass} />
                   </div>
                 </div>
@@ -158,12 +164,12 @@ export default function ReserverenPage() {
                 {/* Datum + Tijd */}
                 <div className="grid gap-x-8 gap-y-7 sm:grid-cols-2 mb-7">
                   <div>
-                    <label className={labelClass}>Datum *</label>
+                    <label className={labelClass}>Gewenste datum *</label>
                     <input type="date" name="datum" required
                       value={formData.datum} onChange={handleChange} className={inputClass} />
                   </div>
                   <div>
-                    <label className={labelClass}>Tijd *</label>
+                    <label className={labelClass}>Gewenste tijd *</label>
                     <input type="time" name="tijd" required
                       value={formData.tijd} onChange={handleChange} className={inputClass} />
                   </div>
@@ -176,19 +182,18 @@ export default function ReserverenPage() {
                     className={`${inputClass} appearance-none`}
                     style={{ backgroundImage: selectArrow, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 0 center' }}>
                     <option value="" style={{ background: '#FAF7F2' }}>Kies een optie</option>
-                    <option value="tafel" style={{ background: '#FAF7F2' }}>Tafel reserveren</option>
                     <option value="bedrijfslunch" style={{ background: '#FAF7F2' }}>Bedrijfslunch</option>
+                    <option value="catering" style={{ background: '#FAF7F2' }}>Catering op locatie</option>
                     <option value="taarten" style={{ background: '#FAF7F2' }}>Taarten & Patisserie</option>
                     <option value="ghorzza" style={{ background: '#FAF7F2' }}>Ghorzza</option>
-                    <option value="catering" style={{ background: '#FAF7F2' }}>Catering</option>
                     <option value="overig" style={{ background: '#FAF7F2' }}>Overig</option>
                   </select>
                 </div>
 
                 {/* Bestelling */}
                 <div className="mb-7">
-                  <label className={labelClass}>Bestelling / opmerking *</label>
-                  <textarea name="bestelling" placeholder="Wat wil je bestellen of meegeven?"
+                  <label className={labelClass}>Wat wil je bestellen of doorgeven? *</label>
+                  <textarea name="bestelling" placeholder="Vertel ons wat je nodig hebt"
                     required rows={3} value={formData.bestelling} onChange={handleChange}
                     className={inputClass} style={{ resize: 'vertical' }} />
                 </div>
@@ -211,7 +216,7 @@ export default function ReserverenPage() {
                   <input type="checkbox" name="akkoord" required
                     checked={formData.akkoord} onChange={handleChange} className="sr-only" />
                   <span className="font-sans text-[0.8rem] text-[#6B4C35] leading-relaxed">
-                    Ik ga akkoord dat Benny&apos;s Bakery contact met mij opneemt over deze aanvraag.
+                    Ik ga akkoord dat Benny&apos;s Bakery contact met mij opneemt over deze cateringaanvraag.
                   </span>
                 </label>
 
@@ -225,15 +230,15 @@ export default function ReserverenPage() {
                 </button>
 
                 <p className="text-center font-sans text-[0.7rem] text-[#6B4C35] opacity-50 mt-4">
-                  We gebruiken je gegevens alleen voor deze aanvraag.
+                  We nemen zo snel mogelijk contact met je op.
                 </p>
               </form>
 
               {/* WhatsApp */}
               <div className="flex items-center gap-4 mt-10 mb-8">
-                <div className="flex-1 h-px bg-white/10" />
+                <div className="flex-1 h-px bg-[#D4C4B0]" />
                 <span className="font-sans text-[0.65rem] uppercase tracking-[0.15em] text-[#6B4C35] opacity-50">of</span>
-                <div className="flex-1 h-px bg-white/10" />
+                <div className="flex-1 h-px bg-[#D4C4B0]" />
               </div>
               <div className="text-center">
                 <a href="https://wa.me/31685091092" target="_blank" rel="noopener noreferrer"
@@ -244,11 +249,22 @@ export default function ReserverenPage() {
               </div>
             </div>
 
-            {/* ── Photo (desktop only) ── */}
-            <div className="hidden lg:block sticky top-24">
-              <div className="relative overflow-hidden rounded-xl" style={{ height: '680px' }}>
-                <Image src="/bakery-sfeer-1.jpg" fill className="object-cover" alt="Benny's Bakery" />
+            {/* ── Info sidebar (desktop only) ── */}
+            <div className="hidden lg:flex flex-col gap-6 sticky top-24">
+              <div className="relative overflow-hidden rounded-xl" style={{ height: '420px' }}>
+                <Image src="/images/sfeer/patisserie-vitrine.jpg" fill className="object-cover" alt="Benny's Bakery catering" />
                 <div className="absolute inset-0" style={{ background: 'rgba(10,6,2,0.15)' }} />
+              </div>
+              <div className="rounded-xl p-6" style={{ background: '#F0E9DE', border: '1px solid #D4C4B0' }}>
+                <p className="font-sans text-[0.65rem] uppercase tracking-[0.15em] text-[#D4A853] mb-3">Wat we aanbieden</p>
+                <ul className="space-y-2 font-sans text-sm text-[#6B4C35]">
+                  {['Bedrijfslunches voor grotere groepen', 'Catering op locatie in de regio Dordrecht', 'Taarten en patisserie op bestelling', 'Ghorzza voor events en feesten'].map(item => (
+                    <li key={item} className="flex items-start gap-2">
+                      <span className="mt-1.5 w-1 h-1 rounded-full bg-[#C4622D] flex-shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
 

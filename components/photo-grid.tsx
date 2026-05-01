@@ -6,21 +6,21 @@ import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 import { useParallaxContainer } from '@/hooks/use-scroll-animation'
 
 const topPhotos = [
-  '/images/sfeer/patisserie-vitrine.jpg',
-  '/images/food/ontbijt-spread.jpg',
+  '/images/sfeer/cinematic-bloemen.jpg',
   '/images/sfeer/interieur-dining.jpg',
-  '/images/drinks/koffie-branded.jpg',
+  '/images/sfeer/menu-boards.jpg',
+  '/images/sandwiches/sandwich-saus.jpg',
   '/images/burgers/burger-beef.jpg',
-  '/images/food/chebakia-solo.jpg',
+  '/images/sfeer/patisserie-vitrine.jpg',
 ]
 
 const bottomPhotos = [
   '/images/sfeer/baguettes-rek.jpg',
-  '/images/sandwiches/sandwich-groente.jpg',
+  '/images/sfeer/mural-portrait.jpg',
+  '/images/sfeer/counter-menu.jpg',
+  '/images/drinks/koffie-karamel.jpg',
+  '/images/sandwiches/sandwich-vlees.jpg',
   '/images/sfeer/mural-marokkaans.jpg',
-  '/images/drinks/koffie-iced.jpg',
-  '/images/burgers/burger-chicken.jpg',
-  '/images/desserts/citroen.jpg',
 ]
 
 const allPhotos: string[] = [...topPhotos, ...bottomPhotos]

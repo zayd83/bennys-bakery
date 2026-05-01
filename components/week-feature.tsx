@@ -29,7 +29,7 @@ export function WeekFeature() {
               }`}
               style={{ transitionDelay: '100ms' }}
             >
-              Msemmen met kip — vers uit onze Dordrechtse bakkerij
+              Msemmen met kip, vers uit onze Dordrechtse bakkerij
             </h2>
             <p
               className={`mb-10 font-sans text-base font-light leading-[1.9] text-cream/80 transition-all duration-400 ease-out ${
@@ -38,9 +38,8 @@ export function WeekFeature() {
               style={{ transitionDelay: '200ms' }}
             >
               Luchtige msemmen gevuld met mals gekruide halal kip, frisse salade
-              en een romige saus. Een gerecht dat generaties verbindt — van de
-              warme plaat direct naar jouw bord. Elke week een nieuwe aanrader
-              bij Benny&apos;s Bakery in Dordrecht.
+              en een romige saus. Van de warme plaat direct naar jouw bord.
+              Elke week een nieuwe aanrader bij Benny&apos;s Bakery in Dordrecht.
             </p>
             <Link
               href="/menu"

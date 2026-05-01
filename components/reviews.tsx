@@ -42,7 +42,7 @@ export function Reviews() {
             Wat onze klanten zeggen
           </h2>
           <p className="mt-2 font-sans text-sm font-light text-[#6B4C35]">
-            Dé halal lunchroom &amp; bakkerij van Dordrecht — beoordeeld met een 4.8 ⭐
+            Dé halal lunchroom en bakkerij van Dordrecht, beoordeeld met een 4.8 ⭐
           </p>
         </div>
 
