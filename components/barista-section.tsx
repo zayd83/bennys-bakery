@@ -8,22 +8,22 @@ import { useFadeIn } from '@/hooks/use-fade-in'
 
 const tabs = [
   {
-    label: 'Espresso',
-    src: '/images/drinks/koffie-branded.jpg',
-    alt: "Espresso bij Benny's Bakery Dordrecht",
-    desc: 'Ons espresso-programma draait op een GAGGIA machine met zorgvuldig geselecteerde bonen. Elke shot getimed op de seconde.',
-  },
-  {
-    label: 'Iced Coffee',
+    label: 'Koffie caramel',
     src: '/images/drinks/koffie-karamel.jpg',
-    alt: 'Iced caramel coffee bij Benny\'s Bakery',
-    desc: 'Koud, romig en vol smaak. Onze iced coffees worden afgewerkt met verse slagroom en een karameldrizzle.',
+    alt: "Koffie caramel bij Benny's Bakery Dordrecht",
+    desc: 'Koud, romig en vol smaak. Onze koffie caramel wordt afgewerkt met verse slagroom en een rijke karameldrizzle.',
   },
   {
-    label: 'Signature',
+    label: 'Mojito',
+    src: '/images/drinks/mojito-iced.jpg',
+    alt: "Mojito bij Benny's Bakery Dordrecht",
+    desc: 'Verfrissend en vol smaak. Onze huisgemaakte mojito met verse munt, limoen en bruisend water — de perfecte zomerdrank.',
+  },
+  {
+    label: 'Koffie latte',
     src: '/images/drinks/koffie-latte.jpg',
-    alt: "Benny's signature latte",
-    desc: "De Benny's Signature is onze huisspecialiteit: caramel, een touch Monin en verse slagroom. Eén slok en je komt terug.",
+    alt: "Koffie latte bij Benny's Bakery",
+    desc: "Romige koffie latte met een perfecte balans tussen espresso en melk. Zacht, vol en elke dag vers bereid.",
   },
 ]
 

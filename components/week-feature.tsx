@@ -65,7 +65,7 @@ export function WeekFeature() {
               style={{ top: '-30%', bottom: '-30%', willChange: 'transform' }}
             >
               <Image
-                src="/images/burgers/chicken-sq.jpg"
+                src="/images/sandwiches/sandwich-vlees.jpg"
                 alt="Msemmen met kip bij Benny's Bakery Dordrecht"
                 fill
                 className="object-cover object-center"

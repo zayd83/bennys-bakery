@@ -53,7 +53,7 @@ export function FoodIntro() {
               }`}
             >
               Benny&apos;s Bakery is dé halal lunchroom en bakkerij van Dordrecht.
-              Van vers gebakken msemmen en harcha tot Marokkaanse patisserie op
+              Van vers gebakken msemmen en harcha tot verse halal patisserie op
               bestelling. Ontbijten, lunchen of iets meenemen? Je bent altijd welkom.
             </p>
             <Link

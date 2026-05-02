@@ -32,7 +32,7 @@ export function Navigation() {
             {/* LEFT — Logo */}
             <Link href="/" className="relative z-10 flex items-center">
               <Image
-                src="/logo-bennys.png"
+                src="/images/logo-bennys.png"
                 alt="Benny's Bakery"
                 width={120}
                 height={52}

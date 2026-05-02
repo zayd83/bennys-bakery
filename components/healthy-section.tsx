@@ -7,8 +7,8 @@ import { useFadeIn } from '@/hooks/use-fade-in'
 
 const highlights = [
   { src: '/images/sandwiches/sandwich-vlees.jpg', label: 'Verse Broodjes', desc: 'Vers belegd broodje, elke dag gemaakt' },
-  { src: '/images/drinks/drink-fris.jpg', label: 'Verse Dranken', desc: 'Frisse dranken en specialty koffie' },
-  { src: '/images/food/ontbijt-overhead-sq.jpg', label: 'Marokkaans Ontbijt', desc: 'Een tafel vol smaken, elke dag vers' },
+  { src: '/images/drinks/koffie-glas.jpg', label: 'Specialty Koffie', desc: 'Specialty koffie en frisse dranken' },
+  { src: '/images/food/ontbijt-tajine.jpg', label: 'Marokkaans Ontbijt', desc: 'Tajine, verse groenten en vers brood' },
 ]
 
 export function HealthySection() {

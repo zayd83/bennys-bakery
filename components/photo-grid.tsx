@@ -7,20 +7,20 @@ import { useParallaxContainer } from '@/hooks/use-scroll-animation'
 
 const topPhotos = [
   '/images/burgers/burger-beef.jpg',
-  '/images/sfeer/interieur-dining.jpg',
-  '/images/food/chebakia-solo.jpg',
-  '/images/sfeer/cinematic-bloemen.jpg',
+  '/images/desserts/chocolade-bol.jpg',
+  '/images/food/chebakia-spread-sq.jpg',
   '/images/sandwiches/sandwich-saus.jpg',
+  '/images/drinks/koffie-karamel.jpg',
   '/images/sfeer/patisserie-vitrine.jpg',
 ]
 
 const bottomPhotos = [
   '/images/food/ontbijt-spread.jpg',
-  '/images/sfeer/baguettes-rek.jpg',
-  '/images/drinks/koffie-karamel.jpg',
-  '/images/sfeer/mural-portrait.jpg',
+  '/images/desserts/mangomousse.jpg',
+  '/images/food/patisserie-citroen.jpg',
+  '/images/sfeer/interieur-dining.jpg',
   '/images/burgers/burger-chicken.jpg',
-  '/images/sfeer/counter-menu.jpg',
+  '/images/food/ontbijt-tajine.jpg',
 ]
 
 const allPhotos: string[] = [...topPhotos, ...bottomPhotos]
