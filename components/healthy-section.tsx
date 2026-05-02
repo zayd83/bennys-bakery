@@ -6,9 +6,9 @@ import { ArrowRight } from 'lucide-react'
 import { useFadeIn } from '@/hooks/use-fade-in'
 
 const highlights = [
-  { src: '/images/sandwiches/sandwich-groente.jpg', label: 'Verse Sandwich', desc: 'Knapperig brood met gegrilde groenten' },
-  { src: '/images/drinks/sinaasappelsap.jpg', label: 'Verse Sappen', desc: 'Geperst fruit, geen toevoegingen' },
-  { src: '/images/food/ontbijt-tajine.jpg', label: 'Marokkaans Ontbijt', desc: 'Tajine, verse groenten & brood' },
+  { src: '/images/sandwiches/sandwich-vlees.jpg', label: 'Verse Broodjes', desc: 'Vers belegd broodje, elke dag gemaakt' },
+  { src: '/images/drinks/drink-fris.jpg', label: 'Verse Dranken', desc: 'Frisse dranken en specialty koffie' },
+  { src: '/images/food/ontbijt-overhead-sq.jpg', label: 'Marokkaans Ontbijt', desc: 'Een tafel vol smaken, elke dag vers' },
 ]
 
 export function HealthySection() {

@@ -9,20 +9,20 @@ import { useFadeIn } from '@/hooks/use-fade-in'
 const tabs = [
   {
     label: 'Espresso',
-    src: '/images/drinks/koffie-latte.jpg',
-    alt: "Espresso latte bij Benny's Barista",
+    src: '/images/drinks/koffie-branded.jpg',
+    alt: "Espresso bij Benny's Bakery Dordrecht",
     desc: 'Ons espresso-programma draait op een GAGGIA machine met zorgvuldig geselecteerde bonen. Elke shot getimed op de seconde.',
   },
   {
     label: 'Iced Coffee',
-    src: '/images/drinks/koffie-iced.jpg',
-    alt: 'Iced coffee met whipped cream',
+    src: '/images/drinks/koffie-karamel.jpg',
+    alt: 'Iced caramel coffee bij Benny\'s Bakery',
     desc: 'Koud, romig en vol smaak. Onze iced coffees worden afgewerkt met verse slagroom en een karameldrizzle.',
   },
   {
     label: 'Signature',
-    src: '/images/drinks/koffie-branded.jpg',
-    alt: "Benny's signature koffie",
+    src: '/images/drinks/koffie-latte.jpg',
+    alt: "Benny's signature latte",
     desc: "De Benny's Signature is onze huisspecialiteit: caramel, een touch Monin en verse slagroom. Eén slok en je komt terug.",
   },
 ]

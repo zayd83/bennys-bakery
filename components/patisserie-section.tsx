@@ -55,7 +55,7 @@ export function PatisserieSection() {
               }`}
               style={{ transitionDelay: '80ms' }}
             >
-              Marokkaanse patisserie,<br />elke dag vers in Dordrecht
+              Verse patisserie,<br />elke dag vers gemaakt
             </h2>
           </div>
           <Link

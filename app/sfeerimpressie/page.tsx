@@ -1,77 +1,56 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState, useCallback } from 'react'
 import Image from 'next/image'
+import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Navigation } from '@/components/navigation'
 import { Footer } from '@/components/footer'
 
+// Interleaved: food first, then alternate with interior for variety
 const allPhotos = [
-  '/images/sfeer/cinematic-bloemen.jpg',
-  '/images/sfeer/interieur-dining.jpg',
-  '/images/sfeer/menu-boards.jpg',
-  '/images/sfeer/counter-menu.jpg',
-  '/images/sfeer/patisserie-vitrine.jpg',
-  '/images/sfeer/baguettes-rek.jpg',
-  '/images/sfeer/mural-marokkaans.jpg',
-  '/images/sfeer/mural-portrait.jpg',
-  '/images/food/ontbijt-spread.jpg',
-  '/images/food/chebakia-spread-sq.jpg',
-  '/images/food/ontbijt-tajine.jpg',
-  '/images/food/ontbijt-overhead-sq.jpg',
-  '/images/food/patisserie-citroen.jpg',
-  '/images/food/patisserie-gekruid.jpg',
-  '/images/food/chebakia-solo.jpg',
   '/images/burgers/burger-beef.jpg',
-  '/images/burgers/burger-chicken.jpg',
-  '/images/sandwiches/sandwich-groente.jpg',
-  '/images/sandwiches/sandwich-vlees.jpg',
+  '/images/sfeer/interieur-dining.jpg',
+  '/images/food/ontbijt-spread.jpg',
+  '/images/sfeer/patisserie-vitrine.jpg',
+  '/images/food/chebakia-spread-sq.jpg',
+  '/images/sfeer/cinematic-bloemen.jpg',
+  '/images/food/patisserie-citroen.jpg',
+  '/images/sfeer/counter-menu.jpg',
   '/images/drinks/koffie-branded.jpg',
+  '/images/sfeer/menu-boards.jpg',
+  '/images/food/ontbijt-overhead-sq.jpg',
+  '/images/sfeer/mural-marokkaans.jpg',
   '/images/drinks/thee-munt.jpg',
+  '/images/sfeer/baguettes-rek.jpg',
+  '/images/sandwiches/sandwich-vlees.jpg',
+  '/images/sfeer/mural-portrait.jpg',
+  '/images/burgers/burger-chicken.jpg',
+  '/images/food/chebakia-solo.jpg',
+  '/images/sandwiches/sandwich-groente.jpg',
+  '/images/food/patisserie-gekruid.jpg',
+  '/images/food/ontbijt-tajine.jpg',
 ]
 
-const photos = [...allPhotos, ...allPhotos]
+const CARD_WIDTH = 380
+const CARD_GAP = 16
+const SCROLL_AMOUNT = CARD_WIDTH + CARD_GAP
 
 export default function SfeerimpressiePage() {
   const trackRef = useRef<HTMLDivElement>(null)
-  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
-  const isPausedRef = useRef(false)
   const isDragging = useRef(false)
   const dragStartX = useRef(0)
   const dragScrollLeft = useRef(0)
-  const touchStartX = useRef(0)
-  const [canScrollLeft, setCanScrollLeft] = useState(false)
-  const [canScrollRight, setCanScrollRight] = useState(true)
+  const [scrollPos, setScrollPos] = useState(0)
 
-  // Auto scroll
-  useEffect(() => {
-    const track = trackRef.current
-    if (!track) return
-
-    intervalRef.current = setInterval(() => {
-      if (isPausedRef.current || !track) return
-      track.scrollLeft += 1
-      const half = track.scrollWidth / 2
-      if (track.scrollLeft >= half) {
-        track.scrollLeft = 0
-      }
-    }, 30)
-
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current)
-    }
+  const updatePos = useCallback(() => {
+    if (trackRef.current) setScrollPos(trackRef.current.scrollLeft)
   }, [])
 
-  function updateArrows() {
+  function scrollTo(direction: 'left' | 'right') {
     const track = trackRef.current
     if (!track) return
-    setCanScrollLeft(track.scrollLeft > 4)
-    setCanScrollRight(track.scrollLeft < track.scrollWidth - track.clientWidth - 4)
-  }
-
-  function scrollBy(px: number) {
-    const track = trackRef.current
-    if (!track) return
-    track.scrollBy({ left: px, behavior: 'smooth' })
+    const delta = direction === 'right' ? SCROLL_AMOUNT : -SCROLL_AMOUNT
+    track.scrollBy({ left: delta, behavior: 'smooth' })
   }
 
   // Mouse drag
@@ -79,7 +58,6 @@ export default function SfeerimpressiePage() {
     const track = trackRef.current
     if (!track) return
     isDragging.current = true
-    isPausedRef.current = true
     dragStartX.current = e.pageX - track.offsetLeft
     dragScrollLeft.current = track.scrollLeft
     track.style.cursor = 'grabbing'
@@ -91,30 +69,29 @@ export default function SfeerimpressiePage() {
     if (!track) return
     e.preventDefault()
     const x = e.pageX - track.offsetLeft
-    const walk = (x - dragStartX.current) * 1.2
-    track.scrollLeft = dragScrollLeft.current - walk
+    track.scrollLeft = dragScrollLeft.current - (x - dragStartX.current) * 1.2
   }
 
   function onMouseUp() {
     isDragging.current = false
-    isPausedRef.current = false
     const track = trackRef.current
     if (track) track.style.cursor = 'grab'
   }
 
-  // Touch swipe
+  // Touch
+  const touchStartX = useRef(0)
   function onTouchStart(e: React.TouchEvent) {
-    isPausedRef.current = true
     touchStartX.current = e.touches[0].clientX
   }
-
   function onTouchEnd(e: React.TouchEvent) {
-    const deltaX = e.changedTouches[0].clientX - touchStartX.current
-    if (Math.abs(deltaX) > 50) {
-      scrollBy(deltaX < 0 ? 400 : -400)
-    }
-    isPausedRef.current = false
+    const delta = e.changedTouches[0].clientX - touchStartX.current
+    if (Math.abs(delta) > 40) scrollTo(delta < 0 ? 'right' : 'left')
   }
+
+  const atStart = scrollPos < 10
+  const atEnd = trackRef.current
+    ? scrollPos >= trackRef.current.scrollWidth - trackRef.current.clientWidth - 10
+    : false
 
   return (
     <main style={{ overflowX: 'hidden' }}>
@@ -126,119 +103,89 @@ export default function SfeerimpressiePage() {
           SFEERIMPRESSIE
         </span>
         <h1 className="font-serif italic text-[#2C1F14]" style={{ fontSize: 'clamp(2rem,4vw,3rem)', lineHeight: '1.05' }}>
-          Een kijkje in onze keuken
+          Een kijkje bij Benny&apos;s Bakery
         </h1>
+        <p className="mt-3 font-sans text-sm font-light text-[#6B4C35]">
+          Eten, sfeer en het leven achter de toonbank
+        </p>
       </section>
 
       {/* Carousel */}
-      <section className="bg-[#F0E9DE] pb-20 relative">
+      <section className="bg-[#F0E9DE] pb-24 relative">
+
         {/* Left arrow */}
         <button
-          onClick={() => scrollBy(-400)}
-          aria-label="Scroll left"
-          style={{
-            position: 'absolute',
-            left: '1rem',
-            top: '50%',
-            transform: 'translateY(-50%)',
-            zIndex: 10,
-            width: '52px',
-            height: '52px',
-            borderRadius: '50%',
-            background: 'rgba(240,233,222,0.9)',
-            color: '#2C1F14',
-            border: 'none',
-            boxShadow: '0 4px 16px rgba(44,31,20,0.18)',
-            cursor: 'pointer',
-            fontSize: '1.2rem',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            opacity: canScrollLeft ? 1 : 0.35,
-            transition: 'opacity 0.2s',
-          }}
+          onClick={() => scrollTo('left')}
+          aria-label="Vorige foto's"
+          disabled={atStart}
+          className="absolute left-3 sm:left-5 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-12 h-12 rounded-full bg-[#F0E9DE]/95 shadow-md transition-all hover:bg-white hover:shadow-lg disabled:opacity-30 disabled:cursor-not-allowed"
         >
-          ←
+          <ChevronLeft size={22} className="text-[#2C1F14]" />
         </button>
 
         {/* Right arrow */}
         <button
-          onClick={() => scrollBy(400)}
-          aria-label="Scroll right"
-          style={{
-            position: 'absolute',
-            right: '1rem',
-            top: '50%',
-            transform: 'translateY(-50%)',
-            zIndex: 10,
-            width: '52px',
-            height: '52px',
-            borderRadius: '50%',
-            background: 'rgba(240,233,222,0.9)',
-            color: '#2C1F14',
-            border: 'none',
-            boxShadow: '0 4px 16px rgba(44,31,20,0.18)',
-            cursor: 'pointer',
-            fontSize: '1.2rem',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            opacity: canScrollRight ? 1 : 0.35,
-            transition: 'opacity 0.2s',
-          }}
+          onClick={() => scrollTo('right')}
+          aria-label="Volgende foto's"
+          disabled={atEnd}
+          className="absolute right-3 sm:right-5 top-1/2 -translate-y-1/2 z-10 flex items-center justify-center w-12 h-12 rounded-full bg-[#F0E9DE]/95 shadow-md transition-all hover:bg-white hover:shadow-lg disabled:opacity-30 disabled:cursor-not-allowed"
         >
-          →
+          <ChevronRight size={22} className="text-[#2C1F14]" />
         </button>
 
         {/* Track */}
         <div
           ref={trackRef}
-          className="carousel-track"
-          onScroll={updateArrows}
-          onMouseEnter={() => { isPausedRef.current = true }}
-          onMouseLeave={() => {
-            if (!isDragging.current) isPausedRef.current = false
-            onMouseUp()
-          }}
+          onScroll={updatePos}
           onMouseDown={onMouseDown}
           onMouseMove={onMouseMove}
           onMouseUp={onMouseUp}
+          onMouseLeave={onMouseUp}
           onTouchStart={onTouchStart}
           onTouchEnd={onTouchEnd}
+          className="flex gap-4 overflow-x-scroll pl-4 pr-4"
           style={{
-            display: 'flex',
-            gap: '1rem',
-            overflowX: 'scroll',
-            overflowY: 'hidden',
             scrollbarWidth: 'none',
             msOverflowStyle: 'none',
             cursor: 'grab',
-            paddingLeft: '1rem',
-            paddingRight: '1rem',
             WebkitOverflowScrolling: 'touch',
           } as React.CSSProperties}
         >
-          {photos.map((src, i) => (
+          {allPhotos.map((src, i) => (
             <div
-              key={i}
-              style={{
-                width: '380px',
-                height: '480px',
-                flexShrink: 0,
-                borderRadius: '0.5rem',
-                overflow: 'hidden',
-                position: 'relative',
-              }}
+              key={src}
+              className="flex-shrink-0 overflow-hidden rounded-lg"
+              style={{ width: `${CARD_WIDTH}px`, height: '480px', position: 'relative' }}
             >
               <Image
                 src={src}
                 fill
                 className="object-cover"
-                alt={`Benny's Bakery sfeer ${(i % allPhotos.length) + 1}`}
+                alt={`Benny's Bakery sfeerimpressie ${i + 1}`}
                 sizes="380px"
+                loading={i < 4 ? 'eager' : 'lazy'}
               />
             </div>
           ))}
+        </div>
+
+        {/* Dot indicator */}
+        <div className="mt-6 flex justify-center gap-1.5">
+          {allPhotos.map((_, i) => {
+            const photoWidth = CARD_WIDTH + CARD_GAP
+            const currentIndex = Math.round(scrollPos / photoWidth)
+            return (
+              <div
+                key={i}
+                className="rounded-full transition-all duration-300"
+                style={{
+                  width: currentIndex === i ? '20px' : '6px',
+                  height: '6px',
+                  background: currentIndex === i ? '#C4622D' : '#D4C4B0',
+                }}
+              />
+            )
+          })}
         </div>
       </section>
 
