@@ -9,18 +9,18 @@ const topPhotos = [
   '/images/burgers/burger-beef.jpg',
   '/images/desserts/chocolade-bol.jpg',
   '/images/food/chebakia-spread-sq.jpg',
-  '/images/sandwiches/sandwich-saus.jpg',
+  '/images/sfeer/sfeer-1.jpg',
   '/images/drinks/koffie-karamel.jpg',
   '/images/sfeer/patisserie-vitrine.jpg',
 ]
 
 const bottomPhotos = [
   '/images/food/ontbijt-spread.jpg',
-  '/images/desserts/mangomousse.jpg',
+  '/images/sfeer/sfeer-2.jpg',
   '/images/food/patisserie-citroen.jpg',
   '/images/sfeer/interieur-dining.jpg',
   '/images/burgers/burger-chicken.jpg',
-  '/images/food/ontbijt-tajine.jpg',
+  '/images/sfeer/sfeer-3.jpg',
 ]
 
 const allPhotos: string[] = [...topPhotos, ...bottomPhotos]
