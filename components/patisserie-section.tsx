@@ -69,24 +69,14 @@ export function PatisserieSection() {
           </Link>
         </div>
 
-        {/* Staggered grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 items-end">
+        {/* Uniform grid */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
           {items.map((item, i) => {
-            /* Alternate heights for stagger effect */
-            const heights = [
-              'h-[340px] sm:h-[420px] lg:h-[520px]',
-              'h-[260px] sm:h-[340px] lg:h-[380px]',
-              'h-[300px] sm:h-[380px] lg:h-[480px]',
-              'h-[260px] sm:h-[320px] lg:h-[400px]',
-            ]
-            /* Alternate animation direction */
-            const fromClass = i % 2 === 0 ? '-translate-y-6' : 'translate-y-6'
-
             return (
               <div
                 key={item.name}
-                className={`group relative overflow-hidden rounded-lg transition-all duration-600 ease-out ${heights[i]} ${
-                  visible ? 'opacity-100 translate-y-0' : `opacity-0 ${fromClass}`
+                className={`group relative overflow-hidden rounded-lg transition-all duration-600 ease-out h-[340px] sm:h-[420px] lg:h-[480px] ${
+                  visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
                 }`}
                 style={{ transitionDelay: `${i * 90}ms` }}
               >
