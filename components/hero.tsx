@@ -24,7 +24,7 @@ export function Hero() {
       {/* ── MOBILE LAYOUT ── */}
       <div className="md:hidden absolute inset-0 flex flex-col">
         <Image
-          src="/images/sfeer/patisserie-vitrine.jpg"
+          src="/images/hero/hero-main.jpg"
           alt="Benny's Bakery"
           fill
           className="object-cover object-center"
@@ -126,7 +126,7 @@ export function Hero() {
         {/* Right Half — photo */}
         <div className="relative h-full w-1/2 overflow-hidden">
           <div ref={heroParallaxRef} className="absolute inset-x-0" style={{ top: '-40%', bottom: '-40%', willChange: 'transform' }}>
-            <Image src="/images/sfeer/patisserie-vitrine.jpg" alt="Benny's Bakery patisserievitrine" fill className="object-cover object-top" priority />
+            <Image src="/images/hero/hero-main.jpg" alt="Benny's Bakery" fill className="object-cover object-top" priority />
           </div>
           <div className="absolute inset-0 bg-black/10" />
         </div>

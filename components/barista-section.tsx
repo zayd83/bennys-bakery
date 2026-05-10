@@ -14,10 +14,10 @@ const tabs = [
     desc: 'Koud, romig en vol smaak. Onze koffie caramel wordt afgewerkt met verse slagroom en een rijke karameldrizzle.',
   },
   {
-    label: 'Mojito',
-    src: '/images/drinks/mojito-iced.jpg',
-    alt: "Mojito bij Benny's Bakery Dordrecht",
-    desc: 'Verfrissend en vol smaak. Onze huisgemaakte mojito met verse munt, limoen en bruisend water — de perfecte zomerdrank.',
+    label: 'Matcha',
+    src: '/images/drinks/matcha.jpg',
+    alt: "Matcha bij Benny's Bakery Dordrecht",
+    desc: 'Romig en verfijnd. Onze matcha wordt bereid met premium ceremonial grade matcha, luchtig opgeschuimde melk en een subtiele zoetheid.',
   },
   {
     label: 'Koffie latte',
