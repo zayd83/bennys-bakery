@@ -50,7 +50,7 @@ export function Hero() {
           <div className={`flex flex-col gap-3 ${isInView ? 'animate-fade-in-up animation-delay-225' : 'opacity-0'}`}>
             <Link
               href="/menu"
-              className="flex items-center justify-center gap-3 rounded-sm bg-[#C4622D] py-4 font-sans text-sm font-medium tracking-wide text-white transition-all hover:brightness-110"
+              className="flex items-center justify-center gap-3 rounded-sm bg-[#3D6455] py-4 font-sans text-sm font-medium tracking-wide text-white transition-all hover:brightness-110"
             >
               Bekijk Menu <ArrowRight size={15} />
             </Link>

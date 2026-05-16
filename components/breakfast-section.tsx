@@ -54,7 +54,7 @@ export function BreakfastSection() {
                 'Specialty koffie & verse muntthee',
               ].map((item) => (
                 <div key={item} className="flex items-center gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#C4622D] flex-shrink-0" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#3D6455] flex-shrink-0" />
                   <span className="font-sans text-[0.9rem] text-[#2C1F14]/80">{item}</span>
                 </div>
               ))}

@@ -8,16 +8,17 @@ import { Footer } from '@/components/footer'
 
 const allPhotos = [
   '/images/burgers/burger-beef.jpg',
+  '/images/sfeer/sfeer-4.jpg',
   '/images/sfeer/interieur-dining.jpg',
   '/images/sfeer/sfeer-1.jpg',
   '/images/food/ontbijt-spread.jpg',
   '/images/desserts/chocolade-bol.jpg',
+  '/images/sfeer/menu-boards.jpg',
   '/images/food/chebakia-spread-sq.jpg',
   '/images/sfeer/patisserie-vitrine.jpg',
-  '/images/food/patisserie-citroen.jpg',
+  '/images/sfeer/mural-marokkaans.jpg',
   '/images/drinks/koffie-karamel.jpg',
   '/images/sfeer/sfeer-2.jpg',
-  '/images/desserts/mangomousse.jpg',
   '/images/sfeer/baguettes-rek.jpg',
   '/images/food/ontbijt-tajine.jpg',
   '/images/sfeer/mural-portrait.jpg',
@@ -186,7 +187,7 @@ export default function SfeerimpressiePage() {
                 style={{
                   width: currentIndex === i ? '20px' : '6px',
                   height: '6px',
-                  background: currentIndex === i ? '#C4622D' : '#D4C4B0',
+                  background: currentIndex === i ? '#3D6455' : '#D4C4B0',
                 }}
               />
             )

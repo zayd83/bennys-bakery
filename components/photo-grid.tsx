@@ -15,9 +15,9 @@ const topPhotos = [
 ]
 
 const bottomPhotos = [
-  '/images/food/ontbijt-spread.jpg',
+  '/images/sfeer/sfeer-4.jpg',
   '/images/sfeer/sfeer-2.jpg',
-  '/images/food/patisserie-citroen.jpg',
+  '/images/sfeer/mural-marokkaans.jpg',
   '/images/sfeer/interieur-dining.jpg',
   '/images/burgers/burger-chicken.jpg',
   '/images/sfeer/sfeer-3.jpg',

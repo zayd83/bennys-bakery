@@ -36,12 +36,12 @@ export default function ReserverenPage() {
   }
 
   const inputClass =
-    'w-full bg-transparent border-0 border-b border-[#D4C4B0] rounded-none px-0 py-3 font-sans text-[0.9rem] text-[#2C1F14] placeholder:text-[#6B4C35]/40 focus:border-[#C4622D] focus:outline-none transition-colors'
+    'w-full bg-transparent border-0 border-b border-[#D4C4B0] rounded-none px-0 py-3 font-sans text-[0.9rem] text-[#2C1F14] placeholder:text-[#6B4C35]/40 focus:border-[#3D6455] focus:outline-none transition-colors'
 
   const labelClass =
     'block font-sans text-[0.65rem] uppercase tracking-[0.12em] text-[#6B4C35]/60 mb-1'
 
-  const selectArrow = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23C4622D' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E\")"
+  const selectArrow = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%233D6455' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E\")"
 
   return (
     <main className="overflow-hidden">
@@ -92,7 +92,7 @@ export default function ReserverenPage() {
                 <button type="button" onClick={() => setFormType('particulier')}
                   className={`pb-3 font-sans text-sm tracking-wide transition-all duration-200 ${
                     formType === 'particulier'
-                      ? 'text-[#2C1F14] border-b-2 border-[#C4622D] -mb-px font-medium'
+                      ? 'text-[#2C1F14] border-b-2 border-[#3D6455] -mb-px font-medium'
                       : 'text-[#6B4C35] opacity-60 hover:opacity-100'
                   }`}>
                   Particulier
@@ -100,7 +100,7 @@ export default function ReserverenPage() {
                 <button type="button" onClick={() => setFormType('zakelijk')}
                   className={`pb-3 font-sans text-sm tracking-wide transition-all duration-200 ${
                     formType === 'zakelijk'
-                      ? 'text-[#2C1F14] border-b-2 border-[#C4622D] -mb-px font-medium'
+                      ? 'text-[#2C1F14] border-b-2 border-[#3D6455] -mb-px font-medium'
                       : 'text-[#6B4C35] opacity-60 hover:opacity-100'
                   }`}>
                   Zakelijk
@@ -209,7 +209,7 @@ export default function ReserverenPage() {
                 {/* Checkbox */}
                 <label className="flex items-start gap-3 cursor-pointer mb-2">
                   <div className={`w-4 h-4 mt-0.5 border flex-shrink-0 flex items-center justify-center transition-colors ${
-                    formData.akkoord ? 'bg-[#C4622D] border-[#C4622D]' : 'border-[#D4C4B0] bg-transparent'
+                    formData.akkoord ? 'bg-[#3D6455] border-[#3D6455]' : 'border-[#D4C4B0] bg-transparent'
                   }`}>
                     {formData.akkoord && <span className="text-white text-[10px]">✓</span>}
                   </div>
@@ -225,7 +225,7 @@ export default function ReserverenPage() {
                 {/* Submit */}
                 <button type="submit"
                   className="w-full mt-8 py-4 font-sans text-sm tracking-[0.12em] uppercase font-medium text-white transition-all duration-300 hover:brightness-110 active:scale-[0.99] rounded-sm"
-                  style={{ background: '#C4622D' }}>
+                  style={{ background: '#3D6455' }}>
                   Verstuur aanvraag →
                 </button>
 
@@ -260,7 +260,7 @@ export default function ReserverenPage() {
                 <ul className="space-y-2 font-sans text-sm text-[#6B4C35]">
                   {['Bedrijfslunches voor grotere groepen', 'Catering op locatie in de regio Dordrecht', 'Taarten en patisserie op bestelling', 'Ghorzza voor events en feesten'].map(item => (
                     <li key={item} className="flex items-start gap-2">
-                      <span className="mt-1.5 w-1 h-1 rounded-full bg-[#C4622D] flex-shrink-0" />
+                      <span className="mt-1.5 w-1 h-1 rounded-full bg-[#3D6455] flex-shrink-0" />
                       {item}
                     </li>
                   ))}

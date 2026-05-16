@@ -10,7 +10,7 @@ const items = [
     src: '/images/food/chebakia-solo.jpg',
     name: 'Bastilla',
     desc: 'Marokkaanse bladerdeegpastei met poedersuiker & kaneel',
-    position: 'object-center',
+    position: 'object-top',
   },
   {
     src: '/images/desserts/citroen.jpg',
@@ -88,15 +88,15 @@ export function PatisserieSection() {
                 />
 
                 {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent" />
 
                 {/* Label */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 translate-y-1 group-hover:translate-y-0 transition-transform duration-300">
+                <div className="absolute bottom-0 left-0 right-0 px-4 pb-4">
+                  <p className="mb-1 font-sans text-[0.72rem] text-white/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 leading-snug">
+                    {item.desc}
+                  </p>
                   <p className="font-serif text-[1rem] italic text-white leading-tight">
                     {item.name}
-                  </p>
-                  <p className="mt-1 font-sans text-[0.72rem] text-white/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 leading-snug">
-                    {item.desc}
                   </p>
                 </div>
               </div>

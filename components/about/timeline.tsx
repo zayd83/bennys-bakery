@@ -159,7 +159,7 @@ export function Timeline() {
               ref={el => { dotRefs.current[i] = el }}
               className={`absolute left-1/2 top-1/2 z-10 hidden -translate-x-1/2 -translate-y-1/2 rounded-full border-2 transition-all duration-500 lg:block ${
                 i <= activeIndex
-                  ? 'dot-active h-4 w-4 border-[#C4622D] bg-[#C4622D] shadow-[0_0_0_6px_rgba(196,98,45,0.15)]'
+                  ? 'dot-active h-4 w-4 border-[#3D6455] bg-[#3D6455] shadow-[0_0_0_6px_rgba(61,100,85,0.15)]'
                   : 'h-3 w-3 border-[#D4C4B0] bg-transparent'
               }`}
             />

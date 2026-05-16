@@ -80,7 +80,7 @@ export function HealthySection() {
         >
           <Link
             href="/menu"
-            className="group inline-flex items-center gap-2 font-sans text-[0.9rem] text-[#C4622D] hover:underline underline-offset-4"
+            className="group inline-flex items-center gap-2 font-sans text-[0.9rem] text-[#3D6455] hover:underline underline-offset-4"
           >
             Bekijk het volledige menu
             <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" />

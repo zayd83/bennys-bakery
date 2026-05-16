@@ -81,7 +81,7 @@ export default function OverOnsPage() {
           left: 0,
           right: 0,
           height: '3px',
-          background: '#C4622D',
+          background: '#3D6455',
           zIndex: 9999,
           transformOrigin: 'left',
           transform: 'scaleX(0)',
@@ -100,7 +100,7 @@ export default function OverOnsPage() {
             heroVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}
         >
-          <span className="mb-6 font-sans text-[0.65rem] uppercase tracking-[0.2em] text-[#C4622D]">
+          <span className="mb-6 font-sans text-[0.65rem] uppercase tracking-[0.2em] text-[#3D6455]">
             ONS VERHAAL
           </span>
           <h1 className="max-w-3xl font-serif text-[clamp(3rem,6vw,5.5rem)] italic leading-[1.05] text-[#2C1F14]">
@@ -110,7 +110,7 @@ export default function OverOnsPage() {
             Een reis van passie, Marokkaanse roots en ambachtelijk vakmanschap — van Beni Mellal
             naar de straten van Dordrecht.
           </p>
-          <div className="mx-auto mt-8 h-px w-[60px] bg-[#C4622D]" />
+          <div className="mx-auto mt-8 h-px w-[60px] bg-[#3D6455]" />
 
           {/* Large showcase image */}
           <div
@@ -187,7 +187,7 @@ export default function OverOnsPage() {
       >
         <div className="mx-auto max-w-6xl px-8 text-center">
           <span
-            className={`mb-4 inline-block font-sans text-[0.65rem] uppercase tracking-[0.2em] text-[#C4622D] transition-all duration-400 ease-out ${
+            className={`mb-4 inline-block font-sans text-[0.65rem] uppercase tracking-[0.2em] text-[#3D6455] transition-all duration-400 ease-out ${
               teamVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}
           >
@@ -225,7 +225,7 @@ export default function OverOnsPage() {
                   />
                 </div>
                 <h3 className="font-serif text-[1.2rem] text-[#2C1F14]">{member.name}</h3>
-                <span className="mt-1 font-sans text-[0.75rem] uppercase tracking-[0.15em] text-[#C4622D]">
+                <span className="mt-1 font-sans text-[0.75rem] uppercase tracking-[0.15em] text-[#3D6455]">
                   {member.role}
                 </span>
               </div>

@@ -149,7 +149,7 @@ export default function MenuPage() {
         className="bg-[#F0E9DE] px-6 pb-6 text-center"
         style={{ paddingTop: '100px' }}
       >
-        <span className="mb-4 inline-block font-sans text-[0.65rem] uppercase tracking-[0.2em] text-[#C4622D]">
+        <span className="mb-4 inline-block font-sans text-[0.65rem] uppercase tracking-[0.2em] text-[#3D6455]">
           BENNY&apos;S BAKERY
         </span>
         <h1
@@ -159,7 +159,7 @@ export default function MenuPage() {
           Onze Menukaart
         </h1>
         <div
-          className="mx-auto mt-5 bg-[#C4622D]"
+          className="mx-auto mt-5 bg-[#3D6455]"
           style={{ width: '48px', height: '1.5px' }}
         />
         <p className="mt-3 font-sans text-[0.75rem] text-[#6B4C35]/60">

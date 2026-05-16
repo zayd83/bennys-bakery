@@ -61,7 +61,7 @@ export function Location() {
               href="https://maps.google.com/maps?q=Van+Oldenbarneveltplein+68,+Dordrecht"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-sans text-[#C4622D] transition-all hover:underline"
+              className="font-sans text-[#3D6455] transition-all hover:underline"
             >
               Open in Google Maps →
             </Link>
