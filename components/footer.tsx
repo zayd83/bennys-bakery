@@ -94,6 +94,7 @@ export function Footer() {
                 { label: 'Menu', href: '/menu' },
                 { label: 'Sfeerimpressie', href: '/sfeerimpressie' },
                 { label: 'Over ons', href: '/over-ons' },
+                { label: 'Catering', href: '/catering' },
                 { label: 'Reserveren', href: '/reserveren' },
               ].map((item) => (
                 <Link

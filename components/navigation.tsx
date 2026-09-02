@@ -10,6 +10,7 @@ const navLinks = [
   { href: '/menu', label: 'Menu' },
   { href: '/sfeerimpressie', label: 'Sfeerimpressie' },
   { href: '/over-ons', label: 'Over ons' },
+  { href: '/catering', label: 'Catering' },
 ]
 
 export function Navigation() {
