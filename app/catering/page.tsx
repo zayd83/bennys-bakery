@@ -1,6 +1,7 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
+import Image from 'next/image'
 import { Navigation } from '@/components/navigation'
 import { Footer } from '@/components/footer'
 import { Minus, Plus } from 'lucide-react'
@@ -78,6 +79,14 @@ function formatPrice(n: number) {
   return n % 1 === 0 ? `€${n}` : `€${n.toFixed(2).replace('.', ',')}`
 }
 
+const BOOKLET_PAGES = [
+  '/catering-menu/page-1.jpg',
+  '/catering-menu/page-2.jpg',
+  '/catering-menu/page-3.jpg',
+]
+const BOOKLET_TOTAL = BOOKLET_PAGES.length
+const BOOKLET_FLIP_DURATION = 500
+
 export default function CateringPage() {
   const [cart, setCart] = useState<Record<string, number>>({})
   const [formData, setFormData] = useState({
@@ -148,6 +157,55 @@ export default function CateringPage() {
     document.getElementById('bestelformulier')?.scrollIntoView({ behavior: 'smooth' })
   }
 
+  const [bookletIndex, setBookletIndex] = useState(0)
+  const [bookletFlipping, setBookletFlipping] = useState(false)
+  const [bookletFlipDir, setBookletFlipDir] = useState<'next' | 'prev'>('next')
+  const bookletTouchStartX = useRef(0)
+  const bookletTouchStartY = useRef(0)
+
+  const bookletCanNext = bookletIndex < BOOKLET_TOTAL - 1
+  const bookletCanPrev = bookletIndex > 0
+
+  const bookletGoNext = () => {
+    if (!bookletCanNext || bookletFlipping) return
+    setBookletFlipDir('next')
+    setBookletFlipping(true)
+    setTimeout(() => {
+      setBookletIndex((p) => Math.min(p + 1, BOOKLET_TOTAL - 1))
+      setBookletFlipping(false)
+    }, BOOKLET_FLIP_DURATION)
+  }
+
+  const bookletGoPrev = () => {
+    if (!bookletCanPrev || bookletFlipping) return
+    setBookletFlipDir('prev')
+    setBookletFlipping(true)
+    setTimeout(() => {
+      setBookletIndex((p) => Math.max(0, p - 1))
+      setBookletFlipping(false)
+    }, BOOKLET_FLIP_DURATION)
+  }
+
+  const handleBookletTouchStart = (e: React.TouchEvent) => {
+    bookletTouchStartX.current = e.touches[0].clientX
+    bookletTouchStartY.current = e.touches[0].clientY
+  }
+
+  const handleBookletTouchEnd = (e: React.TouchEvent) => {
+    const deltaX = e.changedTouches[0].clientX - bookletTouchStartX.current
+    const deltaY = e.changedTouches[0].clientY - bookletTouchStartY.current
+    if (Math.abs(deltaX) < Math.abs(deltaY)) return
+    if (Math.abs(deltaX) < 50) return
+    if (deltaX < 0) bookletGoNext()
+    else bookletGoPrev()
+  }
+
+  const bookletFlipClass = bookletFlipping
+    ? bookletFlipDir === 'next'
+      ? 'flip-out-next'
+      : 'flip-out-prev'
+    : ''
+
   const inputClass =
     'w-full bg-transparent border-0 border-b border-[#D4C4B0] rounded-none px-0 py-3 font-sans text-[0.9rem] text-[#2C1F14] placeholder:text-[#6B4C35]/40 focus:border-terracotta focus:outline-none transition-colors'
 
@@ -183,6 +241,92 @@ export default function CateringPage() {
                 ✓ {badge}
               </span>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Menu Booklet ── */}
+      <section className="bg-[#F0E9DE] px-6 py-16">
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="mb-4 inline-block font-sans text-[0.65rem] uppercase tracking-[0.2em] text-gold">
+            CATERING MENUKAART
+          </span>
+          <h2 className="font-serif text-[clamp(2rem,3.5vw,2.8rem)] italic text-text-dark">
+            Bekijk ons volledige menu
+          </h2>
+          <p className="mt-3 font-sans text-[0.8rem] text-[#6B4C35]/70">
+            Swipe of gebruik de pijlen om te bladeren
+          </p>
+        </div>
+
+        <div className="mx-auto mt-10" style={{ maxWidth: '500px' }}>
+          <div
+            className={`book-page page-shadow ${bookletFlipClass}`}
+            onTouchStart={handleBookletTouchStart}
+            onTouchEnd={handleBookletTouchEnd}
+          >
+            <div
+              className="relative overflow-hidden rounded-sm bg-white"
+              style={{
+                aspectRatio: '1 / 1.415',
+                boxShadow:
+                  '0 4px 6px rgba(44,31,20,0.04), 0 20px 60px rgba(44,31,20,0.12), 0 0 0 1px rgba(212,168,83,0.12)',
+              }}
+            >
+              <Image
+                src={BOOKLET_PAGES[bookletIndex]}
+                fill
+                className="object-cover"
+                alt={`Catering menukaart pagina ${bookletIndex + 1}`}
+                sizes="(max-width: 500px) 100vw, 500px"
+              />
+            </div>
+          </div>
+
+          {/* Prev / Next + counter */}
+          <div className="mt-6 flex items-center justify-center gap-6">
+            <button
+              type="button"
+              onClick={bookletGoPrev}
+              disabled={!bookletCanPrev}
+              aria-label="Vorige pagina"
+              className={`flex h-12 w-12 items-center justify-center rounded-full border transition-all duration-200 ${
+                bookletCanPrev
+                  ? 'border-[#2C1F14] bg-white text-[#2C1F14] hover:bg-[#2C1F14] hover:text-white'
+                  : 'cursor-not-allowed border-[#D4C4B0] bg-transparent text-[#D4C4B0]'
+              }`}
+            >
+              ←
+            </button>
+
+            <span className="font-sans text-sm font-medium text-[#2C1F14]">
+              {bookletIndex + 1} / {BOOKLET_TOTAL}
+            </span>
+
+            <button
+              type="button"
+              onClick={bookletGoNext}
+              disabled={!bookletCanNext}
+              aria-label="Volgende pagina"
+              className={`flex h-12 w-12 items-center justify-center rounded-full border transition-all duration-200 ${
+                bookletCanNext
+                  ? 'border-[#2C1F14] bg-white text-[#2C1F14] hover:bg-[#2C1F14] hover:text-white'
+                  : 'cursor-not-allowed border-[#D4C4B0] bg-transparent text-[#D4C4B0]'
+              }`}
+            >
+              →
+            </button>
+          </div>
+
+          {/* Download */}
+          <div className="mt-6 text-center">
+            <a
+              href="/catering-menu/menukaart.pdf"
+              download
+              className="inline-flex items-center gap-2 rounded-full border border-terracotta px-8 py-3 font-sans text-sm text-terracotta transition-all hover:bg-terracotta hover:text-white"
+            >
+              Download menukaart (PDF)
+            </a>
           </div>
         </div>
       </section>
